@@ -89,10 +89,120 @@
       height: 40px;
       border-radius: 4px;
     }
+
+    /* Selection screen overlay */
+    #selection-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      background: rgba(26, 26, 46, 0.96);
+      opacity: 1;
+      pointer-events: all;
+      transition: opacity 0.35s ease;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    }
+    #selection-screen.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+    #selection-screen h1 {
+      font-family: system-ui, -apple-system, sans-serif;
+      color: #e8eaf6;
+      font-size: 28px;
+      margin-bottom: 32px;
+    }
+    #set-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      max-width: 520px;
+      width: 100%;
+      padding: 0 24px;
+    }
+
+    /* Set card styles */
+    .set-card {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 16px;
+      padding: 16px;
+      background: rgba(22, 33, 62, 0.9);
+      border-radius: 8px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: border-color 0.15s;
+    }
+    .set-card:hover {
+      border-color: #e94560;
+    }
+    .set-card-thumb {
+      width: 120px;
+      height: 90px;
+      border-radius: 4px;
+      flex-shrink: 0;
+    }
+    .set-card-info {
+      flex: 1;
+    }
+    .set-card-name {
+      font-size: 16px;
+      font-weight: 600;
+      color: #e8eaf6;
+      margin-bottom: 4px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .set-card-desc {
+      font-size: 13px;
+      color: rgba(232, 234, 246, 0.6);
+      margin-bottom: 6px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .set-card-meta {
+      font-size: 13px;
+      color: rgba(232, 234, 246, 0.5);
+      display: flex;
+      gap: 12px;
+      font-family: system-ui, -apple-system, sans-serif;
+    }
+    .set-card-stars {
+      color: #e94560;
+    }
+
+    /* Back button */
+    #back-btn {
+      position: fixed;
+      top: 16px;
+      right: 16px;
+      z-index: 10;
+      background: rgba(22, 33, 62, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 4px;
+      color: #e8eaf6;
+      font-size: 14px;
+      cursor: pointer;
+      padding: 6px 12px;
+      font-family: system-ui, -apple-system, sans-serif;
+      display: none;
+    }
   </style>
 </head>
 <body>
   <canvas id="canvas"></canvas>
+
+  <!-- Selection screen overlay — visible by default (landing page) -->
+  <div id="selection-screen">
+    <h1>Lego Builder</h1>
+    <div id="set-list"></div>
+  </div>
+
+  <!-- Back button — shown only during build -->
+  <button id="back-btn">&#x2190; Back</button>
+
   <div id="hud"></div>
   <div id="tray">
     <div class="tray-items"></div>
