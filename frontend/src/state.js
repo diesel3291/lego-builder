@@ -6,6 +6,7 @@ let _currentStepIndex = 0;
 let _heldPieceId = null;
 const _placedCells = new Set();       // gridKey strings of all occupied cells across all steps
 const _placedThisStep = new Set();    // piece IDs placed in the current step
+let _buildStartTime = null;           // timestamp (Date.now()) of first brick placement
 
 /**
  * Load a set JSON object and reset all build state.
@@ -17,6 +18,7 @@ export function loadSet(setData) {
   _heldPieceId = null;
   _placedCells.clear();
   _placedThisStep.clear();
+  _buildStartTime = null;
 }
 
 /**
@@ -86,6 +88,10 @@ export function isOccupied(gridX, gridZ, layer) {
  * @param {{ id: string, type: string, gridX: number, gridZ: number, layer: number }} piece
  */
 export function placeBrick(piece) {
+  // Start timer on first brick placement (D-05)
+  if (_buildStartTime === null) {
+    _buildStartTime = Date.now();
+  }
   const [cols, rows] = DIMS[piece.type] || [1, 1];
   for (let cx = 0; cx < cols; cx++) {
     for (let rz = 0; rz < rows; rz++) {
@@ -132,4 +138,35 @@ export function advanceStep() {
 export function isBuildComplete() {
   if (!_setData) return false;
   return _currentStepIndex >= _setData.steps.length - 1 && isStepComplete();
+}
+
+/**
+ * Starts the build timer if not already started.
+ */
+export function startBuildTimer() {
+  if (_buildStartTime === null) _buildStartTime = Date.now();
+}
+
+/**
+ * No-op — timer value is preserved for getElapsedMs().
+ */
+export function stopBuildTimer() {
+  // intentional no-op; timer value preserved for display
+}
+
+/**
+ * Returns elapsed milliseconds since first brick placement, or 0 if timer not started.
+ * @returns {number}
+ */
+export function getElapsedMs() {
+  if (_buildStartTime === null) return 0;
+  return Date.now() - _buildStartTime;
+}
+
+/**
+ * Returns count of all occupied cells placed so far.
+ * @returns {number}
+ */
+export function getPlacedCount() {
+  return _placedCells.size;
 }

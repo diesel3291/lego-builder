@@ -189,6 +189,64 @@
       font-family: system-ui, -apple-system, sans-serif;
       display: none;
     }
+
+    /* Completion screen overlay */
+    #completion-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 20;
+      background: rgba(26, 26, 46, 0.85);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.35s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    #completion-screen.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+    .completion-content {
+      text-align: center;
+    }
+    .completion-title {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: #e8eaf6;
+      margin-bottom: 12px;
+    }
+    .completion-time {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 18px;
+      color: rgba(232, 234, 246, 0.7);
+      margin-bottom: 32px;
+    }
+    .completion-btn {
+      font-family: system-ui, -apple-system, sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 6px;
+      border: none;
+      cursor: pointer;
+      margin: 0 8px;
+      background: #e94560;
+      color: #fff;
+      transition: background 0.15s;
+    }
+    .completion-btn:hover {
+      background: #d63851;
+    }
+    .completion-btn-secondary {
+      background: transparent;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      color: #e8eaf6;
+    }
+    .completion-btn-secondary:hover {
+      background: rgba(255, 255, 255, 0.08);
+    }
   </style>
 </head>
 <body>
@@ -202,6 +260,18 @@
 
   <!-- Back button — shown only during build -->
   <button id="back-btn">&#x2190; Back</button>
+
+  <!-- Completion screen overlay — hidden by default, shown on build complete -->
+  <div id="completion-screen">
+    <div class="completion-content">
+      <h1 class="completion-title">Build Complete!</h1>
+      <div class="completion-time" id="completion-time"></div>
+      <div class="completion-actions">
+        <button class="completion-btn" id="build-again-btn">Build Again</button>
+        <button class="completion-btn completion-btn-secondary" id="new-set-btn">New Set</button>
+      </div>
+    </div>
+  </div>
 
   <div id="hud"></div>
   <div id="tray">
