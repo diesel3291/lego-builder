@@ -12,19 +12,18 @@ A user can select a set, follow guided instructions, and build a complete 3D Leg
 
 ### Validated
 
-(None yet — ship to validate)
+- [x] 3D scene with baseplate and camera controls (orbit, zoom, pan) — Validated in Phase 1
+- [x] Brick library with standard bricks, plates, and slopes in multiple colors — Validated in Phase 1
+- [x] Stud-grid snapping — bricks connect only at valid Lego positions — Validated in Phase 2
+- [x] Piece tray showing all pieces in the current set — Validated in Phase 2
+- [x] Pick a piece from tray into "hand" — piece and main model can be manipulated independently — Validated in Phase 2
+- [x] Ghost/transparent overlay on the model showing where the next piece goes — Validated in Phase 2
+- [x] Step-by-step instruction panel guiding the user through the build — Validated in Phase 2
+- [x] Set data format defining pieces, positions, and build order — Validated in Phase 1
 
 ### Active
 
-- [ ] 3D scene with baseplate and camera controls (orbit, zoom, pan)
-- [ ] Brick library with standard bricks, plates, and slopes in multiple colors
-- [ ] Stud-grid snapping — bricks connect only at valid Lego positions
-- [ ] Piece tray showing all pieces in the current set
-- [ ] Pick a piece from tray into "hand" — piece and main model can be manipulated independently
-- [ ] Ghost/transparent overlay on the model showing where the next piece goes
-- [ ] Step-by-step instruction panel guiding the user through the build
 - [ ] Set selection screen — choose from 3-5 pre-built sets
-- [ ] Set data format defining pieces, positions, and build order
 - [ ] Completion state — finished model displayed when all pieces placed
 
 ### Out of Scope
@@ -79,4 +78,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-05 after initialization*
+*Last updated: 2026-04-05 after Phase 2 completion — core build loop validated*
