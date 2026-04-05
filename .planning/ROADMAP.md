@@ -28,7 +28,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   2. The browser renders a 3D scene with a baseplate, working orbit/zoom/pan camera controls, and a visible stud grid
   3. All v1 brick types (1x1 through 2x4, plates, slopes) can be instantiated and rendered in multiple colors with no geometry errors
   4. At least one complete set (varying complexity) is authored in JSON and loads correctly — all piece positions use integer stud-grid coordinates, and a 100-brick stress test holds above 30fps
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 01-01-PLAN.md — Flask backend, set JSON schema, schema validation, /api/sets routes
+- [ ] 01-02-PLAN.md — Vite scaffold, Three.js scene, OrbitControls, stud grid, geometry factory (all 13 brick types)
+- [ ] 01-03-PLAN.md — Author 3 set JSON files (mini-rocket, starter-tower, color-steps stress test)
 **UI hint**: yes
 
 ### Phase 2: Core Build Loop
@@ -72,7 +76,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/? | Not started | - |
+| 1. Foundation | 0/3 | Not started | - |
 | 2. Core Build Loop | 0/? | Not started | - |
 | 3. Set Flow and Completion | 0/? | Not started | - |
 | 4. Polish | 0/? | Not started | - |
