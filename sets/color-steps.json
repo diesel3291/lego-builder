@@ -1,0 +1,169 @@
+{
+  "schemaVersion": 1,
+  "id": "color-steps",
+  "name": "Color Steps",
+  "description": "A 10x10 colorful grid — 100 pieces across 10 steps. Stress test data set.",
+  "pieceCount": 100,
+  "steps": [
+    {
+      "stepNumber": 1,
+      "description": "Place first row — red",
+      "pieces": [
+        {"id": "s1p1", "type": "brick-1x1", "color": "#e3000b", "gridX": 0, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p2", "type": "brick-1x1", "color": "#e3000b", "gridX": 1, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p3", "type": "brick-1x1", "color": "#e3000b", "gridX": 2, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p4", "type": "brick-1x1", "color": "#e3000b", "gridX": 3, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p5", "type": "brick-1x1", "color": "#e3000b", "gridX": 4, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p6", "type": "brick-1x1", "color": "#e3000b", "gridX": 5, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p7", "type": "brick-1x1", "color": "#e3000b", "gridX": 6, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p8", "type": "brick-1x1", "color": "#e3000b", "gridX": 7, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p9", "type": "brick-1x1", "color": "#e3000b", "gridX": 8, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p10", "type": "brick-1x1", "color": "#e3000b", "gridX": 9, "gridZ": 0, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "description": "Place second row — blue",
+      "pieces": [
+        {"id": "s2p1", "type": "brick-1x1", "color": "#006db7", "gridX": 0, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p2", "type": "brick-1x1", "color": "#006db7", "gridX": 1, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p3", "type": "brick-1x1", "color": "#006db7", "gridX": 2, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p4", "type": "brick-1x1", "color": "#006db7", "gridX": 3, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p5", "type": "brick-1x1", "color": "#006db7", "gridX": 4, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p6", "type": "brick-1x1", "color": "#006db7", "gridX": 5, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p7", "type": "brick-1x1", "color": "#006db7", "gridX": 6, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p8", "type": "brick-1x1", "color": "#006db7", "gridX": 7, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p9", "type": "brick-1x1", "color": "#006db7", "gridX": 8, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s2p10", "type": "brick-1x1", "color": "#006db7", "gridX": 9, "gridZ": 1, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "description": "Place third row — yellow",
+      "pieces": [
+        {"id": "s3p1", "type": "brick-1x1", "color": "#f5c518", "gridX": 0, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p2", "type": "brick-1x1", "color": "#f5c518", "gridX": 1, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p3", "type": "brick-1x1", "color": "#f5c518", "gridX": 2, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p4", "type": "brick-1x1", "color": "#f5c518", "gridX": 3, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p5", "type": "brick-1x1", "color": "#f5c518", "gridX": 4, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p6", "type": "brick-1x1", "color": "#f5c518", "gridX": 5, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p7", "type": "brick-1x1", "color": "#f5c518", "gridX": 6, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p8", "type": "brick-1x1", "color": "#f5c518", "gridX": 7, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p9", "type": "brick-1x1", "color": "#f5c518", "gridX": 8, "gridZ": 2, "layer": 0, "rotation": 0},
+        {"id": "s3p10", "type": "brick-1x1", "color": "#f5c518", "gridX": 9, "gridZ": 2, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "description": "Place fourth row — green",
+      "pieces": [
+        {"id": "s4p1", "type": "brick-1x1", "color": "#4caf50", "gridX": 0, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p2", "type": "brick-1x1", "color": "#4caf50", "gridX": 1, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p3", "type": "brick-1x1", "color": "#4caf50", "gridX": 2, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p4", "type": "brick-1x1", "color": "#4caf50", "gridX": 3, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p5", "type": "brick-1x1", "color": "#4caf50", "gridX": 4, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p6", "type": "brick-1x1", "color": "#4caf50", "gridX": 5, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p7", "type": "brick-1x1", "color": "#4caf50", "gridX": 6, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p8", "type": "brick-1x1", "color": "#4caf50", "gridX": 7, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p9", "type": "brick-1x1", "color": "#4caf50", "gridX": 8, "gridZ": 3, "layer": 0, "rotation": 0},
+        {"id": "s4p10", "type": "brick-1x1", "color": "#4caf50", "gridX": 9, "gridZ": 3, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 5,
+      "description": "Place fifth row — white",
+      "pieces": [
+        {"id": "s5p1", "type": "brick-1x1", "color": "#ffffff", "gridX": 0, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p2", "type": "brick-1x1", "color": "#ffffff", "gridX": 1, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p3", "type": "brick-1x1", "color": "#ffffff", "gridX": 2, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p4", "type": "brick-1x1", "color": "#ffffff", "gridX": 3, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p5", "type": "brick-1x1", "color": "#ffffff", "gridX": 4, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p6", "type": "brick-1x1", "color": "#ffffff", "gridX": 5, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p7", "type": "brick-1x1", "color": "#ffffff", "gridX": 6, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p8", "type": "brick-1x1", "color": "#ffffff", "gridX": 7, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p9", "type": "brick-1x1", "color": "#ffffff", "gridX": 8, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s5p10", "type": "brick-1x1", "color": "#ffffff", "gridX": 9, "gridZ": 4, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 6,
+      "description": "Place sixth row — red",
+      "pieces": [
+        {"id": "s6p1", "type": "brick-1x1", "color": "#e3000b", "gridX": 0, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p2", "type": "brick-1x1", "color": "#e3000b", "gridX": 1, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p3", "type": "brick-1x1", "color": "#e3000b", "gridX": 2, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p4", "type": "brick-1x1", "color": "#e3000b", "gridX": 3, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p5", "type": "brick-1x1", "color": "#e3000b", "gridX": 4, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p6", "type": "brick-1x1", "color": "#e3000b", "gridX": 5, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p7", "type": "brick-1x1", "color": "#e3000b", "gridX": 6, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p8", "type": "brick-1x1", "color": "#e3000b", "gridX": 7, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p9", "type": "brick-1x1", "color": "#e3000b", "gridX": 8, "gridZ": 5, "layer": 0, "rotation": 0},
+        {"id": "s6p10", "type": "brick-1x1", "color": "#e3000b", "gridX": 9, "gridZ": 5, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 7,
+      "description": "Place seventh row — blue",
+      "pieces": [
+        {"id": "s7p1", "type": "brick-1x1", "color": "#006db7", "gridX": 0, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p2", "type": "brick-1x1", "color": "#006db7", "gridX": 1, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p3", "type": "brick-1x1", "color": "#006db7", "gridX": 2, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p4", "type": "brick-1x1", "color": "#006db7", "gridX": 3, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p5", "type": "brick-1x1", "color": "#006db7", "gridX": 4, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p6", "type": "brick-1x1", "color": "#006db7", "gridX": 5, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p7", "type": "brick-1x1", "color": "#006db7", "gridX": 6, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p8", "type": "brick-1x1", "color": "#006db7", "gridX": 7, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p9", "type": "brick-1x1", "color": "#006db7", "gridX": 8, "gridZ": 6, "layer": 0, "rotation": 0},
+        {"id": "s7p10", "type": "brick-1x1", "color": "#006db7", "gridX": 9, "gridZ": 6, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 8,
+      "description": "Place eighth row — yellow",
+      "pieces": [
+        {"id": "s8p1", "type": "brick-1x1", "color": "#f5c518", "gridX": 0, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p2", "type": "brick-1x1", "color": "#f5c518", "gridX": 1, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p3", "type": "brick-1x1", "color": "#f5c518", "gridX": 2, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p4", "type": "brick-1x1", "color": "#f5c518", "gridX": 3, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p5", "type": "brick-1x1", "color": "#f5c518", "gridX": 4, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p6", "type": "brick-1x1", "color": "#f5c518", "gridX": 5, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p7", "type": "brick-1x1", "color": "#f5c518", "gridX": 6, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p8", "type": "brick-1x1", "color": "#f5c518", "gridX": 7, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p9", "type": "brick-1x1", "color": "#f5c518", "gridX": 8, "gridZ": 7, "layer": 0, "rotation": 0},
+        {"id": "s8p10", "type": "brick-1x1", "color": "#f5c518", "gridX": 9, "gridZ": 7, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 9,
+      "description": "Place ninth row — green",
+      "pieces": [
+        {"id": "s9p1", "type": "brick-1x1", "color": "#4caf50", "gridX": 0, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p2", "type": "brick-1x1", "color": "#4caf50", "gridX": 1, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p3", "type": "brick-1x1", "color": "#4caf50", "gridX": 2, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p4", "type": "brick-1x1", "color": "#4caf50", "gridX": 3, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p5", "type": "brick-1x1", "color": "#4caf50", "gridX": 4, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p6", "type": "brick-1x1", "color": "#4caf50", "gridX": 5, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p7", "type": "brick-1x1", "color": "#4caf50", "gridX": 6, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p8", "type": "brick-1x1", "color": "#4caf50", "gridX": 7, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p9", "type": "brick-1x1", "color": "#4caf50", "gridX": 8, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s9p10", "type": "brick-1x1", "color": "#4caf50", "gridX": 9, "gridZ": 8, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 10,
+      "description": "Place tenth row — white",
+      "pieces": [
+        {"id": "s10p1", "type": "brick-1x1", "color": "#ffffff", "gridX": 0, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p2", "type": "brick-1x1", "color": "#ffffff", "gridX": 1, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p3", "type": "brick-1x1", "color": "#ffffff", "gridX": 2, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p4", "type": "brick-1x1", "color": "#ffffff", "gridX": 3, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p5", "type": "brick-1x1", "color": "#ffffff", "gridX": 4, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p6", "type": "brick-1x1", "color": "#ffffff", "gridX": 5, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p7", "type": "brick-1x1", "color": "#ffffff", "gridX": 6, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p8", "type": "brick-1x1", "color": "#ffffff", "gridX": 7, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p9", "type": "brick-1x1", "color": "#ffffff", "gridX": 8, "gridZ": 9, "layer": 0, "rotation": 0},
+        {"id": "s10p10", "type": "brick-1x1", "color": "#ffffff", "gridX": 9, "gridZ": 9, "layer": 0, "rotation": 0}
+      ]
+    }
+  ]
+}
