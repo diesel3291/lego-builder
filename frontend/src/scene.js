@@ -95,10 +95,13 @@ function _addStudGrid() {
   const studTemplate = new THREE.CylinderGeometry(STUD_RADIUS, STUD_RADIUS, STUD_HEIGHT, 10);
 
   const parts = [];
-  for (let x = -halfX; x <= halfX; x++) {
-    for (let z = -halfZ; z <= halfZ; z++) {
+  for (let x = 0; x < BASEPLATE_STUDS_X; x++) {
+    for (let z = 0; z < BASEPLATE_STUDS_Z; z++) {
       const stud = studTemplate.clone();
-      stud.translate(x * STUD_SIZE, STUD_HEIGHT / 2, z * STUD_SIZE);
+      // Center 32 studs within the baseplate: positions from -124 to +124mm
+      const sx = (x - (BASEPLATE_STUDS_X - 1) / 2) * STUD_SIZE;
+      const sz = (z - (BASEPLATE_STUDS_Z - 1) / 2) * STUD_SIZE;
+      stud.translate(sx, STUD_HEIGHT / 2, sz);
       parts.push(stud);
     }
   }
