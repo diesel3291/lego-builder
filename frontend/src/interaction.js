@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { getScene, getCamera, getRenderer } from './scene.js';
 import { getGeometry } from './geometry.js';
-import { gridToWorld } from './grid.js';
+import { gridToWorld, worldToGrid } from './grid.js';
 import {
   getHeldPieceId, getCurrentStep, placeBrick,
   isStepComplete, advanceStep, releasePiece, isBuildComplete, getPlacedThisStep
@@ -17,6 +17,11 @@ const _ndc = new THREE.Vector2();
 const _placedMeshes = [];   // Array of THREE.Mesh — all placed opaque bricks
 let _onStepAdvance = null;  // callback: called when step advances (for tray/hud re-render)
 let _onBuildComplete = null; // callback: called when build finishes
+
+// Preview mesh state
+let _previewMesh = null;       // THREE.Mesh — semi-transparent brick following cursor
+let _previewRotation = 0;      // degrees: 0, 90, 180, 270 — rotation offset for preview
+let _baseplateMesh = null;     // cached reference to baseplate for raycasting
 
 /**
  * Initialize the interaction module. Call once from main.js after initScene.
@@ -44,12 +49,30 @@ export function initInteraction({ onStepAdvance, onBuildComplete } = {}) {
     }
   });
 
-  // Cursor state management — show crosshair when a piece is held
-  canvas.addEventListener('pointermove', () => {
-    if (getHeldPieceId() !== null) {
+  // Cache baseplate mesh for raycasting preview position
+  _baseplateMesh = getScene().getObjectByName('baseplate');
+
+  // Cursor state management — show crosshair when a piece is held, update preview mesh
+  canvas.addEventListener('pointermove', (e) => {
+    const heldId = getHeldPieceId();
+    if (heldId !== null) {
       canvas.style.cursor = 'crosshair';
+      _updatePreviewPosition(e);
     } else {
       canvas.style.cursor = 'default';
+      _removePreview();
+    }
+  });
+
+  // R-key rotation for preview mesh while holding a piece
+  window.addEventListener('keydown', (e) => {
+    if (e.key === 'r' || e.key === 'R') {
+      if (getHeldPieceId() !== null) {
+        _previewRotation = (_previewRotation + 90) % 360;
+        if (_previewMesh) {
+          _previewMesh.rotation.y = THREE.MathUtils.degToRad(_previewRotation);
+        }
+      }
     }
   });
 }
@@ -157,6 +180,8 @@ function _confirmPlacement(piece, ghostMesh) {
   // Update state — mark cells occupied, release held piece
   placeBrick(piece);
   releasePiece();
+  _removePreview();
+  _previewRotation = 0;  // reset rotation for next piece
 
   // Check step / build completion
   if (isStepComplete()) {
@@ -195,4 +220,92 @@ function _rejectPlacement(ghostMesh) {
       ghostMesh.material.needsUpdate = true;
     },
   });
+}
+
+/**
+ * Create (or reuse) the preview mesh for the given piece type and color.
+ * Preview is semi-transparent (opacity 0.5) and rendered above ghosts (renderOrder 2).
+ * Does NOT dispose geometry (cached in geometry.js).
+ * @param {string} pieceType
+ * @param {string|number} pieceColor
+ */
+function _createPreview(pieceType, pieceColor) {
+  // Check if existing preview matches — reuse if so
+  if (
+    _previewMesh &&
+    _previewMesh.userData.previewType === pieceType &&
+    _previewMesh.userData.previewColor === pieceColor
+  ) {
+    return;
+  }
+  _removePreview();
+
+  const geometry = getGeometry(pieceType);  // cached, do NOT dispose
+  const material = new THREE.MeshStandardMaterial({
+    color: pieceColor,
+    transparent: true,
+    opacity: 0.5,
+    depthWrite: false,
+    side: THREE.DoubleSide,
+  });
+  _previewMesh = new THREE.Mesh(geometry, material);
+  _previewMesh.renderOrder = 2;  // render after ghosts (renderOrder 1)
+  _previewMesh.userData.previewType = pieceType;
+  _previewMesh.userData.previewColor = pieceColor;
+  _previewMesh.rotation.y = THREE.MathUtils.degToRad(_previewRotation);
+  getScene().add(_previewMesh);
+}
+
+/**
+ * Remove the preview mesh from the scene and dispose its material.
+ * Does NOT reset _previewRotation — rotation resets only on placement in _confirmPlacement.
+ */
+function _removePreview() {
+  if (_previewMesh) {
+    getScene().remove(_previewMesh);
+    _previewMesh.material.dispose();  // dispose material only, NOT geometry (cached)
+    _previewMesh = null;
+  }
+}
+
+/**
+ * Raycast against the baseplate to find cursor world position, snap to stud grid,
+ * and reposition the preview mesh.
+ * @param {PointerEvent} event
+ */
+function _updatePreviewPosition(event) {
+  const heldId = getHeldPieceId();
+  if (!heldId) return;
+
+  const step = getCurrentStep();
+  if (!step) return;
+
+  const heldPiece = step.pieces.find(p => p.id === heldId);
+  if (!heldPiece) return;
+
+  // Create or update preview mesh for the held piece type/color
+  _createPreview(heldPiece.type, heldPiece.color);
+
+  // Raycast against the baseplate to find cursor world position
+  _ndc.x = (event.clientX / window.innerWidth) * 2 - 1;
+  _ndc.y = -(event.clientY / window.innerHeight) * 2 + 1;
+  _raycaster.setFromCamera(_ndc, getCamera());
+
+  if (!_baseplateMesh) return;
+  const hits = _raycaster.intersectObject(_baseplateMesh);
+
+  if (hits.length === 0) {
+    // Cursor is off the baseplate — hide preview
+    _previewMesh.visible = false;
+    return;
+  }
+
+  _previewMesh.visible = true;
+  const hitPoint = hits[0].point;
+
+  // Snap to stud grid using worldToGrid then gridToWorld roundtrip
+  const gridPos = worldToGrid(hitPoint, heldPiece.type);
+  // Use layer 0 for ground-level preview (ghost shows correct target height)
+  const snappedWorld = gridToWorld(gridPos.gridX, gridPos.gridZ, 0, heldPiece.type);
+  _previewMesh.position.copy(snappedWorld);
 }
