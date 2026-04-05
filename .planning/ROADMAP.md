@@ -31,8 +31,8 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 Plans:
 - [x] 01-01-PLAN.md — Flask backend, set JSON schema, schema validation, /api/sets routes
-- [ ] 01-02-PLAN.md — Vite scaffold, Three.js scene, OrbitControls, stud grid, geometry factory (all 13 brick types)
-- [ ] 01-03-PLAN.md — Author 3 set JSON files (mini-rocket, starter-tower, color-steps stress test)
+- [x] 01-02-PLAN.md — Vite scaffold, Three.js scene, OrbitControls, stud grid, geometry factory (all 13 brick types)
+- [x] 01-03-PLAN.md — Author 3 set JSON files (mini-rocket, starter-tower, color-steps stress test)
 **UI hint**: yes
 
 ### Phase 2: Core Build Loop
