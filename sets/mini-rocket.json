@@ -49,9 +49,9 @@
       "stepNumber": 6,
       "description": "Add the nose cone plates",
       "pieces": [
-        {"id": "s6p1", "type": "plate-2x2", "color": "#e3000b", "gridX": 0, "gridZ": 2, "layer": 10, "rotation": 0},
-        {"id": "s6p2", "type": "plate-2x2", "color": "#e3000b", "gridX": 0, "gridZ": 2, "layer": 11, "rotation": 0},
-        {"id": "s6p3", "type": "plate-2x2", "color": "#ffffff", "gridX": 0, "gridZ": 2, "layer": 12, "rotation": 0}
+        {"id": "s6p1", "type": "plate-2x2", "color": "#e3000b", "gridX": 0, "gridZ": 2, "layer": 15, "rotation": 0},
+        {"id": "s6p2", "type": "plate-2x2", "color": "#e3000b", "gridX": 0, "gridZ": 2, "layer": 16, "rotation": 0},
+        {"id": "s6p3", "type": "plate-2x2", "color": "#ffffff", "gridX": 0, "gridZ": 2, "layer": 17, "rotation": 0}
       ]
     },
     {
