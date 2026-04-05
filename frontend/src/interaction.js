@@ -2,10 +2,11 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { getScene, getCamera, getRenderer } from './scene.js';
 import { getGeometry } from './geometry.js';
-import { gridToWorld } from './grid.js';
+import { gridToWorld, DIMS } from './grid.js';
 import {
   getHeldPieceId, getCurrentStep, placeBrick,
-  isStepComplete, advanceStep, releasePiece, isBuildComplete, getPlacedThisStep
+  isStepComplete, advanceStep, releasePiece, isBuildComplete, getPlacedThisStep,
+  isOccupied
 } from './state.js';
 import { getGhostMeshes, hideGhost, showStepGhosts, hideAllGhosts } from './ghost.js';
 
@@ -129,6 +130,24 @@ function _handleClick(event) {
   if (pieceId !== heldId && !(ghostPiece.type === heldPiece.type && ghostPiece.color === heldPiece.color)) {
     _rejectPlacement(hitGhost);
     return;
+  }
+
+  // Reject if piece would float — layer 0 is always OK (on baseplate),
+  // higher layers need at least one occupied cell directly below
+  if (ghostPiece.layer > 0) {
+    const [cols, rows] = DIMS[ghostPiece.type] || [1, 1];
+    let hasSupport = false;
+    for (let cx = 0; cx < cols && !hasSupport; cx++) {
+      for (let rz = 0; rz < rows && !hasSupport; rz++) {
+        if (isOccupied(ghostPiece.gridX + cx, ghostPiece.gridZ + rz, ghostPiece.layer - 1)) {
+          hasSupport = true;
+        }
+      }
+    }
+    if (!hasSupport) {
+      _rejectPlacement(hitGhost);
+      return;
+    }
   }
 
   // Reject placement if preview rotation is 90° or 270° off from ghost.
