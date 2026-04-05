@@ -50,8 +50,8 @@ Plans:
 - [x] 02-01-PLAN.md — State machine (state.js) and ghost overlay module (ghost.js)
 - [x] 02-02-PLAN.md — Interaction module: click disambiguation, raycasting, placement validation, feedback
 - [x] 02-03-PLAN.md — Piece tray, instruction panel HUD, index.html overlays, main.js wiring
-- [ ] 02-04-PLAN.md — Gap closure: fix step 6 plate layers and position flexibility for same-type siblings
-- [ ] 02-05-PLAN.md — Gap closure: cursor-following 3D preview mesh and R-key piece rotation
+- [x] 02-04-PLAN.md — Gap closure: fix step 6 plate layers and position flexibility for same-type siblings
+- [x] 02-05-PLAN.md — Gap closure: cursor-following 3D preview mesh and R-key piece rotation
 **UI hint**: yes
 
 ### Phase 3: Set Flow and Completion
