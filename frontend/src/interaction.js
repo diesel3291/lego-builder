@@ -21,7 +21,8 @@ let _onBuildComplete = null; // callback: called when build finishes
 // Preview mesh state
 let _previewMesh = null;       // THREE.Mesh — semi-transparent brick following cursor
 let _previewRotation = 0;      // degrees: 0, 90, 180, 270 — rotation offset for preview
-let _baseplateMesh = null;     // cached reference to baseplate for raycasting
+const _groundPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0); // y=0 ground plane for raycasting
+const _planeIntersect = new THREE.Vector3(); // reusable intersection point
 
 /**
  * Initialize the interaction module. Call once from main.js after initScene.
@@ -48,9 +49,6 @@ export function initInteraction({ onStepAdvance, onBuildComplete } = {}) {
       _handleClick(e);
     }
   });
-
-  // Cache baseplate mesh for raycasting preview position
-  _baseplateMesh = getScene().getObjectByName('baseplate');
 
   // Cursor state management — show crosshair when a piece is held, update preview mesh
   canvas.addEventListener('pointermove', (e) => {
@@ -269,8 +267,8 @@ function _removePreview() {
 }
 
 /**
- * Raycast against the baseplate to find cursor world position, snap to stud grid,
- * and reposition the preview mesh.
+ * Raycast against the ground plane to find cursor world position, snap to stud grid,
+ * and reposition the preview mesh at the held piece's target layer.
  * @param {PointerEvent} event
  */
 function _updatePreviewPosition(event) {
@@ -286,26 +284,24 @@ function _updatePreviewPosition(event) {
   // Create or update preview mesh for the held piece type/color
   _createPreview(heldPiece.type, heldPiece.color);
 
-  // Raycast against the baseplate to find cursor world position
+  // Raycast against y=0 ground plane (more reliable than mesh intersection)
   _ndc.x = (event.clientX / window.innerWidth) * 2 - 1;
   _ndc.y = -(event.clientY / window.innerHeight) * 2 + 1;
   _raycaster.setFromCamera(_ndc, getCamera());
 
-  if (!_baseplateMesh) return;
-  const hits = _raycaster.intersectObject(_baseplateMesh);
+  const hit = _raycaster.ray.intersectPlane(_groundPlane, _planeIntersect);
 
-  if (hits.length === 0) {
-    // Cursor is off the baseplate — hide preview
+  if (!hit) {
+    // Ray parallel to or facing away from ground — hide preview
     _previewMesh.visible = false;
     return;
   }
 
   _previewMesh.visible = true;
-  const hitPoint = hits[0].point;
 
   // Snap to stud grid using worldToGrid then gridToWorld roundtrip
-  const gridPos = worldToGrid(hitPoint, heldPiece.type);
-  // Use layer 0 for ground-level preview (ghost shows correct target height)
-  const snappedWorld = gridToWorld(gridPos.gridX, gridPos.gridZ, 0, heldPiece.type);
+  const gridPos = worldToGrid(hit, heldPiece.type);
+  // Position at the held piece's target layer so preview appears at build height
+  const snappedWorld = gridToWorld(gridPos.gridX, gridPos.gridZ, heldPiece.layer, heldPiece.type);
   _previewMesh.position.copy(snappedWorld);
 }
