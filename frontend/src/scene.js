@@ -2,6 +2,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { STUD_SIZE } from './grid.js';
+import gsap from 'gsap';
 
 let renderer, scene, camera, controls;
 
@@ -139,3 +140,56 @@ export function getScene() { return scene; }
 export function getCamera() { return camera; }
 export function getRenderer() { return renderer; }
 export function getControls() { return controls; }
+
+/**
+ * Smoothly tween camera to focus on a target world position.
+ * Uses GSAP to animate both camera.position and controls.target simultaneously.
+ * CRITICAL: calls controls.update() in onUpdate to prevent snap-back bug.
+ * @param {number} targetX - world X coordinate to focus on
+ * @param {number} targetY - world Y coordinate to focus on
+ * @param {number} targetZ - world Z coordinate to focus on
+ * @param {number} distance - camera distance from target (computed by zoom-to-fit)
+ * @param {number} [duration=0.8] - tween duration in seconds
+ */
+export function focusCamera(targetX, targetY, targetZ, distance, duration = 0.8) {
+  // Compute new camera position: keep camera above and slightly to the side of target
+  const elevationAngle = Math.PI / 4;  // 45 degrees above
+  const azimuthAngle = Math.PI / 6;    // 30 degrees to the right
+  const newCamX = targetX + distance * Math.sin(azimuthAngle) * Math.cos(elevationAngle);
+  const newCamY = targetY + distance * Math.sin(elevationAngle);
+  const newCamZ = targetZ + distance * Math.cos(azimuthAngle) * Math.cos(elevationAngle);
+
+  gsap.to(camera.position, {
+    x: newCamX,
+    y: newCamY,
+    z: newCamZ,
+    duration,
+    ease: 'power2.inOut',
+    onUpdate: () => controls.update(),  // CRITICAL: prevents OrbitControls snap-back
+  });
+
+  gsap.to(controls.target, {
+    x: targetX,
+    y: targetY,
+    z: targetZ,
+    duration,
+    ease: 'power2.inOut',
+  });
+}
+
+/**
+ * Reset camera to the default overview position.
+ */
+export function resetCamera() {
+  gsap.to(camera.position, {
+    x: 80, y: 80, z: 120,
+    duration: 0.6,
+    ease: 'power2.inOut',
+    onUpdate: () => controls.update(),
+  });
+  gsap.to(controls.target, {
+    x: 0, y: 0, z: 0,
+    duration: 0.6,
+    ease: 'power2.inOut',
+  });
+}
