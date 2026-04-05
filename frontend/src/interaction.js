@@ -95,16 +95,21 @@ function _handleClick(event) {
   const step = getCurrentStep();
   if (!step) return;
 
-  const piece = step.pieces.find(p => p.id === pieceId);
-  if (!piece) return;
+  const ghostPiece = step.pieces.find(p => p.id === pieceId);
+  if (!ghostPiece) return;
 
-  // User must have selected this exact piece in the tray
-  if (pieceId !== getHeldPieceId()) {
+  const heldId = getHeldPieceId();
+  const heldPiece = step.pieces.find(p => p.id === heldId);
+  if (!heldPiece) return;
+
+  // Allow placement if exact match OR same type+color within the step (sibling flexibility)
+  if (pieceId !== heldId && !(ghostPiece.type === heldPiece.type && ghostPiece.color === heldPiece.color)) {
     _rejectPlacement(hitGhost);
     return;
   }
 
-  _confirmPlacement(piece, hitGhost);
+  // Always use the ghost piece's data for placement (correct position)
+  _confirmPlacement(ghostPiece, hitGhost);
 }
 
 /**
