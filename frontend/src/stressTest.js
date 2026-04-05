@@ -65,5 +65,4 @@ export function runStressTest() {
   requestAnimationFrame(measure);
 }
 
-// Auto-run when imported
-runStressTest();
+// Removed auto-run — main.js calls runStressTest() after initScene()
