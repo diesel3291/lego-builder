@@ -2,7 +2,7 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import { getScene, getCamera, getRenderer } from './scene.js';
 import { getGeometry } from './geometry.js';
-import { gridToWorld, worldToGrid } from './grid.js';
+import { gridToWorld } from './grid.js';
 import {
   getHeldPieceId, getCurrentStep, placeBrick,
   isStepComplete, advanceStep, releasePiece, isBuildComplete, getPlacedThisStep
@@ -23,6 +23,8 @@ let _previewMesh = null;       // THREE.Mesh — semi-transparent brick followin
 let _previewRotation = 0;      // degrees: 0, 90, 180, 270 — rotation offset for preview
 const _groundPlane = new THREE.Plane(new THREE.Vector3(0, 1, 0), 0); // y=0 ground plane for raycasting
 const _planeIntersect = new THREE.Vector3(); // reusable intersection point
+const _targetPos = new THREE.Vector3();      // smooth movement target
+const SNAP_DISTANCE = 12; // distance (mm) at which preview snaps to nearest ghost
 
 /**
  * Initialize the interaction module. Call once from main.js after initScene.
@@ -129,16 +131,42 @@ function _handleClick(event) {
     return;
   }
 
-  // Always use the ghost piece's data for placement (correct position)
-  _confirmPlacement(ghostPiece, hitGhost);
+  // Use ghost piece's position data but allow 180° rotation for symmetric pieces.
+  // A rectangular brick at 0° and 180° occupies the same cells, so both are valid.
+  const effectiveRotation = _getEffectiveRotation(ghostPiece.rotation || 0, _previewRotation);
+  _confirmPlacement(ghostPiece, hitGhost, effectiveRotation);
+}
+
+/**
+ * Determine the effective rotation for placement.
+ * For symmetric pieces (rectangular bricks/plates), 180° is equivalent to 0°,
+ * and 270° is equivalent to 90°. Allows the user's preview rotation when it
+ * produces the same physical result as the ghost rotation.
+ * @param {number} ghostRotation - the ghost's defined rotation (degrees)
+ * @param {number} previewRotation - the user's preview rotation (degrees)
+ * @returns {number} rotation to apply (degrees)
+ */
+function _getEffectiveRotation(ghostRotation, previewRotation) {
+  // Normalize both to 0-359
+  const gr = ((ghostRotation % 360) + 360) % 360;
+  const pr = ((previewRotation % 360) + 360) % 360;
+  // 180° offset is always valid for rectangular pieces (they're symmetric)
+  // Accept preview rotation if it matches ghost rotation or differs by exactly 180°
+  if (pr === gr || Math.abs(pr - gr) === 180) {
+    return pr;
+  }
+  // Otherwise use the ghost's rotation (user's rotation doesn't fit this ghost)
+  return gr;
 }
 
 /**
  * Confirm a valid placement: create opaque brick, flash green, update state.
  * @param {Object} piece - piece data from step JSON
  * @param {THREE.Mesh} ghostMesh - the ghost mesh to replace
+ * @param {number} [rotation] - override rotation in degrees (for 180° symmetry)
  */
-function _confirmPlacement(piece, ghostMesh) {
+function _confirmPlacement(piece, ghostMesh, rotation) {
+  const appliedRotation = rotation !== undefined ? rotation : (piece.rotation || 0);
   // Create the opaque brick mesh using cached geometry + new per-brick material
   const geometry = getGeometry(piece.type);
   const material = new THREE.MeshStandardMaterial({
@@ -148,7 +176,7 @@ function _confirmPlacement(piece, ghostMesh) {
   });
   const mesh = new THREE.Mesh(geometry, material);
   mesh.position.copy(gridToWorld(piece.gridX, piece.gridZ, piece.layer, piece.type));
-  mesh.rotation.y = THREE.MathUtils.degToRad(piece.rotation || 0);
+  mesh.rotation.y = THREE.MathUtils.degToRad(appliedRotation);
   mesh.castShadow = true;
   mesh.receiveShadow = true;
   mesh.userData.pieceId = piece.id;
@@ -267,8 +295,8 @@ function _removePreview() {
 }
 
 /**
- * Raycast against the ground plane to find cursor world position, snap to stud grid,
- * and reposition the preview mesh at the held piece's target layer.
+ * Raycast against the ground plane to find cursor world position.
+ * Preview follows cursor smoothly and snaps magnetically when near a ghost.
  * @param {PointerEvent} event
  */
 function _updatePreviewPosition(event) {
@@ -284,7 +312,7 @@ function _updatePreviewPosition(event) {
   // Create or update preview mesh for the held piece type/color
   _createPreview(heldPiece.type, heldPiece.color);
 
-  // Raycast against y=0 ground plane (more reliable than mesh intersection)
+  // Raycast against y=0 ground plane
   _ndc.x = (event.clientX / window.innerWidth) * 2 - 1;
   _ndc.y = -(event.clientY / window.innerHeight) * 2 + 1;
   _raycaster.setFromCamera(_ndc, getCamera());
@@ -292,16 +320,35 @@ function _updatePreviewPosition(event) {
   const hit = _raycaster.ray.intersectPlane(_groundPlane, _planeIntersect);
 
   if (!hit) {
-    // Ray parallel to or facing away from ground — hide preview
     _previewMesh.visible = false;
     return;
   }
 
   _previewMesh.visible = true;
 
-  // Snap to stud grid using worldToGrid then gridToWorld roundtrip
-  const gridPos = worldToGrid(hit, heldPiece.type);
-  // Position at the held piece's target layer so preview appears at build height
-  const snappedWorld = gridToWorld(gridPos.gridX, gridPos.gridZ, heldPiece.layer, heldPiece.type);
-  _previewMesh.position.copy(snappedWorld);
+  // Raw cursor position at the held piece's build height
+  _targetPos.set(hit.x, heldPiece.layer * (heldPiece.type.startsWith('plate') ? 3.2 : 9.6), hit.z);
+
+  // Check proximity to ghost positions — magnetic snap
+  let snapped = false;
+  const ghosts = getGhostMeshes();
+  for (const ghost of ghosts) {
+    const dx = _targetPos.x - ghost.position.x;
+    const dz = _targetPos.z - ghost.position.z;
+    const dist = Math.sqrt(dx * dx + dz * dz);
+    if (dist < SNAP_DISTANCE) {
+      _targetPos.copy(ghost.position);
+      snapped = true;
+      break;
+    }
+  }
+
+  // Smooth lerp toward target (snapped or free-following)
+  if (snapped) {
+    // Snap immediately to ghost position for precise feedback
+    _previewMesh.position.copy(_targetPos);
+  } else {
+    // Smooth interpolation — 30% per frame gives responsive but fluid motion
+    _previewMesh.position.lerp(_targetPos, 0.3);
+  }
 }
