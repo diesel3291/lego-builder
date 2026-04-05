@@ -30,6 +30,7 @@ metrics:
   tasks_completed: 1
   tasks_total: 2
   files_changed: 4
+verification_status: issues_found
 ---
 
 # Phase 02 Plan 03: Tray, HUD, and Main Bootstrap Summary
@@ -42,11 +43,21 @@ HTML overlay tray (colored swatches, selected state, placed-piece skipping) and 
 |------|------|--------|-------|
 | 1 | Create tray.js, hud.js, update index.html, refactor main.js | 2b290af | frontend/src/tray.js, frontend/src/hud.js, frontend/src/main.js, frontend/index.html |
 
-## Tasks Pending Human Verification
+## Human Verification Result
 
-| Task | Name | Status |
-|------|------|--------|
-| 2 | Verify complete build loop | Awaiting human verification at http://localhost:5173 |
+**Task 2: Verify complete build loop — ISSUES FOUND**
+
+The user tested the app at http://localhost:5173 and reported 5 issues:
+
+| # | Issue | Severity |
+|---|-------|----------|
+| 1 | Bricks look like colored boxes — no stud bumps on top, no physical Lego feel | High |
+| 2 | Position flexibility — for the same piece type, only one specific orientation/position is accepted; the other valid position is rejected | High |
+| 3 | Step 6 data bug — brick location appears inside/overlapping previous bricks | High |
+| 4 | No physical pick-up feel — selecting a piece in the tray does not show the brick following the mouse cursor in 3D space | Medium |
+| 5 | No piece rotation — user cannot rotate a held piece to match target orientation | Medium |
+
+These issues will be addressed in a gap-closure plan. This plan's code (tray.js, hud.js, main.js, index.html) is correct; the issues are in the 3D rendering layer (stud geometry), placement validation logic (position flexibility), set data (step 6 overlap), interaction layer (cursor-attached brick preview), and interaction/state (rotation support).
 
 ## What Was Built
 
