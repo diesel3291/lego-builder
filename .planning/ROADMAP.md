@@ -45,7 +45,11 @@ Plans:
   3. User can click a valid grid position to snap the held piece into place — piece locks with visual confirmation and the step advances
   4. Clicking an invalid grid position shows a visual rejection (no snap, error indication)
   5. The instruction panel shows the current step number out of total steps and updates correctly when the step advances
-**Plans**: TBD
+**Plans**: 3 plans
+Plans:
+- [ ] 02-01-PLAN.md — State machine (state.js) and ghost overlay module (ghost.js)
+- [ ] 02-02-PLAN.md — Interaction module: click disambiguation, raycasting, placement validation, feedback
+- [ ] 02-03-PLAN.md — Piece tray, instruction panel HUD, index.html overlays, main.js wiring
 **UI hint**: yes
 
 ### Phase 3: Set Flow and Completion
@@ -65,18 +69,18 @@ Plans:
 **Requirements**: SCENE-04, BUILD-03, BUILD-04
 **Success Criteria** (what must be TRUE):
   1. When a piece snaps into place, it animates from above into its final position (exploded-view tween) rather than appearing instantly
-  2. User can undo the last placement — the brick returns to the tray and the step reverts
+  2. User can undo the last placement ��� the brick returns to the tray and the step reverts
   3. If user places a piece in a syntactically valid but wrong position, the app flags it as incorrect
 **Plans**: TBD
 
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 → 2 → 3 → 4
+Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 1/3 | In Progress|  |
-| 2. Core Build Loop | 0/? | Not started | - |
+| 1. Foundation | 3/3 | Complete |  |
+| 2. Core Build Loop | 0/3 | Planned | - |
 | 3. Set Flow and Completion | 0/? | Not started | - |
 | 4. Polish | 0/? | Not started | - |
