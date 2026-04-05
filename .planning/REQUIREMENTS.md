@@ -87,32 +87,32 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| SCENE-01 | TBD | Pending |
-| SCENE-02 | TBD | Pending |
-| SCENE-03 | TBD | Pending |
-| SCENE-04 | TBD | Pending |
-| BUILD-01 | TBD | Pending |
-| BUILD-02 | TBD | Pending |
-| BUILD-03 | TBD | Pending |
-| BUILD-04 | TBD | Pending |
-| GUIDE-01 | TBD | Pending |
-| GUIDE-02 | TBD | Pending |
-| GUIDE-03 | TBD | Pending |
-| GUIDE-04 | TBD | Pending |
-| UI-01 | TBD | Pending |
-| UI-02 | TBD | Pending |
-| UI-03 | TBD | Pending |
-| UI-04 | TBD | Pending |
-| DATA-01 | TBD | Pending |
-| DATA-02 | TBD | Pending |
-| DATA-03 | TBD | Pending |
-| DATA-04 | TBD | Pending |
+| SCENE-01 | Phase 1 | Pending |
+| SCENE-02 | Phase 1 | Pending |
+| SCENE-03 | Phase 1 | Pending |
+| SCENE-04 | Phase 4 | Pending |
+| BUILD-01 | Phase 2 | Pending |
+| BUILD-02 | Phase 2 | Pending |
+| BUILD-03 | Phase 4 | Pending |
+| BUILD-04 | Phase 4 | Pending |
+| GUIDE-01 | Phase 2 | Pending |
+| GUIDE-02 | Phase 2 | Pending |
+| GUIDE-03 | Phase 2 | Pending |
+| GUIDE-04 | Phase 3 | Pending |
+| UI-01 | Phase 2 | Pending |
+| UI-02 | Phase 2 | Pending |
+| UI-03 | Phase 3 | Pending |
+| UI-04 | Phase 3 | Pending |
+| DATA-01 | Phase 1 | Pending |
+| DATA-02 | Phase 1 | Pending |
+| DATA-03 | Phase 1 | Pending |
+| DATA-04 | Phase 2 | Pending |
 
 **Coverage:**
 - v1 requirements: 20 total
-- Mapped to phases: 0
-- Unmapped: 20 ⚠️
+- Mapped to phases: 20
+- Unmapped: 0 ✓
 
 ---
 *Requirements defined: 2026-04-05*
-*Last updated: 2026-04-05 after initial definition*
+*Last updated: 2026-04-05 after roadmap creation*
