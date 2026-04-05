@@ -62,7 +62,10 @@ Plans:
   1. User sees a set selection screen listing 3-5 sets with thumbnails and metadata and can click any to begin
   2. After placing the final piece, user sees a congratulatory completion screen
   3. Camera auto-focuses on the area where the next piece goes at each new step
-**Plans**: TBD
+**Plans**: 2 plans
+Plans:
+- [ ] 03-01-PLAN.md — Set selection screen with 3D thumbnails, star ratings, back button, and main.js flow orchestration
+- [ ] 03-02-PLAN.md — Completion screen with build timer and auto-orbit, camera auto-focus on step advance
 **UI hint**: yes
 
 ### Phase 4: Polish
@@ -83,6 +86,6 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete |  |
-| 2. Core Build Loop | 3/5 | Gap closure | - |
-| 3. Set Flow and Completion | 0/? | Not started | - |
+| 2. Core Build Loop | 5/5 | Complete | - |
+| 3. Set Flow and Completion | 0/2 | Planned | - |
 | 4. Polish | 0/? | Not started | - |
