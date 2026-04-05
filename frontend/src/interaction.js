@@ -131,32 +131,17 @@ function _handleClick(event) {
     return;
   }
 
-  // Use ghost piece's position data but allow 180° rotation for symmetric pieces.
-  // A rectangular brick at 0° and 180° occupies the same cells, so both are valid.
-  const effectiveRotation = _getEffectiveRotation(ghostPiece.rotation || 0, _previewRotation);
-  _confirmPlacement(ghostPiece, hitGhost, effectiveRotation);
-}
-
-/**
- * Determine the effective rotation for placement.
- * For symmetric pieces (rectangular bricks/plates), 180° is equivalent to 0°,
- * and 270° is equivalent to 90°. Allows the user's preview rotation when it
- * produces the same physical result as the ghost rotation.
- * @param {number} ghostRotation - the ghost's defined rotation (degrees)
- * @param {number} previewRotation - the user's preview rotation (degrees)
- * @returns {number} rotation to apply (degrees)
- */
-function _getEffectiveRotation(ghostRotation, previewRotation) {
-  // Normalize both to 0-359
-  const gr = ((ghostRotation % 360) + 360) % 360;
-  const pr = ((previewRotation % 360) + 360) % 360;
-  // 180° offset is always valid for rectangular pieces (they're symmetric)
-  // Accept preview rotation if it matches ghost rotation or differs by exactly 180°
-  if (pr === gr || Math.abs(pr - gr) === 180) {
-    return pr;
+  // Reject placement if preview rotation is 90° or 270° off from ghost.
+  // Only 0° and 180° are valid — 180° is physically identical for rectangular pieces.
+  const gr = ((ghostPiece.rotation || 0) % 360 + 360) % 360;
+  const pr = (_previewRotation % 360 + 360) % 360;
+  const diff = Math.abs(pr - gr);
+  if (diff !== 0 && diff !== 180) {
+    _rejectPlacement(hitGhost);
+    return;
   }
-  // Otherwise use the ghost's rotation (user's rotation doesn't fit this ghost)
-  return gr;
+
+  _confirmPlacement(ghostPiece, hitGhost, pr);
 }
 
 /**
@@ -312,7 +297,9 @@ function _updatePreviewPosition(event) {
   // Create or update preview mesh for the held piece type/color
   _createPreview(heldPiece.type, heldPiece.color);
 
-  // Raycast against y=0 ground plane
+  // Raycast against a plane at the current build layer height
+  const layerHeight = heldPiece.layer * (heldPiece.type.startsWith('plate') ? 3.2 : 9.6);
+  _groundPlane.constant = -layerHeight; // plane eq: y = layerHeight → normal·p + d = 0 → d = -height
   _ndc.x = (event.clientX / window.innerWidth) * 2 - 1;
   _ndc.y = -(event.clientY / window.innerHeight) * 2 + 1;
   _raycaster.setFromCamera(_ndc, getCamera());
@@ -326,8 +313,8 @@ function _updatePreviewPosition(event) {
 
   _previewMesh.visible = true;
 
-  // Raw cursor position at the held piece's build height
-  _targetPos.set(hit.x, heldPiece.layer * (heldPiece.type.startsWith('plate') ? 3.2 : 9.6), hit.z);
+  // Cursor position is already at the correct build height from the plane intersection
+  _targetPos.copy(hit);
 
   // Check proximity to ghost positions — magnetic snap
   let snapped = false;
