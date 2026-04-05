@@ -1,41 +1,90 @@
 import * as THREE from 'three';
 import { getScene } from './scene.js';
 import { getGeometry, BRICK_TYPES } from './geometry.js';
-import { gridToWorld } from './grid.js';
+import { gridToWorld, DIMS } from './grid.js';
 
-const COLORS = ['#e3000b', '#006db7', '#f5c518', '#4caf50', '#ffffff'];
+// No green — reserved for baseplate
+const COLORS = ['#e3000b', '#006db7', '#f5c518', '#ffffff', '#ff6f00', '#9e9e9e'];
 const BRICK_ONLY_TYPES = BRICK_TYPES.filter(t => !t.startsWith('slope'));
 
+const BASEPLATE_HALF = 16; // baseplate spans -16 to +15 studs
+
 /**
- * Add 100 bricks in a 10x10 grid. Measures frame rate over 60 frames.
- * Logs pass/fail to console. Removes bricks after measurement.
+ * Check if a brick at (gx, gz) with given dims fits on the baseplate
+ * and doesn't overlap any occupied cells.
+ */
+function canPlace(gx, gz, cols, rows, occupied) {
+  for (let cx = 0; cx < cols; cx++) {
+    for (let rz = 0; rz < rows; rz++) {
+      const sx = gx + cx;
+      const sz = gz + rz;
+      if (sx < -BASEPLATE_HALF || sx > BASEPLATE_HALF - 1) return false;
+      if (sz < -BASEPLATE_HALF || sz > BASEPLATE_HALF - 1) return false;
+      if (occupied.has(`${sx},${sz}`)) return false;
+    }
+  }
+  return true;
+}
+
+function markOccupied(gx, gz, cols, rows, occupied) {
+  for (let cx = 0; cx < cols; cx++) {
+    for (let rz = 0; rz < rows; rz++) {
+      occupied.add(`${gx + cx},${gz + rz}`);
+    }
+  }
+}
+
+/**
+ * Place 100 bricks on the baseplate with no overlaps and within bounds.
+ * Uses a scanning placement strategy.
  */
 export function runStressTest() {
   const scene = getScene();
   const meshes = [];
+  const occupied = new Set();
 
-  for (let i = 0; i < 100; i++) {
-    const col = i % 10;
-    const row = Math.floor(i / 10);
-    const type = BRICK_ONLY_TYPES[i % BRICK_ONLY_TYPES.length];
-    const color = COLORS[i % COLORS.length];
+  let placed = 0;
+  let gx = -BASEPLATE_HALF;
+  let gz = -BASEPLATE_HALF;
 
-    const geometry = getGeometry(type);
-    const material = new THREE.MeshStandardMaterial({
-      color,
-      roughness: 0.5,
-      metalness: 0.0,
-    });
+  while (placed < 100 && gz <= BASEPLATE_HALF - 1) {
+    const type = BRICK_ONLY_TYPES[placed % BRICK_ONLY_TYPES.length];
+    const [cols, rows] = DIMS[type];
+    const color = COLORS[placed % COLORS.length];
 
-    const mesh = new THREE.Mesh(geometry, material);
-    mesh.castShadow = true;
-    mesh.receiveShadow = true;
+    if (canPlace(gx, gz, cols, rows, occupied)) {
+      markOccupied(gx, gz, cols, rows, occupied);
 
-    const pos = gridToWorld(col * 3, row * 3, 0, type);
-    mesh.position.copy(pos);
-    scene.add(mesh);
-    meshes.push(mesh);
+      const geometry = getGeometry(type);
+      const material = new THREE.MeshStandardMaterial({
+        color,
+        roughness: 0.5,
+        metalness: 0.0,
+      });
+
+      const mesh = new THREE.Mesh(geometry, material);
+      mesh.castShadow = true;
+      mesh.receiveShadow = true;
+
+      const pos = gridToWorld(gx, gz, 0, type);
+      mesh.position.copy(pos);
+      scene.add(mesh);
+      meshes.push(mesh);
+
+      gx += cols; // advance past this brick
+      placed++;
+    } else {
+      gx++; // try next column
+    }
+
+    // Wrap to next row when past the edge
+    if (gx > BASEPLATE_HALF - 1) {
+      gx = -BASEPLATE_HALF;
+      gz++;
+    }
   }
+
+  console.log(`[StressTest] Placed ${placed} bricks`);
 
   // Measure FPS over 60 frames
   let frameCount = 0;
@@ -55,11 +104,7 @@ export function runStressTest() {
       console.warn(`[StressTest] FAIL — ${fps} fps at 100 bricks (target: 30+). Consider InstancedMesh.`);
     }
 
-    // Clean up stress test meshes
-    for (const mesh of meshes) {
-      scene.remove(mesh);
-      mesh.material.dispose();
-    }
+    // Keep bricks visible for visual verification
   }
 
   requestAnimationFrame(measure);

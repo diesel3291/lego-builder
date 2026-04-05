@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { STUD_SIZE } from './grid.js';
 
 let renderer, scene, camera, controls;
@@ -85,28 +86,36 @@ function _addBaseplate() {
 }
 
 function _addStudGrid() {
-  // Render a subtle dot grid at y=0 using Points geometry
-  // Dots at every stud intersection within the baseplate bounds
+  // Render cylindrical studs on the baseplate surface (like real Lego baseplates)
   const halfX = Math.floor(BASEPLATE_STUDS_X / 2);
   const halfZ = Math.floor(BASEPLATE_STUDS_Z / 2);
 
-  const positions = [];
+  const STUD_RADIUS = 2.4;
+  const STUD_HEIGHT = 1.2;
+  const studTemplate = new THREE.CylinderGeometry(STUD_RADIUS, STUD_RADIUS, STUD_HEIGHT, 10);
+
+  const parts = [];
   for (let x = -halfX; x <= halfX; x++) {
     for (let z = -halfZ; z <= halfZ; z++) {
-      positions.push(x * STUD_SIZE, 0.5, z * STUD_SIZE);  // y=0.5 floats above baseplate
+      const stud = studTemplate.clone();
+      stud.translate(x * STUD_SIZE, STUD_HEIGHT / 2, z * STUD_SIZE);
+      parts.push(stud);
     }
   }
 
-  const geometry = new THREE.BufferGeometry();
-  geometry.setAttribute('position', new THREE.Float32BufferAttribute(positions, 3));
+  // Merge all into one geometry for performance (single draw call)
+  const merged = mergeGeometries(parts);
+  studTemplate.dispose();
+  for (const p of parts) p.dispose();
 
-  const material = new THREE.PointsMaterial({
-    color: 0x2e7d32,  // darker green — subtle against baseplate
-    size: 1.5,
-    sizeAttenuation: true,
+  const material = new THREE.MeshStandardMaterial({
+    color: 0x43a047,  // slightly different green from baseplate for definition
+    roughness: 0.7,
+    metalness: 0.0,
   });
 
-  const grid = new THREE.Points(geometry, material);
+  const grid = new THREE.Mesh(merged, material);
+  grid.receiveShadow = true;
   grid.name = 'studGrid';
   scene.add(grid);
 }

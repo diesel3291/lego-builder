@@ -1,5 +1,6 @@
 import * as THREE from 'three';
-import { STUD_SIZE, BRICK_HEIGHT, PLATE_HEIGHT } from './grid.js';
+import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { STUD_SIZE, BRICK_HEIGHT, PLATE_HEIGHT, DIMS } from './grid.js';
 
 // All valid v1 piece types. Must match sets/schema.md exactly.
 export const BRICK_TYPES = [
@@ -12,18 +13,14 @@ export const BRICK_TYPES = [
 // Geometry cache: keyed by type string, value is THREE.BufferGeometry
 const _cache = new Map();
 
-// Brick stud dimensions (columns x rows)
-const DIMS = {
-  'brick-1x1': [1, 1], 'brick-1x2': [1, 2], 'brick-1x3': [1, 3], 'brick-1x4': [1, 4],
-  'brick-2x2': [2, 2], 'brick-2x3': [2, 3], 'brick-2x4': [2, 4],
-  'plate-1x1': [1, 1], 'plate-1x2': [1, 2], 'plate-1x4': [1, 4],
-  'plate-2x2': [2, 2], 'plate-2x4': [2, 4],
-  'slope-2x1': [2, 1], 'slope-2x2': [2, 2],
-};
+// Stud dimensions (classic Lego proportions)
+const STUD_RADIUS = 2.4;   // ~2.4mm radius
+const STUD_HEIGHT = 1.8;   // ~1.8mm tall
+const STUD_SEGMENTS = 12;  // cylinder segments — enough for smooth look
 
 /**
  * Returns a cached THREE.BufferGeometry for the given brick type.
- * The geometry origin is at the center of the bottom face.
+ * Includes cylindrical studs on top. Origin is at the center of the bottom face.
  * @param {string} type - one of BRICK_TYPES
  * @returns {THREE.BufferGeometry}
  * @throws {Error} if type is not in BRICK_TYPES
@@ -39,27 +36,32 @@ export function getGeometry(type) {
   const isPlate = type.startsWith('plate');
   const height = isPlate ? PLATE_HEIGHT : BRICK_HEIGHT;
 
-  // Width: cols studs, depth: rows studs (minus a tiny gap for aesthetics)
-  const GAP = 0.2;  // small gap between adjacent bricks for visual separation
+  const GAP = 0.2;
   const w = cols * STUD_SIZE - GAP;
   const d = rows * STUD_SIZE - GAP;
 
-  let geometry;
+  // Body box — translated so bottom face is at y=0
+  const body = new THREE.BoxGeometry(w, height, d);
+  body.translate(0, height / 2, 0);
 
-  if (type.startsWith('slope')) {
-    // Slopes: use a wedge via custom geometry. For v1, approximate with a BoxGeometry
-    // and a visible shear — or simply use a narrower box tilted via rotation in the mesh.
-    // Simple approach: standard box with same dims as a brick; rotation set in brickMesh.js.
-    // Full wedge geometry deferred to polish phase. This keeps v1 simple.
-    geometry = new THREE.BoxGeometry(w, height, d);
-  } else {
-    geometry = new THREE.BoxGeometry(w, height, d);
+  // Create studs on top
+  const parts = [body];
+  const studTemplate = new THREE.CylinderGeometry(STUD_RADIUS, STUD_RADIUS, STUD_HEIGHT, STUD_SEGMENTS);
+
+  for (let cx = 0; cx < cols; cx++) {
+    for (let rz = 0; rz < rows; rz++) {
+      const stud = studTemplate.clone();
+      // Position each stud centered on its grid cell, on top of the body
+      const sx = (cx - (cols - 1) / 2) * STUD_SIZE;
+      const sz = (rz - (rows - 1) / 2) * STUD_SIZE;
+      stud.translate(sx, height + STUD_HEIGHT / 2, sz);
+      parts.push(stud);
+    }
   }
 
-  // Translate geometry so origin is at the BOTTOM face center (not the geometric center).
-  // This makes gridToWorld() position math intuitive: position.y = layer * height puts
-  // the bottom face at the correct layer without an offset correction.
-  geometry.translate(0, height / 2, 0);
+  const geometry = mergeGeometries(parts);
+  studTemplate.dispose();
+  for (const p of parts) p.dispose();
 
   _cache.set(type, geometry);
   return geometry;

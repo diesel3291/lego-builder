@@ -5,11 +5,21 @@ export const STUD_SIZE = 8;      // horizontal spacing between stud centers (8mm
 export const BRICK_HEIGHT = 9.6; // standard brick height (9.6mm)
 export const PLATE_HEIGHT = 3.2; // plate height (1/3 of brick height)
 
+// Brick stud dimensions (columns x rows) — shared with geometry.js
+export const DIMS = {
+  'brick-1x1': [1, 1], 'brick-1x2': [1, 2], 'brick-1x3': [1, 3], 'brick-1x4': [1, 4],
+  'brick-2x2': [2, 2], 'brick-2x3': [2, 3], 'brick-2x4': [2, 4],
+  'plate-1x1': [1, 1], 'plate-1x2': [1, 2], 'plate-1x4': [1, 4],
+  'plate-2x2': [2, 2], 'plate-2x4': [2, 4],
+  'slope-2x1': [2, 1], 'slope-2x2': [2, 2],
+};
+
 /**
  * Convert integer stud-grid coordinates to Three.js world position.
- * The returned Vector3 is the CENTER of the brick's bottom face.
- * @param {number} gridX - integer stud column
- * @param {number} gridZ - integer stud row
+ * gridX/gridZ is the corner stud of the brick (smallest x/z stud).
+ * Returns the CENTER of the brick's bottom face so geometry aligns studs to the grid.
+ * @param {number} gridX - integer stud column (corner)
+ * @param {number} gridZ - integer stud row (corner)
  * @param {number} layer - integer stack height (0 = on baseplate surface)
  * @param {string} pieceType - one of the 13 BRICK_TYPES strings
  * @returns {THREE.Vector3}
@@ -17,16 +27,17 @@ export const PLATE_HEIGHT = 3.2; // plate height (1/3 of brick height)
 export function gridToWorld(gridX, gridZ, layer, pieceType) {
   const isPlate = pieceType.startsWith('plate');
   const h = isPlate ? PLATE_HEIGHT : BRICK_HEIGHT;
+  const [cols, rows] = DIMS[pieceType] || [1, 1];
   return new THREE.Vector3(
-    gridX * STUD_SIZE,
+    (gridX + (cols - 1) / 2) * STUD_SIZE,
     layer * h,
-    gridZ * STUD_SIZE
+    (gridZ + (rows - 1) / 2) * STUD_SIZE
   );
 }
 
 /**
  * Convert a Three.js world position back to integer stud-grid coordinates.
- * Uses Math.round() — result is always integers (no floating-point drift).
+ * Returns the corner stud (smallest x/z).
  * @param {THREE.Vector3} worldPos
  * @param {string} pieceType
  * @returns {{ gridX: number, gridZ: number, layer: number }}
@@ -34,9 +45,10 @@ export function gridToWorld(gridX, gridZ, layer, pieceType) {
 export function worldToGrid(worldPos, pieceType) {
   const isPlate = pieceType.startsWith('plate');
   const h = isPlate ? PLATE_HEIGHT : BRICK_HEIGHT;
+  const [cols, rows] = DIMS[pieceType] || [1, 1];
   return {
-    gridX: Math.round(worldPos.x / STUD_SIZE),
-    gridZ: Math.round(worldPos.z / STUD_SIZE),
+    gridX: Math.round(worldPos.x / STUD_SIZE - (cols - 1) / 2),
+    gridZ: Math.round(worldPos.z / STUD_SIZE - (rows - 1) / 2),
     layer: Math.round(worldPos.y / h),
   };
 }
