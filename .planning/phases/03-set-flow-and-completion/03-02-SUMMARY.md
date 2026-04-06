@@ -81,7 +81,7 @@ Each task was committed atomically:
 
 1. **Task 1: Build timer, completion overlay HTML/CSS, completion.js** - `239d3cf` (feat)
 2. **Task 2: focusCamera/resetCamera in scene.js, wiring in main.js** - `e752837` (feat)
-3. **Task 3: Human verify complete flow** - pending checkpoint
+3. **Task 3: Human verify complete flow** - approved (user verified complete start-to-finish flow)
 
 ## Files Created/Modified
 
@@ -112,9 +112,9 @@ None.
 
 ## Next Phase Readiness
 
-- Task 3 (human-verify) pending — user needs to verify the full start-to-finish flow in browser
-- After Task 3 approval, phase 03 plan 02 is complete
-- The complete user journey (selection → build with camera focus → completion with timer/orbit → replay/new set) is implemented
+- Task 3 (human-verify) approved — user confirmed the full start-to-finish flow works correctly in browser
+- Phase 03 plan 02 is complete
+- The complete user journey (selection → build with camera focus → completion with timer/orbit → replay/new set) is implemented and verified
 
 ---
 *Phase: 03-set-flow-and-completion*
