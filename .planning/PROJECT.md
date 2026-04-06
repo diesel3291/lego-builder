@@ -20,11 +20,13 @@ A user can select a set, follow guided instructions, and build a complete 3D Leg
 - [x] Ghost/transparent overlay on the model showing where the next piece goes — Validated in Phase 2
 - [x] Step-by-step instruction panel guiding the user through the build — Validated in Phase 2
 - [x] Set data format defining pieces, positions, and build order — Validated in Phase 1
+- [x] Set selection screen — choose from 3-5 pre-built sets — Validated in Phase 3
+- [x] Completion state — finished model displayed when all pieces placed — Validated in Phase 3
+- [x] Step camera auto-focus on next piece area — Validated in Phase 3
 
 ### Active
 
-- [ ] Set selection screen — choose from 3-5 pre-built sets
-- [ ] Completion state — finished model displayed when all pieces placed
+(No active requirements — remaining work is polish)
 
 ### Out of Scope
 
@@ -78,4 +80,4 @@ This document evolves at phase transitions and milestone boundaries.
 4. Update Context with current state
 
 ---
-*Last updated: 2026-04-05 after Phase 2 completion — core build loop validated*
+*Last updated: 2026-04-06 after Phase 3 completion — set flow and completion validated*
