@@ -64,8 +64,8 @@ Plans:
   3. Camera auto-focuses on the area where the next piece goes at each new step
 **Plans**: 2 plans
 Plans:
-- [ ] 03-01-PLAN.md — Set selection screen with 3D thumbnails, star ratings, back button, and main.js flow orchestration
-- [ ] 03-02-PLAN.md — Completion screen with build timer and auto-orbit, camera auto-focus on step advance
+- [x] 03-01-PLAN.md — Set selection screen with 3D thumbnails, star ratings, back button, and main.js flow orchestration
+- [x] 03-02-PLAN.md — Completion screen with build timer and auto-orbit, camera auto-focus on step advance
 **UI hint**: yes
 
 ### Phase 4: Polish
