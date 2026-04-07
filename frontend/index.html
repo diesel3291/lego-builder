@@ -3,199 +3,551 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lego Builder</title>
+  <title>Orange's Big Challenge!</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { overflow: hidden; background: #1a1a2e; }
+    body { overflow: hidden; background: #2d6b6b; font-family: 'Inter', system-ui, -apple-system, sans-serif; }
     #canvas { display: block; width: 100vw; height: 100vh; }
 
-    #hud {
-      position: fixed;
-      top: 16px;
-      left: 16px;
-      width: 220px;
-      padding: 16px 24px;
-      background: rgba(22, 33, 62, 0.88);
-      border-radius: 8px;
-      z-index: 10;
-      font-family: system-ui, -apple-system, sans-serif;
-      color: #e8eaf6;
-    }
-    .hud-step-counter {
-      font-size: 16px;
-      font-weight: 600;
-      line-height: 1.2;
-      margin-bottom: 8px;
-    }
-    .hud-step-desc {
-      font-size: 14px;
-      font-weight: 400;
-      line-height: 1.5;
-      color: rgba(232, 234, 246, 0.6);
-    }
-    .hud-progress {
-      margin-top: 8px;
-      height: 4px;
-      background: rgba(255, 255, 255, 0.12);
-      border-radius: 2px;
-      overflow: hidden;
-    }
-    .hud-progress-fill {
-      height: 100%;
-      background: #e94560;
-      border-radius: 2px;
-      transition: width 0.3s ease;
-    }
-
-    #tray {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 72px;
-      background: #16213e;
-      z-index: 10;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .tray-items {
-      display: flex;
-      flex-direction: row;
-      gap: 8px;
-      align-items: center;
-    }
-    .tray-item {
-      width: 44px;
-      height: 44px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      cursor: pointer;
-      border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      background: transparent;
-      transition: border-color 0.15s;
-    }
-    .tray-item:hover {
-      border-color: rgba(255, 255, 255, 0.20);
-    }
-    .tray-item.selected {
-      border: 2px solid #e94560;
-      background: rgba(233, 69, 96, 0.15);
-    }
-    .tray-swatch {
-      width: 40px;
-      height: 40px;
-      border-radius: 4px;
-    }
-
-    /* Selection screen overlay */
+    /* ===================== SELECTION SCREEN ===================== */
     #selection-screen {
       position: fixed;
       inset: 0;
       z-index: 20;
-      background: rgba(26, 26, 46, 0.96);
+      background: #f0f0f3;
       opacity: 1;
       pointer-events: all;
       transition: opacity 0.35s ease;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100%;
+      overflow-y: auto;
     }
     #selection-screen.hidden {
       opacity: 0;
       pointer-events: none;
     }
-    #selection-screen h1 {
-      font-family: system-ui, -apple-system, sans-serif;
-      color: #e8eaf6;
-      font-size: 28px;
-      margin-bottom: 32px;
-    }
-    #set-list {
+
+    .selection-header {
+      padding: 24px 40px;
       display: flex;
-      flex-direction: column;
-      gap: 16px;
-      max-width: 520px;
-      width: 100%;
-      padding: 0 24px;
+      align-items: center;
+      justify-content: space-between;
+    }
+    #reset-progress-btn {
+      background: none;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      color: #999;
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 6px 16px;
+      cursor: pointer;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    #reset-progress-btn:hover {
+      color: #e53935;
+      border-color: #e53935;
+    }
+    .selection-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 20px;
+      font-weight: 700;
+      color: #1a1a1a;
+    }
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+      background: #e53935;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .logo-icon::after {
+      content: '';
+      width: 10px;
+      height: 10px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
     }
 
-    /* Set card styles */
+    .selection-title-area {
+      padding: 8px 40px 24px;
+    }
+    .selection-title-area h1 {
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 6px;
+    }
+    .selection-title-area p {
+      font-size: 15px;
+      color: #777;
+    }
+
+    #set-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      padding: 0 40px 40px;
+      max-width: 1100px;
+    }
+
+    /* Set card — white card with thumbnail, info, button */
     .set-card {
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      gap: 16px;
-      padding: 16px;
-      background: rgba(22, 33, 62, 0.9);
-      border-radius: 8px;
+      background: #fff;
+      border-radius: 16px;
+      overflow: hidden;
       cursor: pointer;
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      transition: border-color 0.15s;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+      transition: box-shadow 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+      border: none;
     }
     .set-card:hover {
-      border-color: #e94560;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+      transform: translateY(-2px);
     }
-    .set-card-thumb {
-      width: 120px;
-      height: 90px;
-      border-radius: 4px;
-      flex-shrink: 0;
+    .set-card-thumb-wrap {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      background: #e8e8ec;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
-    .set-card-info {
+    .set-card-thumb-wrap canvas,
+    .set-card-thumb-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .set-card-thumb-wrap { position: relative; }
+    .set-card-badge {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 28px;
+      height: 28px;
+      background: #43a047;
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 16px;
+      font-weight: 700;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+    }
+    .set-card-body {
+      padding: 14px 16px 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
       flex: 1;
     }
     .set-card-name {
       font-size: 16px;
       font-weight: 600;
-      color: #e8eaf6;
-      margin-bottom: 4px;
-      font-family: system-ui, -apple-system, sans-serif;
-    }
-    .set-card-desc {
-      font-size: 13px;
-      color: rgba(232, 234, 246, 0.6);
-      margin-bottom: 6px;
-      font-family: system-ui, -apple-system, sans-serif;
+      color: #1a1a1a;
     }
     .set-card-meta {
-      font-size: 13px;
-      color: rgba(232, 234, 246, 0.5);
       display: flex;
-      gap: 12px;
-      font-family: system-ui, -apple-system, sans-serif;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: #999;
     }
     .set-card-stars {
-      color: #e94560;
+      color: #1a1a1a;
+      font-size: 12px;
+      letter-spacing: 1px;
     }
-
-    /* Back button */
-    #back-btn {
-      position: fixed;
-      top: 16px;
-      right: 16px;
-      z-index: 10;
-      background: rgba(22, 33, 62, 0.88);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 4px;
-      color: #e8eaf6;
-      font-size: 14px;
+    .set-card-difficulty {
+      color: #999;
+      font-size: 12px;
+    }
+    .set-card-btn {
+      margin-top: auto;
+      padding-top: 10px;
+    }
+    .set-card-btn button {
+      width: 100%;
+      padding: 10px 0;
+      border: none;
+      border-radius: 24px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
       cursor: pointer;
-      padding: 6px 12px;
-      font-family: system-ui, -apple-system, sans-serif;
-      display: none;
+      text-transform: uppercase;
+      background: #e53935;
+      color: #fff;
+      transition: background 0.15s;
+    }
+    .set-card-btn button:hover {
+      background: #c62828;
     }
 
-    /* Completion screen overlay */
+    /* ===================== BOSS SECTION ===================== */
+    .boss-section {
+      padding: 0 40px 40px;
+      max-width: 1100px;
+    }
+    .boss-section-header {
+      margin-bottom: 20px;
+      padding-top: 12px;
+      border-top: 2px solid #e0e0e0;
+    }
+    .boss-section-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 4px;
+    }
+    .boss-section-subtitle {
+      font-size: 14px;
+      color: #999;
+    }
+    #boss-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+    }
+    #boss-list .set-card {
+      border: 2px solid #f9a825;
+    }
+    #boss-list .set-card:hover {
+      border-color: #f57f17;
+    }
+    #boss-list .set-card-thumb-wrap::after {
+      content: 'BOSS';
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: #f9a825;
+      color: #1a1a1a;
+      font-size: 10px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      padding: 3px 8px;
+      border-radius: 6px;
+    }
+
+    /* ===================== BUILD UI — TOP BAR ===================== */
+    #top-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 52px;
+      z-index: 10;
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 16px;
+      background: rgba(30, 60, 60, 0.85);
+      backdrop-filter: blur(8px);
+    }
+    .top-bar-left {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .top-bar-logo {
+      width: 24px;
+      height: 24px;
+      background: #e53935;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .top-bar-logo::after {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: rgba(255,255,255,0.9);
+      border-radius: 50%;
+    }
+    .top-bar-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: #fff;
+    }
+    .top-bar-step {
+      font-size: 12px;
+      color: rgba(255,255,255,0.5);
+    }
+    #quit-btn {
+      background: #e53935;
+      border: none;
+      border-radius: 20px;
+      color: #fff;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 18px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    #quit-btn:hover {
+      background: #c62828;
+    }
+
+    /* ===================== BUILD UI — LEFT PANEL (TRAY) ===================== */
+    #tray-panel {
+      position: fixed;
+      top: 64px;
+      left: 12px;
+      width: 160px;
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    /* Active piece display */
+    .active-piece-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .active-piece-label {
+      font-size: 10px;
+      font-weight: 600;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .active-piece-preview {
+      width: 100%;
+      aspect-ratio: 1;
+      background: #f5f5f7;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 8px;
+    }
+    .active-piece-swatch {
+      width: 52px;
+      height: 52px;
+      border-radius: 8px;
+    }
+    .active-piece-name {
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .active-piece-desc {
+      font-size: 11px;
+      color: #999;
+    }
+
+    /* Piece grid */
+    .piece-grid-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .tray-items {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+    }
+    .tray-item {
+      aspect-ratio: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border-radius: 10px;
+      border: 2px solid transparent;
+      background: #f5f5f7;
+      transition: border-color 0.15s, background 0.15s;
+      padding: 4px;
+      gap: 2px;
+    }
+    .tray-item:hover {
+      background: #eeeef2;
+    }
+    .tray-item.selected {
+      border-color: #e53935;
+      background: #fef0f0;
+    }
+    .tray-swatch {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+    }
+    .tray-piece-img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+      pointer-events: none;
+    }
+    .tray-item-label {
+      font-size: 9px;
+      color: #777;
+      text-align: center;
+      line-height: 1.1;
+      font-weight: 500;
+    }
+
+    /* ===================== BUILD UI — RIGHT PANEL (HUD) ===================== */
+    #hud {
+      position: fixed;
+      top: 64px;
+      right: 12px;
+      width: 200px;
+      z-index: 10;
+      display: none;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .hud-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .hud-card-title {
+      font-size: 11px;
+      font-weight: 700;
+      color: #1a1a1a;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .hud-card-title::before {
+      content: '';
+      width: 8px;
+      height: 8px;
+      background: #f9a825;
+      border-radius: 50%;
+    }
+
+    /* Step progress items */
+    .hud-step-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 6px 0;
+    }
+    .hud-step-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .hud-step-dot.done { background: #43a047; }
+    .hud-step-dot.current { background: #1e88e5; }
+    .hud-step-dot.pending { background: #e0e0e0; }
+    .hud-step-info {
+      flex: 1;
+    }
+    .hud-step-name {
+      font-size: 12px;
+      font-weight: 600;
+      color: #1a1a1a;
+    }
+    .hud-step-progress-bar {
+      height: 4px;
+      background: #e0e0e0;
+      border-radius: 2px;
+      margin-top: 3px;
+      overflow: hidden;
+    }
+    .hud-step-progress-fill {
+      height: 100%;
+      border-radius: 2px;
+      transition: width 0.3s ease;
+    }
+    .hud-step-progress-fill.done { background: #43a047; }
+    .hud-step-progress-fill.current { background: #1e88e5; }
+    .hud-step-count {
+      font-size: 11px;
+      font-weight: 600;
+      color: #999;
+    }
+
+    /* Instructions section */
+    .hud-instructions {
+      margin-top: 4px;
+      padding-top: 8px;
+      border-top: 1px solid #f0f0f0;
+    }
+    .hud-instructions-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 10px;
+      font-weight: 700;
+      color: #999;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 6px;
+    }
+    .hud-instructions-text {
+      font-size: 12px;
+      color: #555;
+      font-style: italic;
+      line-height: 1.4;
+    }
+
+    /* ===================== BUILD UI — BOTTOM BAR ===================== */
+    #bottom-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 56px;
+      z-index: 10;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(30, 60, 60, 0.85);
+      backdrop-filter: blur(8px);
+    }
+    .bottom-bar-hint {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      letter-spacing: 0.5px;
+    }
+    .bottom-bar-hint kbd {
+      background: rgba(255,255,255,0.15);
+      border-radius: 3px;
+      padding: 2px 6px;
+      font-family: inherit;
+      font-weight: 700;
+      color: #f9a825;
+    }
+
+    /* ===================== COMPLETION SCREEN ===================== */
     #completion-screen {
       position: fixed;
       inset: 0;
       z-index: 20;
-      background: rgba(26, 26, 46, 0.85);
+      background: rgba(30, 60, 60, 0.8);
+      backdrop-filter: blur(6px);
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.35s ease;
@@ -209,59 +561,298 @@
     }
     .completion-content {
       text-align: center;
+      background: #fff;
+      border-radius: 20px;
+      padding: 48px 56px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     }
     .completion-title {
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: #e8eaf6;
-      margin-bottom: 12px;
+      font-size: 32px;
+      font-weight: 800;
+      color: #1a1a1a;
+      margin-bottom: 8px;
     }
     .completion-time {
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 18px;
-      color: rgba(232, 234, 246, 0.7);
-      margin-bottom: 32px;
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 28px;
+    }
+    .completion-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
     }
     .completion-btn {
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 16px;
-      font-weight: 600;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
       padding: 12px 32px;
-      border-radius: 6px;
+      border-radius: 24px;
       border: none;
       cursor: pointer;
-      margin: 0 8px;
-      background: #e94560;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: #e53935;
       color: #fff;
       transition: background 0.15s;
     }
     .completion-btn:hover {
-      background: #d63851;
+      background: #c62828;
     }
     .completion-btn-secondary {
-      background: transparent;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      color: #e8eaf6;
+      background: #f5f5f7;
+      color: #1a1a1a;
     }
     .completion-btn-secondary:hover {
-      background: rgba(255, 255, 255, 0.08);
+      background: #e8e8ec;
+    }
+
+    /* ===================== ALL-COMPLETE CELEBRATION ===================== */
+    #celebration-screen {
+      position: fixed;
+      inset: 0;
+      z-index: 30;
+      background: radial-gradient(ellipse at center, #1a0a2e 0%, #0d0015 100%);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.6s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    #celebration-screen.visible {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    /* Animated stars background */
+    .celebration-stars {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+    }
+    .celebration-stars::before,
+    .celebration-stars::after {
+      content: '';
+      position: absolute;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      box-shadow:
+        25vw 10vh 0 0 rgba(255,215,0,0.8),
+        75vw 20vh 0 0 rgba(255,255,255,0.6),
+        15vw 40vh 0 0 rgba(255,215,0,0.5),
+        85vw 35vh 0 0 rgba(255,255,255,0.7),
+        50vw 15vh 0 0 rgba(255,215,0,0.6),
+        30vw 65vh 0 0 rgba(255,255,255,0.5),
+        70vw 70vh 0 0 rgba(255,215,0,0.7),
+        10vw 80vh 0 0 rgba(255,255,255,0.4),
+        90vw 60vh 0 0 rgba(255,215,0,0.6),
+        45vw 85vh 0 0 rgba(255,255,255,0.5),
+        60vw 50vh 0 0 rgba(255,215,0,0.4),
+        20vw 25vh 0 0 rgba(255,255,255,0.6);
+      animation: twinkle 2s ease-in-out infinite alternate;
+    }
+    .celebration-stars::after {
+      animation-delay: 1s;
+      box-shadow:
+        35vw 5vh 0 0 rgba(255,255,255,0.5),
+        65vw 30vh 0 0 rgba(255,215,0,0.6),
+        5vw 55vh 0 0 rgba(255,255,255,0.7),
+        95vw 45vh 0 0 rgba(255,215,0,0.5),
+        40vw 75vh 0 0 rgba(255,255,255,0.6),
+        55vw 90vh 0 0 rgba(255,215,0,0.4),
+        80vw 8vh 0 0 rgba(255,255,255,0.5),
+        22vw 92vh 0 0 rgba(255,215,0,0.7);
+    }
+    @keyframes twinkle {
+      0% { opacity: 0.4; transform: scale(1); }
+      100% { opacity: 1; transform: scale(1.3); }
+    }
+
+    /* Confetti bursts */
+    .celebration-confetti {
+      position: absolute;
+      inset: 0;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    .confetti-piece {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      opacity: 0;
+    }
+    #celebration-screen.visible .confetti-piece {
+      animation: confettiFall linear forwards;
+    }
+    @keyframes confettiFall {
+      0% { opacity: 1; transform: translateY(-20vh) rotate(0deg); }
+      100% { opacity: 0; transform: translateY(110vh) rotate(720deg); }
+    }
+
+    .celebration-content {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 520px;
+      padding: 0 24px;
+    }
+
+    .celebration-trophy {
+      font-size: 80px;
+      margin-bottom: 16px;
+      animation: trophyBounce 1.5s ease-in-out infinite;
+      display: inline-block;
+    }
+    @keyframes trophyBounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      50% { transform: translateY(-12px) scale(1.05); }
+    }
+
+    .celebration-title {
+      font-size: 42px;
+      font-weight: 800;
+      background: linear-gradient(135deg, #ffd700 0%, #ffaa00 30%, #fff 50%, #ffaa00 70%, #ffd700 100%);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer 3s ease-in-out infinite;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+    @keyframes shimmer {
+      0%, 100% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+    }
+
+    .celebration-subtitle {
+      font-size: 18px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+      line-height: 1.5;
+    }
+
+    .celebration-wish-box {
+      background: linear-gradient(135deg, rgba(255,215,0,0.15) 0%, rgba(255,170,0,0.1) 100%);
+      border: 2px solid rgba(255,215,0,0.4);
+      border-radius: 20px;
+      padding: 28px 32px;
+      margin-bottom: 36px;
+    }
+    .celebration-wish-count {
+      font-size: 56px;
+      font-weight: 800;
+      color: #ffd700;
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 0 0 30px rgba(255,215,0,0.5);
+    }
+    .celebration-wish-label {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 12px;
+    }
+    .celebration-wish-hint {
+      font-size: 14px;
+      color: rgba(255,215,0,0.8);
+      font-weight: 600;
+    }
+
+    .celebration-actions {
+      display: flex;
+      gap: 12px;
+      justify-content: center;
+    }
+    .celebration-btn {
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 14px 36px;
+      border-radius: 24px;
+      border: none;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: linear-gradient(135deg, #ffd700, #ffaa00);
+      color: #1a0a2e;
+      transition: transform 0.15s, box-shadow 0.15s;
+      box-shadow: 0 4px 20px rgba(255,215,0,0.3);
+    }
+    .celebration-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 28px rgba(255,215,0,0.5);
     }
   </style>
 </head>
 <body>
   <canvas id="canvas"></canvas>
 
-  <!-- Selection screen overlay — visible by default (landing page) -->
+  <!-- ===== SELECTION SCREEN ===== -->
   <div id="selection-screen">
-    <h1>Lego Builder</h1>
+    <div class="selection-header">
+      <div class="selection-logo">
+        <div class="logo-icon"></div>
+        Orange's Big Challenge!
+      </div>
+      <button id="reset-progress-btn">Reset Progress</button>
+    </div>
+    <div class="selection-title-area">
+      <h1>Choose Your Next Build</h1>
+      <p>Select a project and start assembling your masterpiece.</p>
+    </div>
     <div id="set-list"></div>
+
+    <div id="boss-section" class="boss-section">
+      <div class="boss-section-header">
+        <div class="boss-section-title">Boss Challenges</div>
+        <div class="boss-section-subtitle">Think you're ready? These builds will test your patience.</div>
+      </div>
+      <div id="boss-list"></div>
+    </div>
   </div>
 
-  <!-- Back button — shown only during build -->
-  <button id="back-btn">&#x2190; Back</button>
+  <!-- ===== BUILD UI — TOP BAR ===== -->
+  <div id="top-bar">
+    <div class="top-bar-left">
+      <div class="top-bar-logo"></div>
+      <div>
+        <div class="top-bar-title" id="top-bar-title"></div>
+        <div class="top-bar-step" id="top-bar-step"></div>
+      </div>
+    </div>
+    <button id="quit-btn">Save &amp; Quit</button>
+  </div>
 
-  <!-- Completion screen overlay — hidden by default, shown on build complete -->
+  <!-- ===== BUILD UI — LEFT PANEL (TRAY) ===== -->
+  <div id="tray-panel">
+    <div class="active-piece-card" id="active-piece">
+      <div class="active-piece-label">Active Piece</div>
+      <div class="active-piece-preview">
+        <div class="active-piece-swatch" id="active-piece-swatch"></div>
+      </div>
+      <div class="active-piece-name" id="active-piece-name">Select a piece</div>
+      <div class="active-piece-desc" id="active-piece-desc"></div>
+    </div>
+    <div class="piece-grid-card">
+      <div class="tray-items"></div>
+    </div>
+  </div>
+
+  <!-- ===== BUILD UI — RIGHT PANEL (HUD) ===== -->
+  <div id="hud"></div>
+
+  <!-- ===== BUILD UI — BOTTOM BAR ===== -->
+  <div id="bottom-bar">
+    <div class="bottom-bar-hint">
+      <kbd>Scroll</kbd> zoom &nbsp; <kbd>Drag</kbd> orbit &nbsp; <kbd>Right-drag</kbd> pan
+    </div>
+  </div>
+
+  <!-- ===== COMPLETION SCREEN ===== -->
   <div id="completion-screen">
     <div class="completion-content">
       <h1 class="completion-title">Build Complete!</h1>
@@ -273,10 +864,28 @@
     </div>
   </div>
 
-  <div id="hud"></div>
-  <div id="tray">
-    <div class="tray-items"></div>
+  <!-- ===== ALL-COMPLETE CELEBRATION ===== -->
+  <div id="celebration-screen">
+    <div class="celebration-stars"></div>
+    <div class="celebration-confetti" id="celebration-confetti"></div>
+    <div class="celebration-content">
+      <div class="celebration-trophy">&#127942;</div>
+      <h1 class="celebration-title">Master Builder!</h1>
+      <p class="celebration-subtitle">Every set. Every brick. Every step.<br>You completed them all.</p>
+      <div class="celebration-wish-box">
+        <div class="celebration-wish-count">5</div>
+        <div class="celebration-wish-label">You earned 5 wishes!</div>
+        <div class="celebration-wish-hint">Screenshot as evidence.</div>
+      </div>
+      <div class="celebration-actions">
+        <button class="celebration-btn" id="celebration-close-btn">Back to Sets</button>
+      </div>
+    </div>
   </div>
+
+  <!-- Hidden legacy tray element for compatibility -->
+  <div id="tray" style="display:none;"></div>
+
   <script type="module" src="/src/main.js"></script>
 </body>
 </html>

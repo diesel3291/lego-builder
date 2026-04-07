@@ -1,0 +1,237 @@
+{
+  "schemaVersion": 1,
+  "id": "labubu",
+  "name": "Labubu",
+  "description": "The ultimate boss build! A chocolate Labubu with its signature toothy grin, big eyes, and pointy ears. 138 pieces. Good luck!",
+  "pieceCount": 138,
+  "steps": [
+    {
+      "stepNumber": 1,
+      "description": "Build the feet and connect the legs",
+      "pieces": [
+        {"id": "s1p1", "type": "brick-2x2", "color": "#6B3A2A", "gridX": 1, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p2", "type": "brick-2x2", "color": "#6B3A2A", "gridX": 5, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p3", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 1, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s1p4", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 3, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s1p5", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 5, "gridZ": 0, "layer": 1, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "description": "Build up the lower body — nice and wide",
+      "pieces": [
+        {"id": "s2p1", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s2p2", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 2, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s2p3", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 4, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s2p4", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s2p5", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s2p6", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 2, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s2p7", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 4, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s2p8", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 3, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "description": "Add the stubby arms on each side",
+      "pieces": [
+        {"id": "s3p1", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 4, "rotation": 0},
+        {"id": "s3p2", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 2, "gridZ": 0, "layer": 4, "rotation": 0},
+        {"id": "s3p3", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 4, "gridZ": 0, "layer": 4, "rotation": 0},
+        {"id": "s3p4", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 4, "rotation": 0},
+        {"id": "s3p5", "type": "brick-1x2", "color": "#6B3A2A", "gridX": -1, "gridZ": 1, "layer": 4, "rotation": 0},
+        {"id": "s3p6", "type": "brick-1x2", "color": "#6B3A2A", "gridX": 8, "gridZ": 1, "layer": 4, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "description": "The cream belly patch and narrow neck",
+      "pieces": [
+        {"id": "s4p1", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 5, "rotation": 0},
+        {"id": "s4p2", "type": "brick-2x4", "color": "#F5DEB3", "gridX": 2, "gridZ": 0, "layer": 5, "rotation": 0},
+        {"id": "s4p3", "type": "brick-2x4", "color": "#F5DEB3", "gridX": 4, "gridZ": 0, "layer": 5, "rotation": 0},
+        {"id": "s4p4", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 5, "rotation": 0},
+        {"id": "s4p5", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 1, "gridZ": 0, "layer": 6, "rotation": 0},
+        {"id": "s4p6", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 3, "gridZ": 0, "layer": 6, "rotation": 0},
+        {"id": "s4p7", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 5, "gridZ": 0, "layer": 6, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 5,
+      "description": "Start the big head — two solid brown layers",
+      "pieces": [
+        {"id": "s5p1", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 7, "rotation": 0},
+        {"id": "s5p2", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 2, "gridZ": 0, "layer": 7, "rotation": 0},
+        {"id": "s5p3", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 4, "gridZ": 0, "layer": 7, "rotation": 0},
+        {"id": "s5p4", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 7, "rotation": 0},
+        {"id": "s5p5", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 8, "rotation": 0},
+        {"id": "s5p6", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 2, "gridZ": 0, "layer": 8, "rotation": 0},
+        {"id": "s5p7", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 4, "gridZ": 0, "layer": 8, "rotation": 0},
+        {"id": "s5p8", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 8, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 6,
+      "description": "The chin — the cream face peeks through the hood",
+      "pieces": [
+        {"id": "s6p1", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 9, "rotation": 0},
+        {"id": "s6p2", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 1, "gridZ": 0, "layer": 9, "rotation": 0},
+        {"id": "s6p3", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 2, "gridZ": 0, "layer": 9, "rotation": 0},
+        {"id": "s6p4", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 3, "gridZ": 0, "layer": 9, "rotation": 0},
+        {"id": "s6p5", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 4, "gridZ": 0, "layer": 9, "rotation": 0},
+        {"id": "s6p6", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 5, "gridZ": 0, "layer": 9, "rotation": 0},
+        {"id": "s6p7", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 6, "gridZ": 0, "layer": 9, "rotation": 0},
+        {"id": "s6p8", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 7, "gridZ": 0, "layer": 9, "rotation": 0},
+        {"id": "s6p9", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 0, "gridZ": 1, "layer": 9, "rotation": 0},
+        {"id": "s6p10", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 2, "gridZ": 1, "layer": 9, "rotation": 0},
+        {"id": "s6p11", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 4, "gridZ": 1, "layer": 9, "rotation": 0},
+        {"id": "s6p12", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 9, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 7,
+      "description": "The signature Labubu grin — three sharp teeth!",
+      "pieces": [
+        {"id": "s7p1", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 10, "rotation": 0},
+        {"id": "s7p2", "type": "brick-1x1", "color": "#3E1F14", "gridX": 1, "gridZ": 0, "layer": 10, "rotation": 0},
+        {"id": "s7p3", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 2, "gridZ": 0, "layer": 10, "rotation": 0},
+        {"id": "s7p4", "type": "brick-1x1", "color": "#3E1F14", "gridX": 3, "gridZ": 0, "layer": 10, "rotation": 0},
+        {"id": "s7p5", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 4, "gridZ": 0, "layer": 10, "rotation": 0},
+        {"id": "s7p6", "type": "brick-1x1", "color": "#3E1F14", "gridX": 5, "gridZ": 0, "layer": 10, "rotation": 0},
+        {"id": "s7p7", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 6, "gridZ": 0, "layer": 10, "rotation": 0},
+        {"id": "s7p8", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 7, "gridZ": 0, "layer": 10, "rotation": 0},
+        {"id": "s7p9", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 0, "gridZ": 1, "layer": 10, "rotation": 0},
+        {"id": "s7p10", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 2, "gridZ": 1, "layer": 10, "rotation": 0},
+        {"id": "s7p11", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 4, "gridZ": 1, "layer": 10, "rotation": 0},
+        {"id": "s7p12", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 10, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 8,
+      "description": "Fill in the cheeks above the grin",
+      "pieces": [
+        {"id": "s8p1", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 11, "rotation": 0},
+        {"id": "s8p2", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 1, "gridZ": 0, "layer": 11, "rotation": 0},
+        {"id": "s8p3", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 2, "gridZ": 0, "layer": 11, "rotation": 0},
+        {"id": "s8p4", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 3, "gridZ": 0, "layer": 11, "rotation": 0},
+        {"id": "s8p5", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 4, "gridZ": 0, "layer": 11, "rotation": 0},
+        {"id": "s8p6", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 5, "gridZ": 0, "layer": 11, "rotation": 0},
+        {"id": "s8p7", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 6, "gridZ": 0, "layer": 11, "rotation": 0},
+        {"id": "s8p8", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 7, "gridZ": 0, "layer": 11, "rotation": 0},
+        {"id": "s8p9", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 0, "gridZ": 1, "layer": 11, "rotation": 0},
+        {"id": "s8p10", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 2, "gridZ": 1, "layer": 11, "rotation": 0},
+        {"id": "s8p11", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 4, "gridZ": 1, "layer": 11, "rotation": 0},
+        {"id": "s8p12", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 11, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 9,
+      "description": "The big eyes — lower half with white backgrounds",
+      "pieces": [
+        {"id": "s9p1", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 12, "rotation": 0},
+        {"id": "s9p2", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 1, "gridZ": 0, "layer": 12, "rotation": 0},
+        {"id": "s9p3", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 2, "gridZ": 0, "layer": 12, "rotation": 0},
+        {"id": "s9p4", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 3, "gridZ": 0, "layer": 12, "rotation": 0},
+        {"id": "s9p5", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 4, "gridZ": 0, "layer": 12, "rotation": 0},
+        {"id": "s9p6", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 5, "gridZ": 0, "layer": 12, "rotation": 0},
+        {"id": "s9p7", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 6, "gridZ": 0, "layer": 12, "rotation": 0},
+        {"id": "s9p8", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 7, "gridZ": 0, "layer": 12, "rotation": 0},
+        {"id": "s9p9", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 0, "gridZ": 1, "layer": 12, "rotation": 0},
+        {"id": "s9p10", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 2, "gridZ": 1, "layer": 12, "rotation": 0},
+        {"id": "s9p11", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 4, "gridZ": 1, "layer": 12, "rotation": 0},
+        {"id": "s9p12", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 12, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 10,
+      "description": "Place the dark pupils — those iconic Labubu eyes",
+      "pieces": [
+        {"id": "s10p1", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 13, "rotation": 0},
+        {"id": "s10p2", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 1, "gridZ": 0, "layer": 13, "rotation": 0},
+        {"id": "s10p3", "type": "brick-1x1", "color": "#1A1A1A", "gridX": 2, "gridZ": 0, "layer": 13, "rotation": 0},
+        {"id": "s10p4", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 3, "gridZ": 0, "layer": 13, "rotation": 0},
+        {"id": "s10p5", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 4, "gridZ": 0, "layer": 13, "rotation": 0},
+        {"id": "s10p6", "type": "brick-1x1", "color": "#1A1A1A", "gridX": 5, "gridZ": 0, "layer": 13, "rotation": 0},
+        {"id": "s10p7", "type": "brick-1x1", "color": "#FFFFFF", "gridX": 6, "gridZ": 0, "layer": 13, "rotation": 0},
+        {"id": "s10p8", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 7, "gridZ": 0, "layer": 13, "rotation": 0},
+        {"id": "s10p9", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 0, "gridZ": 1, "layer": 13, "rotation": 0},
+        {"id": "s10p10", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 2, "gridZ": 1, "layer": 13, "rotation": 0},
+        {"id": "s10p11", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 4, "gridZ": 1, "layer": 13, "rotation": 0},
+        {"id": "s10p12", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 13, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 11,
+      "description": "The hood closes over the forehead",
+      "pieces": [
+        {"id": "s11p1", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 14, "rotation": 0},
+        {"id": "s11p2", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 1, "gridZ": 0, "layer": 14, "rotation": 0},
+        {"id": "s11p3", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 2, "gridZ": 0, "layer": 14, "rotation": 0},
+        {"id": "s11p4", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 3, "gridZ": 0, "layer": 14, "rotation": 0},
+        {"id": "s11p5", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 4, "gridZ": 0, "layer": 14, "rotation": 0},
+        {"id": "s11p6", "type": "brick-1x1", "color": "#F5DEB3", "gridX": 5, "gridZ": 0, "layer": 14, "rotation": 0},
+        {"id": "s11p7", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 14, "rotation": 0},
+        {"id": "s11p8", "type": "brick-1x1", "color": "#6B3A2A", "gridX": 7, "gridZ": 0, "layer": 14, "rotation": 0},
+        {"id": "s11p9", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 0, "gridZ": 1, "layer": 14, "rotation": 0},
+        {"id": "s11p10", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 2, "gridZ": 1, "layer": 14, "rotation": 0},
+        {"id": "s11p11", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 4, "gridZ": 1, "layer": 14, "rotation": 0},
+        {"id": "s11p12", "type": "brick-2x3", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 14, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 12,
+      "description": "Seal the hood — full brown layer",
+      "pieces": [
+        {"id": "s12p1", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 15, "rotation": 0},
+        {"id": "s12p2", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 2, "gridZ": 0, "layer": 15, "rotation": 0},
+        {"id": "s12p3", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 4, "gridZ": 0, "layer": 15, "rotation": 0},
+        {"id": "s12p4", "type": "brick-2x4", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 15, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 13,
+      "description": "Round off the head top with slopes",
+      "pieces": [
+        {"id": "s13p1", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 0, "gridZ": 0, "layer": 16, "rotation": 180},
+        {"id": "s13p2", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 2, "gridZ": 0, "layer": 16, "rotation": 180},
+        {"id": "s13p3", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 4, "gridZ": 0, "layer": 16, "rotation": 180},
+        {"id": "s13p4", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 6, "gridZ": 0, "layer": 16, "rotation": 180},
+        {"id": "s13p5", "type": "brick-2x2", "color": "#6B3A2A", "gridX": 0, "gridZ": 1, "layer": 16, "rotation": 0},
+        {"id": "s13p6", "type": "brick-2x2", "color": "#6B3A2A", "gridX": 2, "gridZ": 1, "layer": 16, "rotation": 0},
+        {"id": "s13p7", "type": "brick-2x2", "color": "#6B3A2A", "gridX": 4, "gridZ": 1, "layer": 16, "rotation": 0},
+        {"id": "s13p8", "type": "brick-2x2", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 16, "rotation": 0},
+        {"id": "s13p9", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 0, "gridZ": 3, "layer": 16, "rotation": 0},
+        {"id": "s13p10", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 2, "gridZ": 3, "layer": 16, "rotation": 0},
+        {"id": "s13p11", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 4, "gridZ": 3, "layer": 16, "rotation": 0},
+        {"id": "s13p12", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 6, "gridZ": 3, "layer": 16, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 14,
+      "description": "Build the tall rabbit ears — brown outside, tan inside",
+      "pieces": [
+        {"id": "s14p1", "type": "brick-1x2", "color": "#6B3A2A", "gridX": 1, "gridZ": 1, "layer": 17, "rotation": 0},
+        {"id": "s14p2", "type": "brick-1x2", "color": "#C9956B", "gridX": 2, "gridZ": 1, "layer": 17, "rotation": 0},
+        {"id": "s14p3", "type": "brick-1x2", "color": "#C9956B", "gridX": 5, "gridZ": 1, "layer": 17, "rotation": 0},
+        {"id": "s14p4", "type": "brick-1x2", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 17, "rotation": 0},
+        {"id": "s14p5", "type": "brick-1x2", "color": "#6B3A2A", "gridX": 1, "gridZ": 1, "layer": 18, "rotation": 0},
+        {"id": "s14p6", "type": "brick-1x2", "color": "#C9956B", "gridX": 2, "gridZ": 1, "layer": 18, "rotation": 0},
+        {"id": "s14p7", "type": "brick-1x2", "color": "#C9956B", "gridX": 5, "gridZ": 1, "layer": 18, "rotation": 0},
+        {"id": "s14p8", "type": "brick-1x2", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 18, "rotation": 0},
+        {"id": "s14p9", "type": "brick-1x2", "color": "#6B3A2A", "gridX": 1, "gridZ": 1, "layer": 19, "rotation": 0},
+        {"id": "s14p10", "type": "brick-1x2", "color": "#C9956B", "gridX": 2, "gridZ": 1, "layer": 19, "rotation": 0},
+        {"id": "s14p11", "type": "brick-1x2", "color": "#C9956B", "gridX": 5, "gridZ": 1, "layer": 19, "rotation": 0},
+        {"id": "s14p12", "type": "brick-1x2", "color": "#6B3A2A", "gridX": 6, "gridZ": 1, "layer": 19, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 15,
+      "description": "Top off the ears with pointed slope tips!",
+      "pieces": [
+        {"id": "s15p1", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 1, "gridZ": 1, "layer": 20, "rotation": 180},
+        {"id": "s15p2", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 1, "gridZ": 2, "layer": 20, "rotation": 0},
+        {"id": "s15p3", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 5, "gridZ": 1, "layer": 20, "rotation": 180},
+        {"id": "s15p4", "type": "slope-2x1", "color": "#6B3A2A", "gridX": 5, "gridZ": 2, "layer": 20, "rotation": 0}
+      ]
+    }
+  ]
+}

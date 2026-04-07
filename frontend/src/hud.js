@@ -1,19 +1,16 @@
 import { getCurrentStepNumber, getTotalSteps, getCurrentStep, isBuildComplete } from './state.js';
 
-// Module-level private state
 let _hudEl = null;
 
 /**
- * Initialize the HUD module. Stores reference to the #hud DOM element.
- * Call once from main.js after DOM is ready.
+ * Initialize the HUD module.
  */
 export function initHUD() {
   _hudEl = document.getElementById('hud');
 }
 
 /**
- * Render the instruction panel HUD.
- * Handles three states: loading (no set), build complete, and normal step display.
+ * Render the right-panel HUD with step progress and instructions.
  */
 export function renderHUD() {
   if (!_hudEl) return;
@@ -21,49 +18,111 @@ export function renderHUD() {
 
   const totalSteps = getTotalSteps();
 
-  // Loading state — no set loaded yet
-  if (!isBuildComplete() && totalSteps === 0) {
-    const counter = document.createElement('div');
-    counter.className = 'hud-step-counter';
-    counter.setAttribute('aria-live', 'polite');
-    counter.textContent = 'Loading set...';
-    _hudEl.appendChild(counter);
-    return;
-  }
+  if (!isBuildComplete() && totalSteps === 0) return;
+  if (isBuildComplete()) return;
 
-  // Build complete state
-  if (isBuildComplete()) {
-    const counter = document.createElement('div');
-    counter.className = 'hud-step-counter';
-    counter.setAttribute('aria-live', 'polite');
-    counter.textContent = 'Build complete!';
-    _hudEl.appendChild(counter);
-    return;
-  }
-
-  // Normal state — show step counter, description, and progress bar
   const stepNumber = getCurrentStepNumber();
   const step = getCurrentStep();
-  const percent = Math.round((stepNumber / totalSteps) * 100);
 
-  const counter = document.createElement('div');
-  counter.className = 'hud-step-counter';
-  counter.setAttribute('aria-live', 'polite');
-  counter.textContent = `Step ${stepNumber} of ${totalSteps}`;
+  // Goal Pieces card — shows step progress
+  const card = document.createElement('div');
+  card.className = 'hud-card';
 
-  const desc = document.createElement('div');
-  desc.className = 'hud-step-desc';
-  desc.textContent = step ? step.description : '';
+  const title = document.createElement('div');
+  title.className = 'hud-card-title';
+  title.textContent = 'Goal Pieces';
+  card.appendChild(title);
 
-  const progress = document.createElement('div');
-  progress.className = 'hud-progress';
+  // Show each step as a progress item
+  const maxVisible = Math.min(totalSteps, 5);
+  const startStep = Math.max(1, stepNumber - 1);
+  const endStep = Math.min(totalSteps, startStep + maxVisible - 1);
 
-  const fill = document.createElement('div');
-  fill.className = 'hud-progress-fill';
-  fill.style.width = `${percent}%`;
+  for (let i = startStep; i <= endStep; i++) {
+    const item = document.createElement('div');
+    item.className = 'hud-step-item';
 
-  progress.appendChild(fill);
-  _hudEl.appendChild(counter);
-  _hudEl.appendChild(desc);
-  _hudEl.appendChild(progress);
+    const dot = document.createElement('div');
+    dot.className = 'hud-step-dot';
+
+    const info = document.createElement('div');
+    info.className = 'hud-step-info';
+
+    const name = document.createElement('div');
+    name.className = 'hud-step-name';
+    name.textContent = `Step ${i}`;
+
+    const bar = document.createElement('div');
+    bar.className = 'hud-step-progress-bar';
+    const fill = document.createElement('div');
+    fill.className = 'hud-step-progress-fill';
+
+    const count = document.createElement('div');
+    count.className = 'hud-step-count';
+
+    if (i < stepNumber) {
+      dot.classList.add('done');
+      fill.classList.add('done');
+      fill.style.width = '100%';
+      count.textContent = '\u2713';
+    } else if (i === stepNumber) {
+      dot.classList.add('current');
+      fill.classList.add('current');
+      fill.style.width = '50%';
+      count.textContent = `${i}/${totalSteps}`;
+    } else {
+      dot.classList.add('pending');
+      fill.style.width = '0%';
+    }
+
+    bar.appendChild(fill);
+    info.appendChild(name);
+    info.appendChild(bar);
+
+    item.appendChild(dot);
+    item.appendChild(info);
+    item.appendChild(count);
+    card.appendChild(item);
+  }
+
+  // Instructions section
+  if (step && step.description) {
+    const instrDiv = document.createElement('div');
+    instrDiv.className = 'hud-instructions';
+
+    const header = document.createElement('div');
+    header.className = 'hud-instructions-header';
+
+    const instrLabel = document.createElement('span');
+    instrLabel.textContent = 'Instructions';
+    const pageLabel = document.createElement('span');
+    pageLabel.textContent = `Step ${stepNumber} of ${totalSteps}`;
+
+    header.appendChild(instrLabel);
+    header.appendChild(pageLabel);
+
+    const text = document.createElement('div');
+    text.className = 'hud-instructions-text';
+    text.textContent = `"${step.description}"`;
+
+    instrDiv.appendChild(header);
+    instrDiv.appendChild(text);
+    card.appendChild(instrDiv);
+  }
+
+  _hudEl.appendChild(card);
+
+  // Update top bar step info
+  const topStep = document.getElementById('top-bar-step');
+  if (topStep) {
+    topStep.textContent = `Step ${stepNumber} of ${totalSteps}`;
+  }
+}
+
+/**
+ * Update the top bar with the set name.
+ */
+export function updateTopBarTitle(setName) {
+  const el = document.getElementById('top-bar-title');
+  if (el) el.textContent = setName || '';
 }

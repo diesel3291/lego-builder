@@ -1,0 +1,54 @@
+{
+  "schemaVersion": 1,
+  "id": "hot-dog",
+  "name": "Hot Dog",
+  "description": "A classic hot dog in a bun with a squiggle of mustard on top.",
+  "pieceCount": 21,
+  "steps": [
+    {
+      "stepNumber": 1,
+      "description": "Lay the bottom bun — wide and long",
+      "pieces": [
+        {"id": "s1p1", "type": "brick-2x4", "color": "#d2961e", "gridX": 0, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p2", "type": "brick-2x4", "color": "#d2961e", "gridX": 2, "gridZ": 0, "layer": 0, "rotation": 0},
+        {"id": "s1p3", "type": "brick-2x4", "color": "#d2961e", "gridX": 0, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s1p4", "type": "brick-2x4", "color": "#d2961e", "gridX": 2, "gridZ": 4, "layer": 0, "rotation": 0},
+        {"id": "s1p5", "type": "brick-2x2", "color": "#d2961e", "gridX": 0, "gridZ": 8, "layer": 0, "rotation": 0},
+        {"id": "s1p6", "type": "brick-2x2", "color": "#d2961e", "gridX": 2, "gridZ": 8, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "description": "Build up the bun walls on each side",
+      "pieces": [
+        {"id": "s2p1", "type": "brick-1x4", "color": "#d2961e", "gridX": 0, "gridZ": 1, "layer": 1, "rotation": 0},
+        {"id": "s2p2", "type": "brick-1x4", "color": "#d2961e", "gridX": 0, "gridZ": 5, "layer": 1, "rotation": 0},
+        {"id": "s2p3", "type": "brick-1x4", "color": "#d2961e", "gridX": 3, "gridZ": 1, "layer": 1, "rotation": 0},
+        {"id": "s2p4", "type": "brick-1x4", "color": "#d2961e", "gridX": 3, "gridZ": 5, "layer": 1, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "description": "Place the sausage in the bun",
+      "pieces": [
+        {"id": "s3p1", "type": "brick-2x4", "color": "#cc3300", "gridX": 1, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s3p2", "type": "brick-2x4", "color": "#cc3300", "gridX": 1, "gridZ": 4, "layer": 1, "rotation": 0},
+        {"id": "s3p3", "type": "brick-2x2", "color": "#cc3300", "gridX": 1, "gridZ": 8, "layer": 1, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "description": "Zigzag the mustard across the top",
+      "pieces": [
+        {"id": "s4p1", "type": "plate-1x1", "color": "#ffd700", "gridX": 1, "gridZ": 1, "layer": 6, "rotation": 0},
+        {"id": "s4p2", "type": "plate-1x1", "color": "#ffd700", "gridX": 2, "gridZ": 2, "layer": 6, "rotation": 0},
+        {"id": "s4p3", "type": "plate-1x1", "color": "#ffd700", "gridX": 1, "gridZ": 3, "layer": 6, "rotation": 0},
+        {"id": "s4p4", "type": "plate-1x1", "color": "#ffd700", "gridX": 2, "gridZ": 4, "layer": 6, "rotation": 0},
+        {"id": "s4p5", "type": "plate-1x1", "color": "#ffd700", "gridX": 1, "gridZ": 5, "layer": 6, "rotation": 0},
+        {"id": "s4p6", "type": "plate-1x1", "color": "#ffd700", "gridX": 2, "gridZ": 6, "layer": 6, "rotation": 0},
+        {"id": "s4p7", "type": "plate-1x1", "color": "#ffd700", "gridX": 1, "gridZ": 7, "layer": 6, "rotation": 0},
+        {"id": "s4p8", "type": "plate-1x1", "color": "#ffd700", "gridX": 2, "gridZ": 8, "layer": 6, "rotation": 0}
+      ]
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "id": "honeypot",
+  "name": "Honeypot",
+  "description": "A classic honey jar — golden amber body with a lid and honey drip.",
+  "pieceCount": 33,
+  "steps": [
+    {
+      "stepNumber": 1,
+      "description": "Build the pot base — brown 4×4 foundation",
+      "pieces": [
+        {"id": "s1p1", "type": "brick-2x4", "color": "#d2691e", "gridX": 1, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s1p2", "type": "brick-2x4", "color": "#d2691e", "gridX": 3, "gridZ": 1, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "description": "Start the wide belly — golden 6×6",
+      "pieces": [
+        {"id": "s2p1", "type": "brick-2x4", "color": "#ffd700", "gridX": 0, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s2p2", "type": "brick-2x4", "color": "#ffd700", "gridX": 2, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s2p3", "type": "brick-2x4", "color": "#ffd700", "gridX": 4, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s2p4", "type": "brick-2x2", "color": "#ffd700", "gridX": 0, "gridZ": 4, "layer": 1, "rotation": 0},
+        {"id": "s2p5", "type": "brick-2x2", "color": "#ffd700", "gridX": 2, "gridZ": 4, "layer": 1, "rotation": 0},
+        {"id": "s2p6", "type": "brick-2x2", "color": "#ffd700", "gridX": 4, "gridZ": 4, "layer": 1, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "description": "Continue the belly — second golden 6×6 layer",
+      "pieces": [
+        {"id": "s3p1", "type": "brick-2x4", "color": "#ffd700", "gridX": 0, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p2", "type": "brick-2x4", "color": "#ffd700", "gridX": 2, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p3", "type": "brick-2x4", "color": "#ffd700", "gridX": 4, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p4", "type": "brick-2x2", "color": "#ffd700", "gridX": 0, "gridZ": 4, "layer": 2, "rotation": 0},
+        {"id": "s3p5", "type": "brick-2x2", "color": "#ffd700", "gridX": 2, "gridZ": 4, "layer": 2, "rotation": 0},
+        {"id": "s3p6", "type": "brick-2x2", "color": "#ffd700", "gridX": 4, "gridZ": 4, "layer": 2, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "description": "Top of the belly — third golden 6×6 layer",
+      "pieces": [
+        {"id": "s4p1", "type": "brick-2x4", "color": "#ffd700", "gridX": 0, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p2", "type": "brick-2x4", "color": "#ffd700", "gridX": 2, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p3", "type": "brick-2x4", "color": "#ffd700", "gridX": 4, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p4", "type": "brick-2x2", "color": "#ffd700", "gridX": 0, "gridZ": 4, "layer": 3, "rotation": 0},
+        {"id": "s4p5", "type": "brick-2x2", "color": "#ffd700", "gridX": 2, "gridZ": 4, "layer": 3, "rotation": 0},
+        {"id": "s4p6", "type": "brick-2x2", "color": "#ffd700", "gridX": 4, "gridZ": 4, "layer": 3, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 5,
+      "description": "Narrow into the neck — golden 4×4",
+      "pieces": [
+        {"id": "s5p1", "type": "brick-2x4", "color": "#ffd700", "gridX": 1, "gridZ": 1, "layer": 4, "rotation": 0},
+        {"id": "s5p2", "type": "brick-2x4", "color": "#ffd700", "gridX": 3, "gridZ": 1, "layer": 4, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 6,
+      "description": "Add the brown rim and honey drip on the side",
+      "pieces": [
+        {"id": "s6p1", "type": "brick-2x4", "color": "#d2691e", "gridX": 1, "gridZ": 1, "layer": 5, "rotation": 0},
+        {"id": "s6p2", "type": "brick-2x4", "color": "#d2691e", "gridX": 3, "gridZ": 1, "layer": 5, "rotation": 0},
+        {"id": "s6p3", "type": "brick-1x1", "color": "#ffd700", "gridX": 0, "gridZ": 2, "layer": 4, "rotation": 0},
+        {"id": "s6p4", "type": "brick-1x1", "color": "#ffd700", "gridX": 0, "gridZ": 3, "layer": 4, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 7,
+      "description": "Place the wide lid — brown 6×6",
+      "pieces": [
+        {"id": "s7p1", "type": "brick-2x4", "color": "#d2691e", "gridX": 0, "gridZ": 0, "layer": 6, "rotation": 0},
+        {"id": "s7p2", "type": "brick-2x4", "color": "#d2691e", "gridX": 2, "gridZ": 0, "layer": 6, "rotation": 0},
+        {"id": "s7p3", "type": "brick-2x4", "color": "#d2691e", "gridX": 4, "gridZ": 0, "layer": 6, "rotation": 0},
+        {"id": "s7p4", "type": "brick-2x2", "color": "#d2691e", "gridX": 0, "gridZ": 4, "layer": 6, "rotation": 0},
+        {"id": "s7p5", "type": "brick-2x2", "color": "#d2691e", "gridX": 2, "gridZ": 4, "layer": 6, "rotation": 0},
+        {"id": "s7p6", "type": "brick-2x2", "color": "#d2691e", "gridX": 4, "gridZ": 4, "layer": 6, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 8,
+      "description": "Top it off with a lid handle",
+      "pieces": [
+        {"id": "s8p1", "type": "brick-2x2", "color": "#d2691e", "gridX": 2, "gridZ": 2, "layer": 7, "rotation": 0}
+      ]
+    }
+  ]
+}

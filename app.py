@@ -2,13 +2,11 @@ import os
 import json
 import glob
 from flask import Flask, jsonify, send_from_directory, abort
-from flask_cors import CORS
 from dotenv import load_dotenv
 
 load_dotenv()
 
 app = Flask(__name__, static_folder='static', static_url_path='')
-CORS(app)
 
 SETS_DIR = os.getenv('SETS_DIR', 'sets')
 
@@ -17,10 +15,16 @@ SETS_DIR = os.getenv('SETS_DIR', 'sets')
 VALID_TYPES = {
     'brick-1x1', 'brick-1x2', 'brick-1x3', 'brick-1x4',
     'brick-2x2', 'brick-2x3', 'brick-2x4',
-    'plate-1x1', 'plate-1x2', 'plate-1x4', 'plate-2x2', 'plate-2x4',
+    'plate-1x1', 'plate-1x2', 'plate-1x3', 'plate-1x4',
+    'plate-2x2', 'plate-2x3', 'plate-2x4',
     'slope-2x1', 'slope-2x2',
+    'round-1x1', 'round-2x2',
+    'curve-2x2', 'wedge-2x2-corner',
+    'plate-round-1x1',
+    'fist-2x2', 'bicep-2x2', 'deltoid-2x2',
+    'trapezoid-2x1', 'nose-1x1',
 }
-VALID_ROTATIONS = {0, 90, 180, 270}
+VALID_ROTATIONS = {0, 45, 90, 135, 180, 225, 270, 315}
 
 
 def validate_set(data: dict, filepath: str = '') -> list:
@@ -41,7 +45,7 @@ def validate_set(data: dict, filepath: str = '') -> list:
                 if piece.get('type') not in VALID_TYPES:
                     errors.append(f"Step {si} piece {pi}: invalid type '{piece.get('type')}'")
                 if piece.get('rotation') not in VALID_ROTATIONS:
-                    errors.append(f"Step {si} piece {pi}: rotation must be 0, 90, 180, or 270")
+                    errors.append(f"Step {si} piece {pi}: rotation must be a multiple of 45 (0-315)")
                 for int_field in ('gridX', 'gridZ', 'layer'):
                     if int_field in piece and not isinstance(piece[int_field], int):
                         errors.append(f"Step {si} piece {pi}: {int_field} must be integer")
@@ -77,6 +81,10 @@ def index():
     return send_from_directory(app.static_folder, 'index.html')
 
 
+BOSS_SET_IDS = {'labubu', 'bodybuilder'}
+BOSS_SORT_ORDER = {'bodybuilder': 1, 'labubu': 0}  # bodybuilder last (hardest)
+
+
 @app.route('/api/sets')
 def list_sets():
     catalogue = [
@@ -85,6 +93,7 @@ def list_sets():
             'name': s['name'],
             'description': s['description'],
             'pieceCount': s['pieceCount'],
+            'category': 'boss' if s['id'] in BOSS_SET_IDS else 'regular',
         }
         for s in _sets_cache.values()
     ]

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "id": "apple",
+  "name": "Apple",
+  "description": "A crunchy red apple with a stem and leaf. Looks good enough to eat!",
+  "pieceCount": 30,
+  "steps": [
+    {
+      "stepNumber": 1,
+      "description": "Lay the apple base — a 4×4 bottom",
+      "pieces": [
+        {"id": "s1p1", "type": "brick-2x4", "color": "#cc0000", "gridX": 1, "gridZ": 1, "layer": 0, "rotation": 0},
+        {"id": "s1p2", "type": "brick-2x4", "color": "#cc0000", "gridX": 3, "gridZ": 1, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "description": "Widen to full 6×6 — the apple bulges out",
+      "pieces": [
+        {"id": "s2p1", "type": "brick-2x4", "color": "#cc0000", "gridX": 0, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s2p2", "type": "brick-2x4", "color": "#cc0000", "gridX": 2, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s2p3", "type": "brick-2x4", "color": "#cc0000", "gridX": 4, "gridZ": 0, "layer": 1, "rotation": 0},
+        {"id": "s2p4", "type": "brick-2x2", "color": "#cc0000", "gridX": 0, "gridZ": 4, "layer": 1, "rotation": 0},
+        {"id": "s2p5", "type": "brick-2x2", "color": "#cc0000", "gridX": 2, "gridZ": 4, "layer": 1, "rotation": 0},
+        {"id": "s2p6", "type": "brick-2x2", "color": "#cc0000", "gridX": 4, "gridZ": 4, "layer": 1, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "description": "Build the body — second 6×6 layer",
+      "pieces": [
+        {"id": "s3p1", "type": "brick-2x4", "color": "#cc0000", "gridX": 0, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p2", "type": "brick-2x4", "color": "#cc0000", "gridX": 2, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p3", "type": "brick-2x4", "color": "#cc0000", "gridX": 4, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p4", "type": "brick-2x2", "color": "#cc0000", "gridX": 0, "gridZ": 4, "layer": 2, "rotation": 0},
+        {"id": "s3p5", "type": "brick-2x2", "color": "#cc0000", "gridX": 2, "gridZ": 4, "layer": 2, "rotation": 0},
+        {"id": "s3p6", "type": "brick-2x2", "color": "#cc0000", "gridX": 4, "gridZ": 4, "layer": 2, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "description": "Third full 6×6 layer — fattest part of the apple",
+      "pieces": [
+        {"id": "s4p1", "type": "brick-2x4", "color": "#cc0000", "gridX": 0, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p2", "type": "brick-2x4", "color": "#cc0000", "gridX": 2, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p3", "type": "brick-2x4", "color": "#cc0000", "gridX": 4, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p4", "type": "brick-2x2", "color": "#cc0000", "gridX": 0, "gridZ": 4, "layer": 3, "rotation": 0},
+        {"id": "s4p5", "type": "brick-2x2", "color": "#cc0000", "gridX": 2, "gridZ": 4, "layer": 3, "rotation": 0},
+        {"id": "s4p6", "type": "brick-2x2", "color": "#cc0000", "gridX": 4, "gridZ": 4, "layer": 3, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 5,
+      "description": "Begin tapering — 6×4 shoulder",
+      "pieces": [
+        {"id": "s5p1", "type": "brick-2x4", "color": "#cc0000", "gridX": 0, "gridZ": 1, "layer": 4, "rotation": 0},
+        {"id": "s5p2", "type": "brick-2x4", "color": "#cc0000", "gridX": 2, "gridZ": 1, "layer": 4, "rotation": 0},
+        {"id": "s5p3", "type": "brick-2x4", "color": "#cc0000", "gridX": 4, "gridZ": 1, "layer": 4, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 6,
+      "description": "Narrow to 4×4",
+      "pieces": [
+        {"id": "s6p1", "type": "brick-2x4", "color": "#cc0000", "gridX": 1, "gridZ": 1, "layer": 5, "rotation": 0},
+        {"id": "s6p2", "type": "brick-2x4", "color": "#cc0000", "gridX": 3, "gridZ": 1, "layer": 5, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 7,
+      "description": "Cap the top with a 2×2 dimple",
+      "pieces": [
+        {"id": "s7p1", "type": "brick-2x2", "color": "#cc0000", "gridX": 2, "gridZ": 2, "layer": 6, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 8,
+      "description": "Add the brown stem and green leaf",
+      "pieces": [
+        {"id": "s8p1", "type": "brick-1x1", "color": "#8b4513", "gridX": 2, "gridZ": 2, "layer": 7, "rotation": 0},
+        {"id": "s8p2", "type": "brick-1x1", "color": "#8b4513", "gridX": 2, "gridZ": 2, "layer": 8, "rotation": 0},
+        {"id": "s8p3", "type": "plate-1x2", "color": "#228b22", "gridX": 3, "gridZ": 2, "layer": 24, "rotation": 0},
+        {"id": "s8p4", "type": "plate-1x1", "color": "#228b22", "gridX": 4, "gridZ": 2, "layer": 24, "rotation": 0}
+      ]
+    }
+  ]
+}

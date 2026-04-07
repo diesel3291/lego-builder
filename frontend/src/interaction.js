@@ -1,12 +1,11 @@
 import * as THREE from 'three';
 import gsap from 'gsap';
-import { getScene, getCamera, getRenderer } from './scene.js';
+import { getScene, getCamera, getRenderer, createBrickMaterial } from './scene.js';
 import { getGeometry } from './geometry.js';
-import { gridToWorld, DIMS } from './grid.js';
+import { gridToWorld } from './grid.js';
 import {
   getHeldPieceId, getCurrentStep, placeBrick,
   isStepComplete, advanceStep, releasePiece, isBuildComplete, getPlacedThisStep,
-  isOccupied
 } from './state.js';
 import { getGhostMeshes, hideGhost, showStepGhosts, hideAllGhosts } from './ghost.js';
 
@@ -18,6 +17,7 @@ const _ndc = new THREE.Vector2();
 const _placedMeshes = [];   // Array of THREE.Mesh — all placed opaque bricks
 let _onStepAdvance = null;  // callback: called when step advances (for tray/hud re-render)
 let _onBuildComplete = null; // callback: called when build finishes
+let _onPiecePlaced = null;   // callback: called after each piece placement
 
 // Preview mesh state
 let _previewMesh = null;       // THREE.Mesh — semi-transparent brick following cursor
@@ -32,9 +32,10 @@ const SNAP_DISTANCE = 12; // distance (mm) at which preview snaps to nearest gho
  * Attaches pointer event listeners to the canvas for click disambiguation and placement.
  * @param {{ onStepAdvance?: Function, onBuildComplete?: Function }} options
  */
-export function initInteraction({ onStepAdvance, onBuildComplete } = {}) {
+export function initInteraction({ onStepAdvance, onBuildComplete, onPiecePlaced } = {}) {
   _onStepAdvance = onStepAdvance || null;
   _onBuildComplete = onBuildComplete || null;
+  _onPiecePlaced = onPiecePlaced || null;
 
   const canvas = getRenderer().domElement;
 
@@ -69,7 +70,7 @@ export function initInteraction({ onStepAdvance, onBuildComplete } = {}) {
   window.addEventListener('keydown', (e) => {
     if (e.key === 'r' || e.key === 'R') {
       if (getHeldPieceId() !== null) {
-        _previewRotation = (_previewRotation + 90) % 360;
+        _previewRotation = (_previewRotation + 45) % 360;
         if (_previewMesh) {
           _previewMesh.rotation.y = THREE.MathUtils.degToRad(_previewRotation);
         }
@@ -102,9 +103,9 @@ function _handleClick(event) {
 
   _raycaster.setFromCamera(_ndc, getCamera());
 
-  // Raycast against ghost meshes only — "click ghost to confirm" UX
+  // Raycast against ghost groups (recursive to hit child meshes)
   const targets = [...getGhostMeshes()];
-  const hits = _raycaster.intersectObjects(targets);
+  const hits = _raycaster.intersectObjects(targets, true);
 
   if (hits.length === 0) {
     // Clicked empty space — no visual feedback
@@ -112,8 +113,13 @@ function _handleClick(event) {
     return;
   }
 
-  const hitGhost = hits[0].object;
-  const pieceId = hitGhost.userData.ghostPieceId;
+  // Walk up to the ghost group to get the pieceId (child meshes don't have it)
+  let hitGroup = hits[0].object;
+  while (hitGroup && !hitGroup.userData.ghostPieceId) {
+    hitGroup = hitGroup.parent;
+  }
+  if (!hitGroup) return;
+  const pieceId = hitGroup.userData.ghostPieceId;
 
   // Find the piece in the current step
   const step = getCurrentStep();
@@ -128,39 +134,31 @@ function _handleClick(event) {
 
   // Allow placement if exact match OR same type+color within the step (sibling flexibility)
   if (pieceId !== heldId && !(ghostPiece.type === heldPiece.type && ghostPiece.color === heldPiece.color)) {
-    _rejectPlacement(hitGhost);
+    _rejectPlacement(hitGroup);
     return;
   }
 
-  // Reject if piece would float — layer 0 is always OK (on baseplate),
-  // higher layers need at least one occupied cell directly below
-  if (ghostPiece.layer > 0) {
-    const [cols, rows] = DIMS[ghostPiece.type] || [1, 1];
-    let hasSupport = false;
-    for (let cx = 0; cx < cols && !hasSupport; cx++) {
-      for (let rz = 0; rz < rows && !hasSupport; rz++) {
-        if (isOccupied(ghostPiece.gridX + cx, ghostPiece.gridZ + rz, ghostPiece.layer - 1)) {
-          hasSupport = true;
-        }
-      }
-    }
-    if (!hasSupport) {
-      _rejectPlacement(hitGhost);
-      return;
-    }
-  }
-
-  // Reject placement if preview rotation is 90° or 270° off from ghost.
-  // Only 0° and 180° are valid — 180° is physically identical for rectangular pieces.
+  // Rotation matching — type-aware logic for different piece symmetries
   const gr = ((ghostPiece.rotation || 0) % 360 + 360) % 360;
   const pr = (_previewRotation % 360 + 360) % 360;
-  const diff = Math.abs(pr - gr);
-  if (diff !== 0 && diff !== 180) {
-    _rejectPlacement(hitGhost);
-    return;
+  const diff = (pr - gr + 360) % 360;
+
+  const pt = ghostPiece.type;
+  const isSymmetric = pt.startsWith('round-') || pt === 'plate-round-1x1' ||
+                      pt === 'deltoid-2x2' || pt === 'bicep-2x2';
+
+  if (!isSymmetric) {
+    // Square pieces (1x1, 2x2): any 90° multiple is valid
+    const isSquare = pt.endsWith('-1x1') || pt.endsWith('-2x2') || pt === 'wedge-2x2-corner' || pt === 'curve-2x2' || pt === 'fist-2x2';
+    if (isSquare) {
+      if (diff % 90 !== 0) { _rejectPlacement(hitGroup); return; }
+    } else {
+      // Rectangular (2x1, 1x2, etc.): only 0° and 180°
+      if (diff !== 0 && diff !== 180) { _rejectPlacement(hitGroup); return; }
+    }
   }
 
-  _confirmPlacement(ghostPiece, hitGhost, pr);
+  _confirmPlacement(ghostPiece, hitGroup, pr);
 }
 
 /**
@@ -173,11 +171,7 @@ function _confirmPlacement(piece, ghostMesh, rotation) {
   const appliedRotation = rotation !== undefined ? rotation : (piece.rotation || 0);
   // Create the opaque brick mesh using cached geometry + new per-brick material
   const geometry = getGeometry(piece.type);
-  const material = new THREE.MeshStandardMaterial({
-    color: piece.color,
-    roughness: 0.6,
-    metalness: 0.1,
-  });
+  const material = createBrickMaterial(piece.color);
   const mesh = new THREE.Mesh(geometry, material);
   mesh.position.copy(gridToWorld(piece.gridX, piece.gridZ, piece.layer, piece.type));
   mesh.rotation.y = THREE.MathUtils.degToRad(appliedRotation);
@@ -213,6 +207,9 @@ function _confirmPlacement(piece, ghostMesh, rotation) {
   _removePreview();
   _previewRotation = 0;  // reset rotation for next piece
 
+  // Notify tray/hud immediately so placed piece disappears from tray
+  if (_onPiecePlaced) _onPiecePlaced();
+
   // Check step / build completion
   if (isStepComplete()) {
     if (isBuildComplete()) {
@@ -230,14 +227,18 @@ function _confirmPlacement(piece, ghostMesh, rotation) {
 
 /**
  * Reject a placement attempt — flash the ghost red if one was hit, or do nothing for empty-space clicks.
- * @param {THREE.Mesh|null} ghostMesh - the ghost that was clicked, or null for empty-space click
+ * @param {THREE.Group|null} ghostGroup - the ghost group that was clicked, or null for empty-space click
  */
-function _rejectPlacement(ghostMesh) {
-  if (!ghostMesh) return;  // empty-space click — no visual feedback
+function _rejectPlacement(ghostGroup) {
+  if (!ghostGroup) return;  // empty-space click — no visual feedback
 
-  const origColor = ghostMesh.material.color.clone();
+  // Find the fill mesh (first Mesh child) inside the group
+  const fillMesh = ghostGroup.children.find(c => c.isMesh);
+  if (!fillMesh) return;
+
+  const origColor = fillMesh.material.color.clone();
   const rejectColor = new THREE.Color(0xe53935);  // rejection red from UI-SPEC
-  ghostMesh.material.color.copy(rejectColor);
+  fillMesh.material.color.copy(rejectColor);
 
   // Tween back to original color
   const proxy = { t: 0 };
@@ -246,8 +247,8 @@ function _rejectPlacement(ghostMesh) {
     duration: 0.3,
     ease: 'power1.inOut',
     onUpdate: function () {
-      ghostMesh.material.color.lerpColors(rejectColor, origColor, proxy.t);
-      ghostMesh.material.needsUpdate = true;
+      fillMesh.material.color.lerpColors(rejectColor, origColor, proxy.t);
+      fillMesh.material.needsUpdate = true;
     },
   });
 }

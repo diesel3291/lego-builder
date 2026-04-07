@@ -1,0 +1,5832 @@
+{
+  "schemaVersion": 1,
+  "id": "bodybuilder",
+  "name": "Bodybuilder",
+  "description": "The ultimate challenge! A muscular bodybuilder in a Front Double Bicep pose with custom pieces. 50 layers of pure gains. Good luck!",
+  "pieceCount": 623,
+  "steps": [
+    {
+      "stepNumber": 1,
+      "description": "Build the stage platform \u2014 dark grey base",
+      "pieces": [
+        {
+          "id": "s1p1",
+          "type": "brick-2x4",
+          "color": "#333333",
+          "gridX": 0,
+          "gridZ": 0,
+          "layer": 0,
+          "rotation": 0
+        },
+        {
+          "id": "s1p2",
+          "type": "brick-2x4",
+          "color": "#333333",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 0,
+          "rotation": 0
+        },
+        {
+          "id": "s1p3",
+          "type": "brick-2x4",
+          "color": "#333333",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 0,
+          "rotation": 0
+        },
+        {
+          "id": "s1p4",
+          "type": "brick-2x4",
+          "color": "#333333",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 0,
+          "rotation": 0
+        },
+        {
+          "id": "s1p5",
+          "type": "brick-2x4",
+          "color": "#333333",
+          "gridX": 0,
+          "gridZ": 0,
+          "layer": 1,
+          "rotation": 0
+        },
+        {
+          "id": "s1p6",
+          "type": "brick-2x4",
+          "color": "#333333",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 1,
+          "rotation": 0
+        },
+        {
+          "id": "s1p7",
+          "type": "brick-2x4",
+          "color": "#333333",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 1,
+          "rotation": 0
+        },
+        {
+          "id": "s1p8",
+          "type": "brick-2x4",
+          "color": "#333333",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 1,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "description": "Place both feet on the platform",
+      "pieces": [
+        {
+          "id": "s2p9",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 2,
+          "rotation": 0
+        },
+        {
+          "id": "s2p10",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 2,
+          "rotation": 0
+        },
+        {
+          "id": "s2p11",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 3,
+          "rotation": 0
+        },
+        {
+          "id": "s2p12",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 3,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "description": "Ankles \u2014 round cylinders",
+      "pieces": [
+        {
+          "id": "s3p13",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 4,
+          "rotation": 0
+        },
+        {
+          "id": "s3p14",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 4,
+          "rotation": 0
+        },
+        {
+          "id": "s3p15",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 5,
+          "rotation": 0
+        },
+        {
+          "id": "s3p16",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 5,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "description": "Lower calves \u2014 round muscle shape",
+      "pieces": [
+        {
+          "id": "s4p17",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 6,
+          "rotation": 0
+        },
+        {
+          "id": "s4p18",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 6,
+          "rotation": 0
+        },
+        {
+          "id": "s4p19",
+          "type": "round-2x2",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 7,
+          "rotation": 0
+        },
+        {
+          "id": "s4p20",
+          "type": "round-2x2",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 7,
+          "rotation": 0
+        },
+        {
+          "id": "s4p21",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 8,
+          "rotation": 0
+        },
+        {
+          "id": "s4p22",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 8,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 5,
+      "description": "Upper calves approaching the knees",
+      "pieces": [
+        {
+          "id": "s5p23",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 9,
+          "rotation": 0
+        },
+        {
+          "id": "s5p24",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 9,
+          "rotation": 0
+        },
+        {
+          "id": "s5p25",
+          "type": "round-2x2",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 10,
+          "rotation": 0
+        },
+        {
+          "id": "s5p26",
+          "type": "round-2x2",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 10,
+          "rotation": 0
+        },
+        {
+          "id": "s5p27",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 11,
+          "rotation": 0
+        },
+        {
+          "id": "s5p28",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 11,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 6,
+      "description": "Lower quads \u2014 quad sweep highlight and inner shadow",
+      "pieces": [
+        {
+          "id": "s6p29",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 12,
+          "rotation": 0
+        },
+        {
+          "id": "s6p30",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 12,
+          "rotation": 0
+        },
+        {
+          "id": "s6p31",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 12,
+          "rotation": 0
+        },
+        {
+          "id": "s6p32",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 12,
+          "rotation": 0
+        },
+        {
+          "id": "s6p33",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 12,
+          "rotation": 0
+        },
+        {
+          "id": "s6p34",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 12,
+          "rotation": 0
+        },
+        {
+          "id": "s6p35",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 12,
+          "rotation": 0
+        },
+        {
+          "id": "s6p36",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 12,
+          "rotation": 0
+        },
+        {
+          "id": "s6p37",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 13,
+          "rotation": 0
+        },
+        {
+          "id": "s6p38",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 13,
+          "rotation": 0
+        },
+        {
+          "id": "s6p39",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 13,
+          "rotation": 0
+        },
+        {
+          "id": "s6p40",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 13,
+          "rotation": 0
+        },
+        {
+          "id": "s6p41",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 13,
+          "rotation": 0
+        },
+        {
+          "id": "s6p42",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 13,
+          "rotation": 0
+        },
+        {
+          "id": "s6p43",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 13,
+          "rotation": 0
+        },
+        {
+          "id": "s6p44",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 13,
+          "rotation": 0
+        },
+        {
+          "id": "s6p45",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 14,
+          "rotation": 0
+        },
+        {
+          "id": "s6p46",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 14,
+          "rotation": 0
+        },
+        {
+          "id": "s6p47",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 14,
+          "rotation": 0
+        },
+        {
+          "id": "s6p48",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 14,
+          "rotation": 0
+        },
+        {
+          "id": "s6p49",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 14,
+          "rotation": 0
+        },
+        {
+          "id": "s6p50",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 14,
+          "rotation": 0
+        },
+        {
+          "id": "s6p51",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 14,
+          "rotation": 0
+        },
+        {
+          "id": "s6p52",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 14,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 7,
+      "description": "Upper quads \u2014 widening toward hips",
+      "pieces": [
+        {
+          "id": "s7p53",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p54",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p55",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p56",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p57",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p58",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p59",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p60",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p61",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p62",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p63",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p64",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 15,
+          "rotation": 0
+        },
+        {
+          "id": "s7p65",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p66",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p67",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p68",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p69",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p70",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p71",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p72",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p73",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p74",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p75",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p76",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 16,
+          "rotation": 0
+        },
+        {
+          "id": "s7p77",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p78",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p79",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p80",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p81",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p82",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p83",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p84",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p85",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p86",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p87",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 17,
+          "rotation": 0
+        },
+        {
+          "id": "s7p88",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 17,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 8,
+      "description": "Swimwear base \u2014 bright gold",
+      "pieces": [
+        {
+          "id": "s8p89",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p90",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p91",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p92",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p93",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p94",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p95",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p96",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p97",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p98",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p99",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p100",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p101",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p102",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p103",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p104",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p105",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p106",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p107",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p108",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p109",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p110",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p111",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 18,
+          "rotation": 0
+        },
+        {
+          "id": "s8p112",
+          "type": "brick-1x1",
+          "color": "#DAA520",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 18,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 9,
+      "description": "Swimwear body with waistband accents",
+      "pieces": [
+        {
+          "id": "s9p113",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p114",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p115",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p116",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p117",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p118",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p119",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p120",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p121",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p122",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p123",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p124",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p125",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p126",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p127",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p128",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p129",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p130",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p131",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p132",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p133",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p134",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p135",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p136",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 19,
+          "rotation": 0
+        },
+        {
+          "id": "s9p137",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p138",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p139",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p140",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p141",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p142",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p143",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p144",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p145",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p146",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p147",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p148",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p149",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p150",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p151",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p152",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p153",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p154",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p155",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p156",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p157",
+          "type": "brick-1x1",
+          "color": "#FFC107",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p158",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p159",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 20,
+          "rotation": 0
+        },
+        {
+          "id": "s9p160",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 20,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 10,
+      "description": "Swimwear top \u2014 V-cut wedges",
+      "pieces": [
+        {
+          "id": "s10p161",
+          "type": "wedge-2x2-corner",
+          "color": "#FFD700",
+          "gridX": 0,
+          "gridZ": 0,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p162",
+          "type": "wedge-2x2-corner",
+          "color": "#FFD700",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 21,
+          "rotation": 90
+        },
+        {
+          "id": "s10p163",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p164",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p165",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p166",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p167",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p168",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p169",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p170",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p171",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p172",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p173",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p174",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p175",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p176",
+          "type": "brick-1x1",
+          "color": "#FFD700",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p177",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 21,
+          "rotation": 0
+        },
+        {
+          "id": "s10p178",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 21,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 11,
+      "description": "Waist and oblique definition",
+      "pieces": [
+        {
+          "id": "s11p179",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p180",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p181",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p182",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p183",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p184",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p185",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p186",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p187",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p188",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p189",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p190",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p191",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p192",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p193",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p194",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p195",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p196",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p197",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p198",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p199",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p200",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p201",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p202",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 22,
+          "rotation": 0
+        },
+        {
+          "id": "s11p203",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p204",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p205",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p206",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p207",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p208",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p209",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p210",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p211",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p212",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p213",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p214",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p215",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p216",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p217",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p218",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p219",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p220",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p221",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p222",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p223",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p224",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p225",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 23,
+          "rotation": 0
+        },
+        {
+          "id": "s11p226",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 23,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 12,
+      "description": "Lower abs \u2014 first row of six-pack",
+      "pieces": [
+        {
+          "id": "s12p227",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p228",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p229",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p230",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p231",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p232",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p233",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p234",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p235",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p236",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p237",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p238",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p239",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p240",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p241",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p242",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p243",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p244",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p245",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p246",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p247",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p248",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p249",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 24,
+          "rotation": 0
+        },
+        {
+          "id": "s12p250",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 24,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 13,
+      "description": "Mid abs \u2014 second row",
+      "pieces": [
+        {
+          "id": "s13p251",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p252",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p253",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p254",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p255",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p256",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p257",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p258",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p259",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p260",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p261",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p262",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p263",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p264",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p265",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p266",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p267",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p268",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p269",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p270",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p271",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p272",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p273",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 25,
+          "rotation": 0
+        },
+        {
+          "id": "s13p274",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 25,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 14,
+      "description": "Upper abs \u2014 third row",
+      "pieces": [
+        {
+          "id": "s14p275",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p276",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p277",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p278",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p279",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p280",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p281",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p282",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p283",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p284",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p285",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p286",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p287",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p288",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p289",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p290",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p291",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p292",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p293",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p294",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p295",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p296",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p297",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 26,
+          "rotation": 0
+        },
+        {
+          "id": "s14p298",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 26,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 15,
+      "description": "Serratus and rib cage widening",
+      "pieces": [
+        {
+          "id": "s15p299",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 0,
+          "gridZ": 0,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p300",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p301",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p302",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 3,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p303",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p304",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p305",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p306",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p307",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p308",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p309",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p310",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p311",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p312",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p313",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p314",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p315",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p316",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p317",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p318",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p319",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p320",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p321",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p322",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p323",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p324",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p325",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p326",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p327",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 7,
+          "gridZ": 0,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p328",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p329",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p330",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 3,
+          "layer": 27,
+          "rotation": 0
+        },
+        {
+          "id": "s15p331",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 0,
+          "gridZ": 0,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p332",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p333",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p334",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 3,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p335",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p336",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p337",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p338",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p339",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p340",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p341",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p342",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p343",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p344",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p345",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p346",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p347",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p348",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p349",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p350",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p351",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p352",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p353",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p354",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p355",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p356",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p357",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p358",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p359",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 7,
+          "gridZ": 0,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p360",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p361",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 28,
+          "rotation": 0
+        },
+        {
+          "id": "s15p362",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 3,
+          "layer": 28,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 16,
+      "description": "Lower pec shelf with under-pec shadow line",
+      "pieces": [
+        {
+          "id": "s16p363",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 0,
+          "gridZ": 0,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p364",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p365",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p366",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 3,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p367",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p368",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p369",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p370",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p371",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p372",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p373",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p374",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p375",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p376",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p377",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p378",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p379",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p380",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p381",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p382",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p383",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p384",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p385",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p386",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p387",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p388",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p389",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p390",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p391",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 7,
+          "gridZ": 0,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p392",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p393",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 29,
+          "rotation": 0
+        },
+        {
+          "id": "s16p394",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 3,
+          "layer": 29,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 17,
+      "description": "Mid pecs \u2014 nipple detail and chest groove",
+      "pieces": [
+        {
+          "id": "s17p395",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 0,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p396",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p397",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p398",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 3,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p399",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p400",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p401",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 2,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p402",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 3,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p403",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p404",
+          "type": "plate-round-1x1",
+          "color": "#A0653C",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p405",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p406",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p407",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p408",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p409",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p410",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p411",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p412",
+          "type": "brick-1x1",
+          "color": "#7A4B2A",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p413",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p414",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p415",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p416",
+          "type": "plate-round-1x1",
+          "color": "#A0653C",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p417",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p418",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p419",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p420",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p421",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p422",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 3,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p423",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 0,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p424",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p425",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 30,
+          "rotation": 0
+        },
+        {
+          "id": "s17p426",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 3,
+          "layer": 30,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 18,
+      "description": "Upper pecs with shoulder transition curves",
+      "pieces": [
+        {
+          "id": "s18p427",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 0,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p428",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p429",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 0,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p430",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 1,
+          "gridZ": 1,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p431",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p432",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p433",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p434",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p435",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p436",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p437",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p438",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p439",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p440",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p441",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p442",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p443",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p444",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p445",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p446",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p447",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 0,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p448",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p449",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 0,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p450",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p451",
+          "type": "curve-2x2",
+          "color": "#C08050",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 31,
+          "rotation": 0
+        },
+        {
+          "id": "s18p452",
+          "type": "curve-2x2",
+          "color": "#C08050",
+          "gridX": 6,
+          "gridZ": 2,
+          "layer": 31,
+          "rotation": 90
+        }
+      ]
+    },
+    {
+      "stepNumber": 19,
+      "description": "Shoulder deltoid domes on both sides",
+      "pieces": [
+        {
+          "id": "s19p453",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p454",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p455",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p456",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p457",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p458",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p459",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p460",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p461",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p462",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p463",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p464",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p465",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p466",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p467",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p468",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p469",
+          "type": "deltoid-2x2",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p470",
+          "type": "deltoid-2x2",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 32,
+          "rotation": 0
+        },
+        {
+          "id": "s19p471",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p472",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p473",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p474",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p475",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p476",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p477",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p478",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p479",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p480",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p481",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p482",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p483",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p484",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p485",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p486",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p487",
+          "type": "deltoid-2x2",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 33,
+          "rotation": 0
+        },
+        {
+          "id": "s19p488",
+          "type": "deltoid-2x2",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 33,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 20,
+      "description": "Upper shoulders \u2014 arms begin extending",
+      "pieces": [
+        {
+          "id": "s20p489",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 34,
+          "rotation": 0
+        },
+        {
+          "id": "s20p490",
+          "type": "round-2x2",
+          "color": "#D4A574",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 34,
+          "rotation": 0
+        },
+        {
+          "id": "s20p491",
+          "type": "round-2x2",
+          "color": "#D4A574",
+          "gridX": 6,
+          "gridZ": 1,
+          "layer": 34,
+          "rotation": 0
+        },
+        {
+          "id": "s20p492",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -1,
+          "gridZ": 1,
+          "layer": 34,
+          "rotation": 0
+        },
+        {
+          "id": "s20p493",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -1,
+          "gridZ": 2,
+          "layer": 34,
+          "rotation": 0
+        },
+        {
+          "id": "s20p494",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 8,
+          "gridZ": 1,
+          "layer": 34,
+          "rotation": 0
+        },
+        {
+          "id": "s20p495",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 8,
+          "gridZ": 2,
+          "layer": 34,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 21,
+      "description": "Left upper arm extending outward",
+      "pieces": [
+        {
+          "id": "s21p496",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": -2,
+          "gridZ": 1,
+          "layer": 35,
+          "rotation": 0
+        },
+        {
+          "id": "s21p497",
+          "type": "round-2x2",
+          "color": "#D4A574",
+          "gridX": -3,
+          "gridZ": 1,
+          "layer": 36,
+          "rotation": 0
+        },
+        {
+          "id": "s21p498",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": -4,
+          "gridZ": 1,
+          "layer": 37,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 22,
+      "description": "Right upper arm extending outward",
+      "pieces": [
+        {
+          "id": "s22p499",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 8,
+          "gridZ": 1,
+          "layer": 35,
+          "rotation": 0
+        },
+        {
+          "id": "s22p500",
+          "type": "round-2x2",
+          "color": "#D4A574",
+          "gridX": 9,
+          "gridZ": 1,
+          "layer": 36,
+          "rotation": 0
+        },
+        {
+          "id": "s22p501",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 10,
+          "gridZ": 1,
+          "layer": 37,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 23,
+      "description": "Left elbow bend and BICEP PEAK!",
+      "pieces": [
+        {
+          "id": "s23p502",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": -5,
+          "gridZ": 1,
+          "layer": 38,
+          "rotation": 0
+        },
+        {
+          "id": "s23p503",
+          "type": "round-1x1",
+          "color": "#A0653C",
+          "gridX": -5,
+          "gridZ": 0,
+          "layer": 38,
+          "rotation": 0
+        },
+        {
+          "id": "s23p504",
+          "type": "bicep-2x2",
+          "color": "#D4A574",
+          "gridX": -5,
+          "gridZ": 1,
+          "layer": 39,
+          "rotation": 0
+        },
+        {
+          "id": "s23p505",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": -4,
+          "gridZ": 1,
+          "layer": 40,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 24,
+      "description": "Right elbow bend and BICEP PEAK!",
+      "pieces": [
+        {
+          "id": "s24p506",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 11,
+          "gridZ": 1,
+          "layer": 38,
+          "rotation": 0
+        },
+        {
+          "id": "s24p507",
+          "type": "round-1x1",
+          "color": "#A0653C",
+          "gridX": 13,
+          "gridZ": 0,
+          "layer": 38,
+          "rotation": 0
+        },
+        {
+          "id": "s24p508",
+          "type": "bicep-2x2",
+          "color": "#D4A574",
+          "gridX": 11,
+          "gridZ": 1,
+          "layer": 39,
+          "rotation": 0
+        },
+        {
+          "id": "s24p509",
+          "type": "round-2x2",
+          "color": "#C08050",
+          "gridX": 10,
+          "gridZ": 1,
+          "layer": 40,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 25,
+      "description": "Left forearm angling back inward",
+      "pieces": [
+        {
+          "id": "s25p510",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -4,
+          "gridZ": 1,
+          "layer": 41,
+          "rotation": 0
+        },
+        {
+          "id": "s25p511",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -4,
+          "gridZ": 2,
+          "layer": 41,
+          "rotation": 0
+        },
+        {
+          "id": "s25p512",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -3,
+          "gridZ": 1,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s25p513",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -3,
+          "gridZ": 2,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s25p514",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -2,
+          "gridZ": 1,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s25p515",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -2,
+          "gridZ": 2,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s25p516",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -1,
+          "gridZ": 1,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s25p517",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": -1,
+          "gridZ": 2,
+          "layer": 44,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 26,
+      "description": "Right forearm angling back inward",
+      "pieces": [
+        {
+          "id": "s26p518",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 10,
+          "gridZ": 1,
+          "layer": 41,
+          "rotation": 0
+        },
+        {
+          "id": "s26p519",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 10,
+          "gridZ": 2,
+          "layer": 41,
+          "rotation": 0
+        },
+        {
+          "id": "s26p520",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 9,
+          "gridZ": 1,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s26p521",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 9,
+          "gridZ": 2,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s26p522",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 8,
+          "gridZ": 1,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s26p523",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 8,
+          "gridZ": 2,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s26p524",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s26p525",
+          "type": "round-1x1",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 44,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 27,
+      "description": "Left fist \u2014 clenched with nail detail",
+      "pieces": [
+        {
+          "id": "s27p526",
+          "type": "fist-2x2",
+          "color": "#C08050",
+          "gridX": -1,
+          "gridZ": 1,
+          "layer": 45,
+          "rotation": 0
+        },
+        {
+          "id": "s27p527",
+          "type": "plate-round-1x1",
+          "color": "#E8C9A0",
+          "gridX": -1,
+          "gridZ": 1,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s27p528",
+          "type": "plate-round-1x1",
+          "color": "#E8C9A0",
+          "gridX": 0,
+          "gridZ": 1,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s27p529",
+          "type": "plate-round-1x1",
+          "color": "#E8C9A0",
+          "gridX": -1,
+          "gridZ": 2,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s27p530",
+          "type": "plate-round-1x1",
+          "color": "#E8C9A0",
+          "gridX": 0,
+          "gridZ": 2,
+          "layer": 46,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 28,
+      "description": "Right fist \u2014 clenched with nail detail",
+      "pieces": [
+        {
+          "id": "s28p531",
+          "type": "fist-2x2",
+          "color": "#C08050",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 45,
+          "rotation": 0
+        },
+        {
+          "id": "s28p532",
+          "type": "plate-round-1x1",
+          "color": "#E8C9A0",
+          "gridX": 7,
+          "gridZ": 1,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s28p533",
+          "type": "plate-round-1x1",
+          "color": "#E8C9A0",
+          "gridX": 8,
+          "gridZ": 1,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s28p534",
+          "type": "plate-round-1x1",
+          "color": "#E8C9A0",
+          "gridX": 7,
+          "gridZ": 2,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s28p535",
+          "type": "plate-round-1x1",
+          "color": "#E8C9A0",
+          "gridX": 8,
+          "gridZ": 2,
+          "layer": 46,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 29,
+      "description": "Neck column",
+      "pieces": [
+        {
+          "id": "s29p536",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 35,
+          "rotation": 0
+        },
+        {
+          "id": "s29p537",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 36,
+          "rotation": 0
+        },
+        {
+          "id": "s29p538",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 37,
+          "rotation": 0
+        },
+        {
+          "id": "s29p539",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 38,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 30,
+      "description": "Head base \u2014 skull shape",
+      "pieces": [
+        {
+          "id": "s30p540",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 39,
+          "rotation": 0
+        },
+        {
+          "id": "s30p541",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 39,
+          "rotation": 0
+        },
+        {
+          "id": "s30p542",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 39,
+          "rotation": 0
+        },
+        {
+          "id": "s30p543",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 39,
+          "rotation": 0
+        },
+        {
+          "id": "s30p544",
+          "type": "brick-2x2",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 40,
+          "rotation": 0
+        },
+        {
+          "id": "s30p545",
+          "type": "brick-2x2",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 40,
+          "rotation": 0
+        },
+        {
+          "id": "s30p546",
+          "type": "brick-2x2",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 40,
+          "rotation": 0
+        },
+        {
+          "id": "s30p547",
+          "type": "brick-2x2",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 40,
+          "rotation": 0
+        },
+        {
+          "id": "s30p548",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 41,
+          "rotation": 0
+        },
+        {
+          "id": "s30p549",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 41,
+          "rotation": 0
+        },
+        {
+          "id": "s30p550",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 41,
+          "rotation": 0
+        },
+        {
+          "id": "s30p551",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 41,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 31,
+      "description": "Mouth \u2014 lips, teeth, and jawline",
+      "pieces": [
+        {
+          "id": "s31p552",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p553",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p554",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p555",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p556",
+          "type": "brick-1x1",
+          "color": "#CC4444",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p557",
+          "type": "brick-1x1",
+          "color": "#F5F5DC",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p558",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p559",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p560",
+          "type": "brick-1x1",
+          "color": "#CC4444",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p561",
+          "type": "brick-1x1",
+          "color": "#F5F5DC",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p562",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p563",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p564",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p565",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p566",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 42,
+          "rotation": 0
+        },
+        {
+          "id": "s31p567",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 42,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 32,
+      "description": "Nose and cheek highlights",
+      "pieces": [
+        {
+          "id": "s32p568",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p569",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p570",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p571",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p572",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p573",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p574",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p575",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p576",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p577",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p578",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p579",
+          "type": "brick-1x1",
+          "color": "#D4A574",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p580",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p581",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 43,
+          "rotation": 0
+        },
+        {
+          "id": "s32p582",
+          "type": "nose-1x1",
+          "color": "#D4A574",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 43,
+          "rotation": 180
+        },
+        {
+          "id": "s32p583",
+          "type": "nose-1x1",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 43,
+          "rotation": 180
+        }
+      ]
+    },
+    {
+      "stepNumber": 33,
+      "description": "Eyes \u2014 blue iris with brow shadow",
+      "pieces": [
+        {
+          "id": "s33p584",
+          "type": "brick-1x1",
+          "color": "#FFFFFF",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p585",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 1,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p586",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p587",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 3,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p588",
+          "type": "brick-1x1",
+          "color": "#4A90D9",
+          "gridX": 3,
+          "gridZ": 0,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p589",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 3,
+          "gridZ": 1,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p590",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 2,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p591",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 3,
+          "gridZ": 3,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p592",
+          "type": "brick-1x1",
+          "color": "#4A90D9",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p593",
+          "type": "brick-1x1",
+          "color": "#A0653C",
+          "gridX": 4,
+          "gridZ": 1,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p594",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p595",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 3,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p596",
+          "type": "brick-1x1",
+          "color": "#FFFFFF",
+          "gridX": 5,
+          "gridZ": 0,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p597",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 1,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p598",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 2,
+          "layer": 44,
+          "rotation": 0
+        },
+        {
+          "id": "s33p599",
+          "type": "brick-1x1",
+          "color": "#C08050",
+          "gridX": 5,
+          "gridZ": 3,
+          "layer": 44,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 34,
+      "description": "Forehead and brow ridge",
+      "pieces": [
+        {
+          "id": "s34p600",
+          "type": "brick-2x2",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 45,
+          "rotation": 0
+        },
+        {
+          "id": "s34p601",
+          "type": "brick-2x2",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 45,
+          "rotation": 0
+        },
+        {
+          "id": "s34p602",
+          "type": "brick-2x2",
+          "color": "#D4A574",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 45,
+          "rotation": 0
+        },
+        {
+          "id": "s34p603",
+          "type": "brick-2x2",
+          "color": "#D4A574",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 45,
+          "rotation": 0
+        },
+        {
+          "id": "s34p604",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s34p605",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s34p606",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 46,
+          "rotation": 0
+        },
+        {
+          "id": "s34p607",
+          "type": "brick-2x2",
+          "color": "#C08050",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 46,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 35,
+      "description": "Hair base \u2014 dark layers",
+      "pieces": [
+        {
+          "id": "s35p608",
+          "type": "brick-2x2",
+          "color": "#2C1810",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 47,
+          "rotation": 0
+        },
+        {
+          "id": "s35p609",
+          "type": "brick-2x2",
+          "color": "#2C1810",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 47,
+          "rotation": 0
+        },
+        {
+          "id": "s35p610",
+          "type": "brick-2x2",
+          "color": "#3D2B1F",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 47,
+          "rotation": 0
+        },
+        {
+          "id": "s35p611",
+          "type": "brick-2x2",
+          "color": "#3D2B1F",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 47,
+          "rotation": 0
+        },
+        {
+          "id": "s35p612",
+          "type": "brick-2x2",
+          "color": "#2C1810",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 48,
+          "rotation": 0
+        },
+        {
+          "id": "s35p613",
+          "type": "brick-2x2",
+          "color": "#2C1810",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 48,
+          "rotation": 0
+        },
+        {
+          "id": "s35p614",
+          "type": "brick-2x2",
+          "color": "#3D2B1F",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 48,
+          "rotation": 0
+        },
+        {
+          "id": "s35p615",
+          "type": "brick-2x2",
+          "color": "#3D2B1F",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 48,
+          "rotation": 0
+        }
+      ]
+    },
+    {
+      "stepNumber": 36,
+      "description": "Hair top \u2014 slopes for silhouette",
+      "pieces": [
+        {
+          "id": "s36p616",
+          "type": "brick-2x2",
+          "color": "#2C1810",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 49,
+          "rotation": 0
+        },
+        {
+          "id": "s36p617",
+          "type": "brick-2x2",
+          "color": "#2C1810",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 49,
+          "rotation": 0
+        },
+        {
+          "id": "s36p618",
+          "type": "brick-2x2",
+          "color": "#2C1810",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 49,
+          "rotation": 0
+        },
+        {
+          "id": "s36p619",
+          "type": "brick-2x2",
+          "color": "#2C1810",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 49,
+          "rotation": 0
+        },
+        {
+          "id": "s36p620",
+          "type": "slope-2x2",
+          "color": "#2C1810",
+          "gridX": 2,
+          "gridZ": 0,
+          "layer": 50,
+          "rotation": 180
+        },
+        {
+          "id": "s36p621",
+          "type": "slope-2x2",
+          "color": "#2C1810",
+          "gridX": 4,
+          "gridZ": 0,
+          "layer": 50,
+          "rotation": 180
+        },
+        {
+          "id": "s36p622",
+          "type": "slope-2x2",
+          "color": "#2C1810",
+          "gridX": 2,
+          "gridZ": 2,
+          "layer": 50,
+          "rotation": 0
+        },
+        {
+          "id": "s36p623",
+          "type": "slope-2x2",
+          "color": "#2C1810",
+          "gridX": 4,
+          "gridZ": 2,
+          "layer": 50,
+          "rotation": 0
+        }
+      ]
+    }
+  ]
+}

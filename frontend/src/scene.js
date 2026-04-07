@@ -1,5 +1,6 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
 import { STUD_SIZE } from './grid.js';
 import gsap from 'gsap';
@@ -22,10 +23,17 @@ export function initScene(canvasEl) {
   renderer.shadowMap.enabled = true;
   renderer.shadowMap.type = THREE.PCFSoftShadowMap;
 
+  // Environment map — studio lighting for plastic brick reflections
+  const pmremGenerator = new THREE.PMREMGenerator(renderer);
+  pmremGenerator.compileEquirectangularShader();
+  const envTexture = pmremGenerator.fromScene(new RoomEnvironment()).texture;
+  pmremGenerator.dispose();
+
   // Scene
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x1a1a2e);
-  scene.fog = new THREE.Fog(0x1a1a2e, 200, 600);
+  scene.background = new THREE.Color(0x5a9e9e);
+  scene.fog = new THREE.Fog(0x5a9e9e, 200, 600);
+  scene.environment = envTexture;
 
   // Camera
   camera = new THREE.PerspectiveCamera(45, window.innerWidth / window.innerHeight, 0.1, 1000);
@@ -140,6 +148,26 @@ export function getScene() { return scene; }
 export function getCamera() { return camera; }
 export function getRenderer() { return renderer; }
 export function getControls() { return controls; }
+export function getEnvironment() { return scene ? scene.environment : null; }
+
+/**
+ * Create a plastic-look material for Lego bricks.
+ * Uses MeshPhysicalMaterial with clearcoat for glossy ABS plastic appearance.
+ * @param {string|number} color - brick color
+ * @param {object} [overrides] - optional material property overrides
+ * @returns {THREE.MeshPhysicalMaterial}
+ */
+export function createBrickMaterial(color, overrides = {}) {
+  return new THREE.MeshPhysicalMaterial({
+    color,
+    roughness: 0.3,
+    metalness: 0.0,
+    clearcoat: 0.6,
+    clearcoatRoughness: 0.15,
+    envMapIntensity: 0.8,
+    ...overrides,
+  });
+}
 
 /**
  * Smoothly tween camera to focus on a target world position.

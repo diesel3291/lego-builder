@@ -9,9 +9,14 @@ export const PLATE_HEIGHT = 3.2; // plate height (1/3 of brick height)
 export const DIMS = {
   'brick-1x1': [1, 1], 'brick-1x2': [1, 2], 'brick-1x3': [1, 3], 'brick-1x4': [1, 4],
   'brick-2x2': [2, 2], 'brick-2x3': [2, 3], 'brick-2x4': [2, 4],
-  'plate-1x1': [1, 1], 'plate-1x2': [1, 2], 'plate-1x4': [1, 4],
-  'plate-2x2': [2, 2], 'plate-2x4': [2, 4],
+  'plate-1x1': [1, 1], 'plate-1x2': [1, 2], 'plate-1x3': [1, 3], 'plate-1x4': [1, 4],
+  'plate-2x2': [2, 2], 'plate-2x3': [2, 3], 'plate-2x4': [2, 4],
   'slope-2x1': [2, 1], 'slope-2x2': [2, 2],
+  'round-1x1': [1, 1], 'round-2x2': [2, 2],
+  'curve-2x2': [2, 2], 'wedge-2x2-corner': [2, 2],
+  'plate-round-1x1': [1, 1],
+  'fist-2x2': [2, 2], 'bicep-2x2': [2, 2], 'deltoid-2x2': [2, 2],
+  'trapezoid-2x1': [2, 1], 'nose-1x1': [1, 1],
 };
 
 /**

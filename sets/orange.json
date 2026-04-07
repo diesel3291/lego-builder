@@ -1,0 +1,84 @@
+{
+  "schemaVersion": 1,
+  "id": "orange",
+  "name": "Orange",
+  "description": "A bright juicy orange with a little green leaf on top.",
+  "pieceCount": 27,
+  "steps": [
+    {
+      "stepNumber": 1,
+      "description": "Start with a small 2×2 bottom",
+      "pieces": [
+        {"id": "s1p1", "type": "brick-2x2", "color": "#ff6600", "gridX": 2, "gridZ": 2, "layer": 0, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 2,
+      "description": "Widen to 4×4",
+      "pieces": [
+        {"id": "s2p1", "type": "brick-2x4", "color": "#ff6600", "gridX": 1, "gridZ": 1, "layer": 1, "rotation": 0},
+        {"id": "s2p2", "type": "brick-2x4", "color": "#ff6600", "gridX": 3, "gridZ": 1, "layer": 1, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 3,
+      "description": "Full 6×6 layer — widest part",
+      "pieces": [
+        {"id": "s3p1", "type": "brick-2x4", "color": "#ff6600", "gridX": 0, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p2", "type": "brick-2x4", "color": "#ff6600", "gridX": 2, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p3", "type": "brick-2x4", "color": "#ff6600", "gridX": 4, "gridZ": 0, "layer": 2, "rotation": 0},
+        {"id": "s3p4", "type": "brick-2x2", "color": "#ff6600", "gridX": 0, "gridZ": 4, "layer": 2, "rotation": 0},
+        {"id": "s3p5", "type": "brick-2x2", "color": "#ff6600", "gridX": 2, "gridZ": 4, "layer": 2, "rotation": 0},
+        {"id": "s3p6", "type": "brick-2x2", "color": "#ff6600", "gridX": 4, "gridZ": 4, "layer": 2, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 4,
+      "description": "Second 6×6 layer — round middle",
+      "pieces": [
+        {"id": "s4p1", "type": "brick-2x4", "color": "#ff6600", "gridX": 0, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p2", "type": "brick-2x4", "color": "#ff6600", "gridX": 2, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p3", "type": "brick-2x4", "color": "#ff6600", "gridX": 4, "gridZ": 0, "layer": 3, "rotation": 0},
+        {"id": "s4p4", "type": "brick-2x2", "color": "#ff6600", "gridX": 0, "gridZ": 4, "layer": 3, "rotation": 0},
+        {"id": "s4p5", "type": "brick-2x2", "color": "#ff6600", "gridX": 2, "gridZ": 4, "layer": 3, "rotation": 0},
+        {"id": "s4p6", "type": "brick-2x2", "color": "#ff6600", "gridX": 4, "gridZ": 4, "layer": 3, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 5,
+      "description": "Third 6×6 layer — still round",
+      "pieces": [
+        {"id": "s5p1", "type": "brick-2x4", "color": "#ff6600", "gridX": 0, "gridZ": 0, "layer": 4, "rotation": 0},
+        {"id": "s5p2", "type": "brick-2x4", "color": "#ff6600", "gridX": 2, "gridZ": 0, "layer": 4, "rotation": 0},
+        {"id": "s5p3", "type": "brick-2x4", "color": "#ff6600", "gridX": 4, "gridZ": 0, "layer": 4, "rotation": 0},
+        {"id": "s5p4", "type": "brick-2x2", "color": "#ff6600", "gridX": 0, "gridZ": 4, "layer": 4, "rotation": 0},
+        {"id": "s5p5", "type": "brick-2x2", "color": "#ff6600", "gridX": 2, "gridZ": 4, "layer": 4, "rotation": 0},
+        {"id": "s5p6", "type": "brick-2x2", "color": "#ff6600", "gridX": 4, "gridZ": 4, "layer": 4, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 6,
+      "description": "Taper to 4×4",
+      "pieces": [
+        {"id": "s6p1", "type": "brick-2x4", "color": "#ff6600", "gridX": 1, "gridZ": 1, "layer": 5, "rotation": 0},
+        {"id": "s6p2", "type": "brick-2x4", "color": "#ff6600", "gridX": 3, "gridZ": 1, "layer": 5, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 7,
+      "description": "Close the top — 2×2",
+      "pieces": [
+        {"id": "s7p1", "type": "brick-2x2", "color": "#ff6600", "gridX": 2, "gridZ": 2, "layer": 6, "rotation": 0}
+      ]
+    },
+    {
+      "stepNumber": 8,
+      "description": "Add the green nub and leaf",
+      "pieces": [
+        {"id": "s8p1", "type": "brick-1x1", "color": "#228b22", "gridX": 2, "gridZ": 2, "layer": 7, "rotation": 0},
+        {"id": "s8p2", "type": "plate-1x2", "color": "#228b22", "gridX": 3, "gridZ": 2, "layer": 21, "rotation": 0},
+        {"id": "s8p3", "type": "plate-1x1", "color": "#228b22", "gridX": 4, "gridZ": 2, "layer": 21, "rotation": 0}
+      ]
+    }
+  ]
+}
