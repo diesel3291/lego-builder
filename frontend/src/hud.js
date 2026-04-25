@@ -1,4 +1,4 @@
-import { getCurrentStepNumber, getTotalSteps, getCurrentStep, isBuildComplete } from './state.js';
+import { getCurrentStepNumber, getTotalSteps, getCurrentStep, isBuildComplete, getPlacedThisStep } from './state.js';
 
 let _hudEl = null;
 
@@ -23,6 +23,26 @@ export function renderHUD() {
 
   const stepNumber = getCurrentStepNumber();
   const step = getCurrentStep();
+
+  // ----- Top-bar progress / level / meta -----
+  if (step) {
+    const placedThisStep = getPlacedThisStep().size;
+    const stepPieceCount = Math.max(1, step.pieces.length);
+    const stepFraction = placedThisStep / stepPieceCount;
+    const pct = Math.min(
+      100,
+      Math.round(100 * (stepNumber - 1 + stepFraction) / Math.max(1, totalSteps))
+    );
+
+    const fillEl = document.getElementById('top-progress-fill');
+    if (fillEl) fillEl.style.width = pct + '%';
+
+    const lvlEl = document.getElementById('lvl-chip');
+    if (lvlEl) lvlEl.textContent = `LVL ${stepNumber}`;
+
+    const metaEl = document.getElementById('top-bar-meta');
+    if (metaEl) metaEl.textContent = `STEP ${stepNumber} / ${totalSteps} · ${step.pieces.length} pieces`;
+  }
 
   // Goal Pieces card — shows step progress
   const card = document.createElement('div');
