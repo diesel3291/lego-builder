@@ -99,6 +99,20 @@ function _renderPieceThumb(type, color, size) {
 }
 
 /**
+ * Derive an "NxM" footprint label string for a piece type.
+ * Returns a string like "2×4" / "1×1", or empty string if no match.
+ */
+function _footprintLabel(type) {
+  if (!type) return '';
+  // Match a NxM pattern in the type segments (e.g. brick-2x4, plate-2x3, slope-2x2)
+  const m = type.match(/(\d+)x(\d+)/);
+  if (m) {
+    return `${m[1]}×${m[2]}`;
+  }
+  return '';
+}
+
+/**
  * Render the piece tray for the current step.
  * Each piece shows a 3D thumbnail preview and type label.
  */
@@ -147,6 +161,16 @@ export function renderTray() {
 
     item.appendChild(img);
     item.appendChild(label);
+
+    // Footprint label (e.g. "2×4")
+    const fp = _footprintLabel(piece.type);
+    if (fp) {
+      const fpEl = document.createElement('div');
+      fpEl.className = 'tray-footprint';
+      fpEl.textContent = fp;
+      item.appendChild(fpEl);
+    }
+
     _trayItemsEl.appendChild(item);
   }
 

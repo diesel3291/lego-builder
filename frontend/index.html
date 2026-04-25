@@ -519,34 +519,38 @@
     /* ===================== BUILD UI — LEFT PANEL (TRAY) ===================== */
     #tray-panel {
       position: fixed;
-      top: 64px;
+      top: 80px;
       left: 12px;
-      width: 160px;
+      width: 168px;
       z-index: 10;
       display: none;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     /* Active piece display */
     .active-piece-card {
-      background: #fff;
-      border-radius: 14px;
+      background: rgba(255,246,233,0.95);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
       padding: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 16px rgba(42,27,20,0.08);
+      border: 2px dashed var(--pineapple);
+      background-image: repeating-linear-gradient(45deg, transparent 0 8px, rgba(255,210,63,0.06) 8px 16px);
     }
     .active-piece-label {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
       font-size: 10px;
-      font-weight: 600;
-      color: #999;
+      color: var(--ink-2);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       margin-bottom: 8px;
     }
     .active-piece-preview {
       width: 100%;
       aspect-ratio: 1;
-      background: #f5f5f7;
+      background: rgba(255,255,255,0.5);
       border-radius: 10px;
       display: flex;
       align-items: center;
@@ -559,21 +563,25 @@
       border-radius: 8px;
     }
     .active-piece-name {
-      font-size: 13px;
-      font-weight: 600;
-      color: #1a1a1a;
+      font-family: 'Fraunces', serif;
+      font-weight: 800;
+      font-size: 14px;
+      color: var(--ink);
     }
     .active-piece-desc {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
       font-size: 11px;
-      color: #999;
+      color: var(--mute);
     }
 
     /* Piece grid */
     .piece-grid-card {
-      background: #fff;
-      border-radius: 14px;
+      background: rgba(255,246,233,0.85);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
       padding: 12px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 16px rgba(42,27,20,0.08);
     }
     .tray-items {
       display: grid;
@@ -589,17 +597,19 @@
       cursor: pointer;
       border-radius: 10px;
       border: 2px solid transparent;
-      background: #f5f5f7;
+      background: var(--cream);
       transition: border-color 0.15s, background 0.15s;
       padding: 4px;
       gap: 2px;
+      position: relative;
     }
     .tray-item:hover {
-      background: #eeeef2;
+      background: var(--cream-2);
+      border-color: var(--peach);
     }
     .tray-item.selected {
-      border-color: #e53935;
-      background: #fef0f0;
+      border-color: var(--apple);
+      background: #FFE0E1;
     }
     .tray-swatch {
       width: 32px;
@@ -614,10 +624,23 @@
     }
     .tray-item-label {
       font-size: 9px;
-      color: #777;
+      color: var(--ink-2);
       text-align: center;
       line-height: 1.1;
+      font-weight: 600;
+    }
+    .tray-footprint {
+      position: absolute;
+      bottom: 4px;
+      right: 5px;
+      font-family: 'JetBrains Mono', monospace;
       font-weight: 500;
+      font-size: 9px;
+      color: var(--ink-2);
+      background: rgba(255,255,255,0.7);
+      padding: 1px 4px;
+      border-radius: 3px;
+      pointer-events: none;
     }
 
     /* ===================== BUILD UI — RIGHT PANEL (HUD) ===================== */
