@@ -9,9 +9,11 @@ import { initHUD, renderHUD, updateTopBarTitle } from './hud.js';
 import { initSelection, showSelectionScreen, hideSelectionScreen } from './selection.js';
 import { initCompletion, showCompletionScreen, hideCompletionScreen, hideCelebrationScreen, markBuildCompleted, setTotalSetCount } from './completion.js';
 import { gridToWorld } from './grid.js';
+import { initCursor } from './cursor.js';
 
 const canvas = document.getElementById('canvas');
 initScene(canvas);
+initCursor(canvas);
 
 // Initialize UI modules (DOM references)
 initTray();

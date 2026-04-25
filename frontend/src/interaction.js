@@ -8,6 +8,7 @@ import {
   isStepComplete, advanceStep, releasePiece, isBuildComplete, getPlacedThisStep,
 } from './state.js';
 import { getGhostMeshes, hideGhost, showStepGhosts, hideAllGhosts } from './ghost.js';
+import { setCursorState } from './cursor.js';
 
 // Module-level private state
 let _pointerDownPos = { x: 0, y: 0 };
@@ -58,11 +59,17 @@ export function initInteraction({ onStepAdvance, onBuildComplete, onPiecePlaced 
   canvas.addEventListener('pointermove', (e) => {
     const heldId = getHeldPieceId();
     if (heldId !== null) {
-      canvas.style.cursor = 'crosshair';
       _updatePreviewPosition(e);
+      // Observer: notify cursor.js (default to 'hold' — _updatePreviewPosition will
+      // upgrade to 'snap' when within snap distance).
+      try {
+        const step = getCurrentStep();
+        const heldPiece = step ? step.pieces.find(p => p.id === heldId) : null;
+        setCursorState('hold', heldPiece ? heldPiece.color : undefined);
+      } catch (_e) { /* observer-only — never throw into pointermove */ }
     } else {
-      canvas.style.cursor = 'default';
       _removePreview();
+      setCursorState('idle');
     }
   });
 
@@ -205,6 +212,8 @@ function _confirmPlacement(piece, ghostMesh, rotation) {
   placeBrick(piece);
   releasePiece();
   _removePreview();
+  // Observer: flash cursor 'snap' on confirm (auto-fades to idle)
+  setCursorState('snap');
   _previewRotation = 0;  // reset rotation for next piece
 
   // Notify tray/hud immediately so placed piece disappears from tray
@@ -230,6 +239,8 @@ function _confirmPlacement(piece, ghostMesh, rotation) {
  * @param {THREE.Group|null} ghostGroup - the ghost group that was clicked, or null for empty-space click
  */
 function _rejectPlacement(ghostGroup) {
+  // Observer: flash cursor reject regardless of whether a ghost was hit
+  setCursorState('reject');
   if (!ghostGroup) return;  // empty-space click — no visual feedback
 
   // Find the fill mesh (first Mesh child) inside the group
@@ -354,8 +365,12 @@ function _updatePreviewPosition(event) {
   if (snapped) {
     // Snap immediately to ghost position for precise feedback
     _previewMesh.position.copy(_targetPos);
+    // Observer: escalate cursor state to 'snap'
+    setCursorState('snap', heldPiece.color);
   } else {
     // Smooth interpolation — 30% per frame gives responsive but fluid motion
     _previewMesh.position.lerp(_targetPos, 0.3);
+    // Observer: held but not snapped → keep 'hold'
+    setCursorState('hold', heldPiece.color);
   }
 }
