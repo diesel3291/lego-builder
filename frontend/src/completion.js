@@ -143,30 +143,27 @@ export function hideCelebrationScreen() {
 
 /**
  * Spawn confetti pieces into the celebration screen.
+ * v2 — fruit-emoji confetti (orange, apple, peach, pineapple, leaf, juicebox).
  */
 function _spawnConfetti() {
   const container = document.getElementById('celebration-confetti');
   if (!container) return;
   container.innerHTML = '';
 
-  const colors = ['#ffd700', '#ff6b6b', '#4ecdc4', '#45b7d1', '#f9a825', '#e53935', '#ab47bc', '#66bb6a'];
+  const FRUITS = ['🍊', '🍎', '🍑', '🍍', '🌿', '🧃'];
 
   for (let i = 0; i < 60; i++) {
     const piece = document.createElement('div');
     piece.className = 'confetti-piece';
-    const color = colors[Math.floor(Math.random() * colors.length)];
+    piece.textContent = FRUITS[Math.floor(Math.random() * FRUITS.length)];
     const left = Math.random() * 100;
     const delay = Math.random() * 3;
     const duration = 2.5 + Math.random() * 2;
-    const size = 6 + Math.random() * 8;
-    const shape = Math.random() > 0.5 ? '50%' : '2px';
+    const fontSize = 18 + Math.random() * 16;
 
     piece.style.cssText = `
       left: ${left}vw;
-      width: ${size}px;
-      height: ${size}px;
-      background: ${color};
-      border-radius: ${shape};
+      font-size: ${fontSize}px;
       animation-delay: ${delay}s;
       animation-duration: ${duration}s;
       animation-iteration-count: infinite;
