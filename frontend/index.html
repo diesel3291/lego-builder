@@ -646,27 +646,29 @@
     /* ===================== BUILD UI — RIGHT PANEL (HUD) ===================== */
     #hud {
       position: fixed;
-      top: 64px;
+      top: 80px;
       right: 12px;
-      width: 200px;
+      width: 240px;
       z-index: 10;
       display: none;
       flex-direction: column;
-      gap: 8px;
+      gap: 10px;
     }
 
     .hud-card {
-      background: #fff;
-      border-radius: 14px;
+      background: rgba(255,246,233,0.92);
+      backdrop-filter: blur(8px);
+      border-radius: 16px;
       padding: 14px 16px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+      box-shadow: 0 4px 16px rgba(42,27,20,0.08);
     }
     .hud-card-title {
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
       font-size: 11px;
-      font-weight: 700;
-      color: #1a1a1a;
+      color: var(--ink);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       margin-bottom: 10px;
       display: flex;
       align-items: center;
@@ -676,8 +678,8 @@
       content: '';
       width: 8px;
       height: 8px;
-      background: #f9a825;
-      border-radius: 50%;
+      background: var(--pineapple);
+      border-radius: 3px;
     }
 
     /* Step progress items */
@@ -687,26 +689,40 @@
       gap: 10px;
       padding: 6px 0;
     }
-    .hud-step-dot {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
+    .hud-step-mini-brick {
+      width: 18px;
+      height: 12px;
+      border-radius: 3px;
       flex-shrink: 0;
+      box-shadow: inset 0 -3px 0 rgba(0,0,0,0.18);
+      position: relative;
     }
-    .hud-step-dot.done { background: #43a047; }
-    .hud-step-dot.current { background: #1e88e5; }
-    .hud-step-dot.pending { background: #e0e0e0; }
+    .hud-step-mini-brick::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 5px;
+      height: 3px;
+      border-radius: 2px;
+      background: rgba(255,255,255,0.5);
+    }
+    .hud-step-mini-brick.done { opacity: 1; }
+    .hud-step-mini-brick.current { opacity: 1; }
+    .hud-step-mini-brick.pending { opacity: 0.35; filter: grayscale(0.6); }
     .hud-step-info {
       flex: 1;
     }
     .hud-step-name {
-      font-size: 12px;
+      font-family: 'Nunito', sans-serif;
       font-weight: 600;
-      color: #1a1a1a;
+      font-size: 12px;
+      color: var(--ink);
     }
     .hud-step-progress-bar {
       height: 4px;
-      background: #e0e0e0;
+      background: var(--cream-2);
       border-radius: 2px;
       margin-top: 3px;
       overflow: hidden;
@@ -716,31 +732,74 @@
       border-radius: 2px;
       transition: width 0.3s ease;
     }
-    .hud-step-progress-fill.done { background: #43a047; }
-    .hud-step-progress-fill.current { background: #1e88e5; }
+    .hud-step-progress-fill.done { background: var(--leaf); }
+    .hud-step-progress-fill.current { background: linear-gradient(90deg, var(--pineapple), var(--orange)); }
     .hud-step-count {
-      font-size: 11px;
-      font-weight: 600;
-      color: #999;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--mute);
     }
 
-    /* Instructions section */
+    /* Instructions sticker */
     .hud-instructions {
-      margin-top: 4px;
-      padding-top: 8px;
-      border-top: 1px solid #f0f0f0;
+      background: linear-gradient(135deg, #FFF3D8, #FFE0A8);
+      border-radius: 12px;
+      padding: 12px 14px;
+      margin-top: 10px;
+      transform: rotate(-0.6deg);
+      box-shadow: 0 3px 10px rgba(245,165,36,0.18);
     }
     .hud-instructions-header {
       display: flex;
       justify-content: space-between;
+      font-family: 'Nunito', sans-serif;
+      font-weight: 800;
       font-size: 10px;
-      font-weight: 700;
-      color: #999;
+      color: var(--ink-2);
       text-transform: uppercase;
-      letter-spacing: 0.5px;
+      letter-spacing: 1px;
       margin-bottom: 6px;
     }
     .hud-instructions-text {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-weight: 600;
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.45;
+    }
+
+    /* Mentor row */
+    .hud-mentor {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      background: var(--cream);
+      border-radius: 14px;
+    }
+    .hud-mentor-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--orange), var(--orange-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      font-weight: 800;
+      font-family: 'Fraunces', serif;
+      font-size: 14px;
+      flex-shrink: 0;
+    }
+    .hud-mentor-tip {
+      font-size: 11px;
+      color: var(--ink-2);
+      line-height: 1.4;
+    }
+
+    /* Legacy instructions text reset (overridden by sticker, kept for safety) */
+    .hud-instructions-text-legacy {
       font-size: 12px;
       color: #555;
       font-style: italic;
