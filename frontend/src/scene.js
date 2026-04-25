@@ -31,8 +31,9 @@ export function initScene(canvasEl) {
 
   // Scene
   scene = new THREE.Scene();
-  scene.background = new THREE.Color(0x5a9e9e);
-  scene.fog = new THREE.Fog(0x5a9e9e, 200, 600);
+  // Match cool-mint body gradient so the WebGL canvas blends with the cream/glass UI
+  scene.background = new THREE.Color(0xC9EFEE);
+  scene.fog = new THREE.Fog(0xC9EFEE, 200, 600);
   scene.environment = envTexture;
 
   // Camera
@@ -65,6 +66,11 @@ export function initScene(canvasEl) {
   dirLight.shadow.camera.bottom = -150;
   scene.add(dirLight);
 
+  // Warm rim light — cosmetic, no shadow
+  const rimLight = new THREE.DirectionalLight(0xFFB07A, 0.35);
+  rimLight.position.set(-60, 60, -80);
+  scene.add(rimLight);
+
   // Baseplate
   _addBaseplate();
 
@@ -83,7 +89,7 @@ function _addBaseplate() {
   const d = BASEPLATE_STUDS_Z * STUD_SIZE;
   const geometry = new THREE.BoxGeometry(w, BASEPLATE_THICKNESS, d);
   const material = new THREE.MeshStandardMaterial({
-    color: 0x4caf50,  // classic green baseplate
+    color: 0xE7D9BC,  // cream-beige baseplate (warm neutral)
     roughness: 0.8,
     metalness: 0.0,
   });
@@ -121,7 +127,7 @@ function _addStudGrid() {
   for (const p of parts) p.dispose();
 
   const material = new THREE.MeshStandardMaterial({
-    color: 0x43a047,  // slightly different green from baseplate for definition
+    color: 0xD6C49D,  // warm tan studs against cream-beige baseplate
     roughness: 0.7,
     metalness: 0.0,
   });
@@ -162,9 +168,9 @@ export function createBrickMaterial(color, overrides = {}) {
     color,
     roughness: 0.3,
     metalness: 0.0,
-    clearcoat: 0.6,
-    clearcoatRoughness: 0.15,
-    envMapIntensity: 0.8,
+    clearcoat: 0.85,
+    clearcoatRoughness: 0.05,
+    envMapIntensity: 1.1,
     ...overrides,
   });
 }

@@ -23,6 +23,49 @@ const STUD_RADIUS = 2.4;   // ~2.4mm radius
 const STUD_HEIGHT = 1.8;   // ~1.8mm tall
 const STUD_SEGMENTS = 12;  // cylinder segments — enough for smooth look
 
+// Capped vs flat-top stud toggle.
+// PERF FALLBACK — if total stud count in the scene > ~400 and FPS dips,
+// call setStudCapMode('flat') (clears geometry cache) to swap back to flat-top studs.
+let _USE_FLAT_STUDS = false;
+
+/**
+ * Build a single stud template geometry. Origin centered along Y so callsites
+ * can `stud.translate(sx, height + STUD_HEIGHT/2, sz)` exactly as before.
+ * @returns {THREE.BufferGeometry}
+ */
+function _buildStudTemplate() {
+  if (_USE_FLAT_STUDS) {
+    // Flat-top fallback — original cylinder
+    return new THREE.CylinderGeometry(STUD_RADIUS, STUD_RADIUS, STUD_HEIGHT, STUD_SEGMENTS);
+  }
+  // Capped stud: cylinder body + low-poly hemisphere on top
+  const body = new THREE.CylinderGeometry(STUD_RADIUS, STUD_RADIUS, STUD_HEIGHT, STUD_SEGMENTS);
+  body.translate(0, STUD_HEIGHT / 2, 0);
+  body.deleteAttribute('uv');
+  const cap = new THREE.SphereGeometry(STUD_RADIUS, 12, 6, 0, Math.PI * 2, 0, Math.PI / 2);
+  cap.translate(0, STUD_HEIGHT, 0);
+  cap.deleteAttribute('uv');
+  const merged = mergeGeometries([body, cap]);
+  body.dispose();
+  cap.dispose();
+  // Original CylinderGeometry centered on Y — shift our merged piece so its
+  // own "center" sits at y=0 to keep the existing translate(... height + STUD_HEIGHT/2 ...) callsites correct.
+  merged.translate(0, -STUD_HEIGHT / 2, 0);
+  return merged;
+}
+
+/**
+ * Toggle the stud cap mode at runtime. Clears the geometry cache so all
+ * pieces are rebuilt with the new stud template.
+ * @param {'capped'|'flat'} mode
+ */
+export function setStudCapMode(mode) {
+  const next = mode === 'flat';
+  if (next === _USE_FLAT_STUDS) return;
+  _USE_FLAT_STUDS = next;
+  disposeGeometryCache();
+}
+
 // Types that use custom (non-box) body geometry and lack UVs
 const _CUSTOM_BODY_TYPES = new Set([
   'slope-2x1', 'slope-2x2',
@@ -404,7 +447,7 @@ export function getGeometry(type) {
   // Pre-merged custom pieces (fist) already include their sub-parts
   // but still need studs added
   const parts = [body];
-  const studTemplate = new THREE.CylinderGeometry(STUD_RADIUS, STUD_RADIUS, STUD_HEIGHT, STUD_SEGMENTS);
+  const studTemplate = _buildStudTemplate();
 
   if (isSlope) {
     // Slopes: studs only on the raised front row (rz = 0)
