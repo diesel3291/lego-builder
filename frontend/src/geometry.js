@@ -1,6 +1,11 @@
 import * as THREE from 'three';
 import { mergeGeometries } from 'three/addons/utils/BufferGeometryUtils.js';
+import { RoundedBoxGeometry } from 'three/addons/geometries/RoundedBoxGeometry.js';
 import { STUD_SIZE, BRICK_HEIGHT, PLATE_HEIGHT, DIMS } from './grid.js';
+
+// Brick body chamfer — fraction of BRICK_HEIGHT used as RoundedBox radius
+// for the candy-block bevel on the top/bottom edges.
+const BODY_CHAMFER = 0.45;
 
 // All valid piece types. Must match sets/schema.md and app.py VALID_TYPES exactly.
 export const BRICK_TYPES = [
@@ -26,10 +31,9 @@ const STUD_SEGMENTS = 12;  // cylinder segments — enough for smooth look
 // Capped vs flat-top stud toggle.
 // PERF FALLBACK — if total stud count in the scene > ~400 and FPS dips,
 // call setStudCapMode('flat') (clears geometry cache) to swap back to flat-top studs.
-// NOTE: capped studs default-disabled — the merge of CylinderGeometry+SphereGeometry
-// returns null in three r183 even after stripping UVs, breaking thumbnails and scene init.
-// Toggle to capped by calling setStudCapMode('capped') if/when the merge is fixed.
-let _USE_FLAT_STUDS = true;
+// Capped studs are built via LatheGeometry (single revolved profile) — earlier
+// merge-of-cylinder-and-hemisphere approach failed mergeGeometries' attribute-parity check.
+let _USE_FLAT_STUDS = false;
 
 /**
  * Build a single stud template geometry. Origin centered along Y so callsites
@@ -38,23 +42,29 @@ let _USE_FLAT_STUDS = true;
  */
 function _buildStudTemplate() {
   if (_USE_FLAT_STUDS) {
-    // Flat-top fallback — original cylinder
     return new THREE.CylinderGeometry(STUD_RADIUS, STUD_RADIUS, STUD_HEIGHT, STUD_SEGMENTS);
   }
-  // Capped stud: cylinder body + low-poly hemisphere on top
-  const body = new THREE.CylinderGeometry(STUD_RADIUS, STUD_RADIUS, STUD_HEIGHT, STUD_SEGMENTS);
-  body.translate(0, STUD_HEIGHT / 2, 0);
-  body.deleteAttribute('uv');
-  const cap = new THREE.SphereGeometry(STUD_RADIUS, 12, 6, 0, Math.PI * 2, 0, Math.PI / 2);
-  cap.translate(0, STUD_HEIGHT, 0);
-  cap.deleteAttribute('uv');
-  const merged = mergeGeometries([body, cap]);
-  body.dispose();
-  cap.dispose();
-  // Original CylinderGeometry centered on Y — shift our merged piece so its
-  // own "center" sits at y=0 to keep the existing translate(... height + STUD_HEIGHT/2 ...) callsites correct.
-  merged.translate(0, -STUD_HEIGHT / 2, 0);
-  return merged;
+  // Capped stud: cylinder side + dome top, built as ONE LatheGeometry (no merge).
+  // Profile (x = radius, y = height, revolved around Y axis):
+  //   (R, 0) → (R, H)            cylinder side
+  //   (R, H) → (0, H + R)         quarter-arc dome (5 sample points)
+  const ARC_SAMPLES = 5;
+  const points = [
+    new THREE.Vector2(STUD_RADIUS, 0),
+    new THREE.Vector2(STUD_RADIUS, STUD_HEIGHT),
+  ];
+  for (let i = 1; i <= ARC_SAMPLES; i++) {
+    const t = (i / ARC_SAMPLES) * (Math.PI / 2);
+    points.push(new THREE.Vector2(
+      STUD_RADIUS * Math.cos(t),
+      STUD_HEIGHT + STUD_RADIUS * Math.sin(t)
+    ));
+  }
+  const lathe = new THREE.LatheGeometry(points, STUD_SEGMENTS);
+  // Original CylinderGeometry is centered at y=0; lathe profile starts at y=0.
+  // Shift so callsite translate(... height + STUD_HEIGHT/2 ...) puts the bottom at brick top.
+  lathe.translate(0, -STUD_HEIGHT / 2, 0);
+  return lathe;
 }
 
 /**
@@ -63,7 +73,7 @@ function _buildStudTemplate() {
  * @param {'capped'|'flat'} mode
  */
 export function setStudCapMode(mode) {
-  const next = mode !== 'capped';
+  const next = mode === 'flat';
   if (next === _USE_FLAT_STUDS) return;
   _USE_FLAT_STUDS = next;
   disposeGeometryCache();
@@ -436,8 +446,10 @@ export function getGeometry(type) {
   } else if (type === 'nose-1x1') {
     body = _buildNose(w, d, height);
   } else {
-    // Standard box — translated so bottom face is at y=0
-    body = new THREE.BoxGeometry(w, height, d);
+    // Standard box with a candy-block chamfer on every edge.
+    // Radius is clamped so it never exceeds half the smallest dimension.
+    const r = Math.min(BODY_CHAMFER, w * 0.49, height * 0.49, d * 0.49);
+    body = new RoundedBoxGeometry(w, height, d, 2, r);
     body.translate(0, height / 2, 0);
   }
 
@@ -512,6 +524,17 @@ export function getGeometry(type) {
   // Strip UVs for any type with a custom body (no UVs) to match stud cylinders
   if (isCustom) {
     for (const p of parts) p.deleteAttribute('uv');
+  }
+
+  // Normalize indexing: RoundedBoxGeometry is non-indexed, LatheGeometry studs
+  // are indexed. mergeGeometries requires all-or-none indexed. Convert any
+  // indexed parts to non-indexed before merge.
+  for (let i = 0; i < parts.length; i++) {
+    if (parts[i].index !== null) {
+      const ni = parts[i].toNonIndexed();
+      parts[i].dispose();
+      parts[i] = ni;
+    }
   }
 
   const geometry = mergeGeometries(parts);
