@@ -239,20 +239,34 @@ async function _renderGrid() {
   const bossSets = _cachedSets.filter(s => s.category === 'boss')
     .sort((a, b) => a.pieceCount - b.pieceCount);
 
+  // Boss gate: bosses unlock only after every non-boss set is completed.
+  const completed = getCompletedBuilds();
+  const bossesUnlocked = regularSets.length > 0 && regularSets.every(s => !!completed[s.id]);
+
+  // Hide the Bosses tab when locked; if it was the active filter, fall back to 'all'.
+  const bossTab = document.querySelector('.category-tab[data-filter="bosses"]');
+  if (bossTab) bossTab.classList.toggle('hidden', !bossesUnlocked);
+  if (!bossesUnlocked && _activeFilter === 'bosses') {
+    _activeFilter = 'all';
+    document.querySelectorAll('.category-tab').forEach(t => {
+      t.classList.toggle('active', t.dataset.filter === 'all');
+    });
+  }
+
   let visibleSets;
   if (_activeFilter === 'bosses') {
     visibleSets = bossSets;
     if (bossCollapsed) bossCollapsed.classList.add('hidden');
   } else if (_activeFilter === 'fruits') {
     visibleSets = regularSets.filter(s => _categoryFor(s) === 'fruits');
-    if (bossCollapsed) bossCollapsed.classList.remove('hidden');
+    if (bossCollapsed) bossCollapsed.classList.toggle('hidden', !bossesUnlocked);
   } else if (_activeFilter === 'snacks') {
     visibleSets = regularSets.filter(s => _categoryFor(s) === 'snacks');
-    if (bossCollapsed) bossCollapsed.classList.remove('hidden');
+    if (bossCollapsed) bossCollapsed.classList.toggle('hidden', !bossesUnlocked);
   } else {
     // 'all'
     visibleSets = regularSets;
-    if (bossCollapsed) bossCollapsed.classList.remove('hidden');
+    if (bossCollapsed) bossCollapsed.classList.toggle('hidden', !bossesUnlocked);
   }
 
   for (const setMeta of visibleSets) {

@@ -26,7 +26,10 @@ const STUD_SEGMENTS = 12;  // cylinder segments — enough for smooth look
 // Capped vs flat-top stud toggle.
 // PERF FALLBACK — if total stud count in the scene > ~400 and FPS dips,
 // call setStudCapMode('flat') (clears geometry cache) to swap back to flat-top studs.
-let _USE_FLAT_STUDS = false;
+// NOTE: capped studs default-disabled — the merge of CylinderGeometry+SphereGeometry
+// returns null in three r183 even after stripping UVs, breaking thumbnails and scene init.
+// Toggle to capped by calling setStudCapMode('capped') if/when the merge is fixed.
+let _USE_FLAT_STUDS = true;
 
 /**
  * Build a single stud template geometry. Origin centered along Y so callsites
@@ -60,7 +63,7 @@ function _buildStudTemplate() {
  * @param {'capped'|'flat'} mode
  */
 export function setStudCapMode(mode) {
-  const next = mode === 'flat';
+  const next = mode !== 'capped';
   if (next === _USE_FLAT_STUDS) return;
   _USE_FLAT_STUDS = next;
   disposeGeometryCache();
