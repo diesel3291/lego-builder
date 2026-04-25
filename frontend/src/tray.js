@@ -51,21 +51,25 @@ function _renderPieceThumb(type, color, size) {
 
   const thumbScene = new THREE.Scene();
 
-  const ambient = new THREE.AmbientLight(0xffffff, 0.7);
+  const ambient = new THREE.AmbientLight(0xffffff, 0.55);
   thumbScene.add(ambient);
-  const dir = new THREE.DirectionalLight(0xffffff, 1.0);
+  const dir = new THREE.DirectionalLight(0xffffff, 1.1);
   dir.position.set(20, 30, 25);
   thumbScene.add(dir);
+  // Warm rim — matches the main scene's rim light so tray icons sing the same tune
+  const rim = new THREE.DirectionalLight(0xFFB07A, 0.45);
+  rim.position.set(-20, 20, -25);
+  thumbScene.add(rim);
 
   const geometry = getGeometry(type);
   const material = new THREE.MeshPhysicalMaterial({
     color: color,
-    roughness: 0.3,
+    roughness: 0.28,
     metalness: 0.0,
-    clearcoat: 0.6,
-    clearcoatRoughness: 0.15,
+    clearcoat: 0.85,
+    clearcoatRoughness: 0.05,
     envMap: getEnvironment(),
-    envMapIntensity: 0.8,
+    envMapIntensity: 1.1,
   });
   const mesh = new THREE.Mesh(geometry, material);
   thumbScene.add(mesh);
@@ -134,8 +138,8 @@ export function renderTray() {
     item.dataset.pieceId = piece.id;
     item.title = piece.type;
 
-    // 3D thumbnail image
-    const thumbURL = _renderPieceThumb(piece.type, piece.color, 128);
+    // 3D thumbnail image (rendered at 2× display size for crispness)
+    const thumbURL = _renderPieceThumb(piece.type, piece.color, 192);
     const img = document.createElement('img');
     img.src = thumbURL;
     img.alt = piece.type;
@@ -189,7 +193,7 @@ function _updateActivePiece(piece) {
 
   if (previewEl) {
     previewEl.innerHTML = '';
-    const thumbURL = _renderPieceThumb(piece.type, piece.color, 200);
+    const thumbURL = _renderPieceThumb(piece.type, piece.color, 256);
     const img = document.createElement('img');
     img.src = thumbURL;
     img.alt = piece.type;
@@ -199,7 +203,41 @@ function _updateActivePiece(piece) {
     previewEl.appendChild(img);
   }
   if (name) name.textContent = _formatType(piece.type);
-  if (desc) desc.textContent = piece.color;
+  if (desc) desc.textContent = `${_colorName(piece.color)} · GLOSS`;
+}
+
+/**
+ * Map a hex color to a friendly palette name. Falls back to the hex itself.
+ */
+const _COLOR_NAMES = [
+  { hex: 0xff6600, name: 'ORANGE' },
+  { hex: 0xff8a2a, name: 'ORANGE' },
+  { hex: 0xff5a5f, name: 'APPLE RED' },
+  { hex: 0xe53935, name: 'APPLE RED' },
+  { hex: 0xffd23f, name: 'PINEAPPLE' },
+  { hex: 0x6ec6ff, name: 'WATER' },
+  { hex: 0x2f8fd8, name: 'WATER' },
+  { hex: 0x5cc26a, name: 'LEAF' },
+  { hex: 0x2f9a43, name: 'LEAF' },
+  { hex: 0x8b4513, name: 'BUN' },
+  { hex: 0xffe4b5, name: 'CREAM' },
+];
+function _colorName(color) {
+  const c = typeof color === 'string'
+    ? parseInt(color.replace('#', ''), 16)
+    : color;
+  let best = null;
+  let bestDist = Infinity;
+  for (const entry of _COLOR_NAMES) {
+    const dr = ((c >> 16) & 0xff) - ((entry.hex >> 16) & 0xff);
+    const dg = ((c >> 8) & 0xff) - ((entry.hex >> 8) & 0xff);
+    const db = (c & 0xff) - (entry.hex & 0xff);
+    const d = dr * dr + dg * dg + db * db;
+    if (d < bestDist) { bestDist = d; best = entry.name; }
+  }
+  // Within ~80 RGB units → use the named match; otherwise fall back to hex.
+  if (bestDist <= 80 * 80) return best;
+  return typeof color === 'string' ? color.toUpperCase() : '#' + c.toString(16).toUpperCase().padStart(6, '0');
 }
 
 /**

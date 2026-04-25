@@ -586,26 +586,22 @@
     .tray-items {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 6px;
+      gap: 8px;
     }
     .tray-item {
       aspect-ratio: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
       cursor: pointer;
-      border-radius: 10px;
+      border-radius: 12px;
       border: 2px solid transparent;
-      background: var(--cream);
-      transition: border-color 0.15s, background 0.15s;
-      padding: 4px;
-      gap: 2px;
+      background: var(--cream-2);
+      transition: border-color 0.15s, background 0.15s, transform 0.15s;
       position: relative;
+      overflow: hidden;
     }
     .tray-item:hover {
-      background: var(--cream-2);
+      background: #FFE6C2;
       border-color: var(--peach);
+      transform: translateY(-1px);
     }
     .tray-item.selected {
       border-color: var(--apple);
@@ -617,30 +613,47 @@
       border-radius: 6px;
     }
     .tray-piece-img {
-      width: 48px;
-      height: 48px;
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      right: 2px;
+      bottom: 22px;
+      width: calc(100% - 4px);
+      height: calc(100% - 24px);
       object-fit: contain;
       pointer-events: none;
+      filter: drop-shadow(0 3px 4px rgba(42,27,20,0.18));
     }
     .tray-item-label {
-      font-size: 9px;
+      position: absolute;
+      bottom: 4px;
+      left: 4px;
+      right: 4px;
+      font-family: 'Nunito', sans-serif;
+      font-size: 9.5px;
       color: var(--ink-2);
       text-align: center;
       line-height: 1.1;
-      font-weight: 600;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      text-transform: uppercase;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     .tray-footprint {
       position: absolute;
-      bottom: 4px;
-      right: 5px;
+      top: 5px;
+      right: 6px;
       font-family: 'JetBrains Mono', monospace;
-      font-weight: 500;
+      font-weight: 600;
       font-size: 9px;
       color: var(--ink-2);
-      background: rgba(255,255,255,0.7);
-      padding: 1px 4px;
-      border-radius: 3px;
+      background: rgba(255,255,255,0.85);
+      padding: 1px 5px;
+      border-radius: 4px;
       pointer-events: none;
+      box-shadow: 0 1px 2px rgba(42,27,20,0.06);
     }
 
     /* ===================== BUILD UI — RIGHT PANEL (HUD) ===================== */
