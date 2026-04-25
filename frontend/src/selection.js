@@ -6,6 +6,30 @@ import { loadProgress, clearProgress } from './state.js';
 
 let _onSetSelected = null;
 let _cachedSets = null;
+let _activeFilter = 'all';
+let _bossModalPopulated = false;
+
+// Fruit/snack ID maps for category derivation (no JSON changes)
+const FRUIT_IDS = ['orange', 'apple', 'peach', 'pineapple'];
+const SNACK_IDS = ['juicebox', 'hot-dog', 'honeypot'];
+
+/**
+ * Read the user's saved streak count from localStorage. Default 0 if missing/invalid.
+ */
+function _readStreak() {
+  return parseInt(localStorage.getItem('brickbuilder_streak'), 10) || 0;
+}
+
+/**
+ * Derive a category bucket for a set's metadata.
+ * @returns {'fruits'|'snacks'|'bosses'|'other'}
+ */
+function _categoryFor(setMeta) {
+  if (setMeta.category === 'boss') return 'bosses';
+  if (FRUIT_IDS.includes(setMeta.id)) return 'fruits';
+  if (SNACK_IDS.includes(setMeta.id)) return 'snacks';
+  return 'other';
+}
 
 /**
  * Derive star rating (1-3) from piece count.
@@ -13,9 +37,9 @@ let _cachedSets = null;
  * @returns {{ stars: string, label: string }}
  */
 function _starsForPieceCount(pieceCount) {
-  if (pieceCount <= 25) return { stars: '\u2605', label: 'Simple' };
-  if (pieceCount <= 60) return { stars: '\u2605\u2605', label: 'Medium' };
-  return { stars: '\u2605\u2605\u2605', label: 'Hard' };
+  if (pieceCount <= 25) return { stars: '★', label: 'Simple' };
+  if (pieceCount <= 60) return { stars: '★★', label: 'Medium' };
+  return { stars: '★★★', label: 'Hard' };
 }
 
 /**
@@ -135,6 +159,42 @@ export async function initSelection(onSetSelected) {
   const setList = document.getElementById('set-list');
   if (!setList) return;
 
+  // Display streak pill
+  const streakEl = document.getElementById('streak-pill');
+  if (streakEl) streakEl.textContent = `${_readStreak()}-day streak`;
+
+  // Wire category tabs
+  const tabs = document.querySelectorAll('.category-tab');
+  for (const tab of tabs) {
+    tab.addEventListener('click', () => {
+      const filter = tab.dataset.filter || 'all';
+      _activeFilter = filter;
+      for (const t of tabs) t.classList.toggle('active', t === tab);
+      _renderGrid();
+    });
+  }
+
+  // Wire boss collapsed card → modal
+  const bossCollapsed = document.getElementById('boss-collapsed');
+  const bossModal = document.getElementById('boss-modal');
+  const bossModalClose = document.getElementById('boss-modal-close');
+  if (bossCollapsed && bossModal) {
+    bossCollapsed.addEventListener('click', () => {
+      _populateBossModal();
+      bossModal.classList.remove('hidden');
+    });
+  }
+  if (bossModalClose && bossModal) {
+    bossModalClose.addEventListener('click', () => {
+      bossModal.classList.add('hidden');
+    });
+  }
+  if (bossModal) {
+    bossModal.addEventListener('click', (e) => {
+      if (e.target === bossModal) bossModal.classList.add('hidden');
+    });
+  }
+
   let sets;
   try {
     const res = await fetch('/api/sets');
@@ -156,36 +216,81 @@ export async function initSelection(onSetSelected) {
       if (!confirm('Reset all puzzle progress? Completion badges and best times will be cleared.')) return;
       clearCompletedBuilds();
       clearProgress();
+      _bossModalPopulated = false;
       showSelectionScreen(); // refresh cards
     });
   }
 
-  const bossList = document.getElementById('boss-list');
-  const bossSection = document.getElementById('boss-section');
+  await _renderGrid();
+}
 
-  const regularSets = sets.filter(s => s.category !== 'boss');
-  const bossSets = sets.filter(s => s.category === 'boss')
-    .sort((a, b) => a.pieceCount - b.pieceCount); // easier boss first, bodybuilder last
+/**
+ * Render (or re-render) the set list grid using the active filter.
+ * Sequentially generates WebGL thumbnails for the visible cards.
+ */
+async function _renderGrid() {
+  const setList = document.getElementById('set-list');
+  const bossCollapsed = document.getElementById('boss-collapsed');
+  if (!setList || !_cachedSets) return;
 
-  for (const setMeta of regularSets) {
+  setList.innerHTML = '';
+
+  const regularSets = _cachedSets.filter(s => s.category !== 'boss');
+  const bossSets = _cachedSets.filter(s => s.category === 'boss')
+    .sort((a, b) => a.pieceCount - b.pieceCount);
+
+  let visibleSets;
+  if (_activeFilter === 'bosses') {
+    visibleSets = bossSets;
+    if (bossCollapsed) bossCollapsed.classList.add('hidden');
+  } else if (_activeFilter === 'fruits') {
+    visibleSets = regularSets.filter(s => _categoryFor(s) === 'fruits');
+    if (bossCollapsed) bossCollapsed.classList.remove('hidden');
+  } else if (_activeFilter === 'snacks') {
+    visibleSets = regularSets.filter(s => _categoryFor(s) === 'snacks');
+    if (bossCollapsed) bossCollapsed.classList.remove('hidden');
+  } else {
+    // 'all'
+    visibleSets = regularSets;
+    if (bossCollapsed) bossCollapsed.classList.remove('hidden');
+  }
+
+  for (const setMeta of visibleSets) {
     setList.appendChild(_createCard(setMeta));
-  }
-  if (bossList) {
-    for (const setMeta of bossSets) {
-      bossList.appendChild(_createCard(setMeta));
-    }
-  }
-  if (bossSection) {
-    bossSection.style.display = bossSets.length > 0 ? '' : 'none';
   }
 
   // Render thumbnails sequentially (one WebGL renderer at a time)
-  const allCanvases = document.querySelectorAll('#set-list canvas.set-card-thumb, #boss-list canvas.set-card-thumb');
-  const allSets = [...regularSets, ...bossSets];
-  for (let i = 0; i < allSets.length; i++) {
+  const allCanvases = setList.querySelectorAll('canvas.set-card-thumb');
+  for (let i = 0; i < visibleSets.length; i++) {
     const canvasEl = allCanvases[i];
     if (canvasEl) {
-      await _renderThumbnail(allSets[i].id, canvasEl);
+      await _renderThumbnail(visibleSets[i].id, canvasEl);
+    }
+  }
+}
+
+/**
+ * Populate the boss modal once with all four boss tiles.
+ */
+async function _populateBossModal() {
+  if (_bossModalPopulated) return;
+  if (!_cachedSets) return;
+  const list = document.getElementById('boss-modal-list');
+  if (!list) return;
+
+  list.innerHTML = '';
+  const bossSets = _cachedSets.filter(s => s.category === 'boss')
+    .sort((a, b) => a.pieceCount - b.pieceCount);
+  for (const setMeta of bossSets) {
+    list.appendChild(_createCard(setMeta));
+  }
+  _bossModalPopulated = true;
+
+  const allCanvases = list.querySelectorAll('canvas.set-card-thumb');
+  for (let i = 0; i < bossSets.length; i++) {
+    const canvasEl = allCanvases[i];
+    if (canvasEl) {
+      await _renderThumbnail(bossSets[i].id, canvasEl);
     }
   }
 }
@@ -202,19 +307,40 @@ function _createCard(setMeta) {
   const completed = getCompletedBuilds();
   const completion = completed[setMeta.id];
 
-  // Thumbnail wrapper
+  // Thumbnail wrapper with category tint
   const thumbWrap = document.createElement('div');
   thumbWrap.className = 'set-card-thumb-wrap';
+  const cat = _categoryFor(setMeta);
+  if (cat === 'fruits') {
+    thumbWrap.classList.add('tint-fruits-' + setMeta.id);
+  } else if (cat === 'snacks') {
+    thumbWrap.classList.add('tint-snacks');
+  } else if (cat === 'bosses') {
+    thumbWrap.classList.add('tint-bosses');
+  }
+
   const thumb = document.createElement('canvas');
   thumb.className = 'set-card-thumb';
   thumb.width = 320;
   thumb.height = 240;
   thumbWrap.appendChild(thumb);
 
+  // Percent-done water-blue badge (top-left) — when there's saved progress for this set
+  const save = loadProgress();
+  const hasSave = save && save.setId === setMeta.id && save.placedIds.length > 0;
+  if (hasSave && setMeta.pieceCount > 0) {
+    const pct = Math.floor(100 * save.placedIds.length / setMeta.pieceCount);
+    const progressBadge = document.createElement('div');
+    progressBadge.className = 'set-card-progress-badge';
+    progressBadge.textContent = pct + '%';
+    thumbWrap.appendChild(progressBadge);
+  }
+
+  // Completion check badge (top-right, stays alongside progress badge)
   if (completion) {
     const badge = document.createElement('div');
     badge.className = 'set-card-badge';
-    badge.textContent = '\u2713';
+    badge.textContent = '✓';
     thumbWrap.appendChild(badge);
   }
 
@@ -236,7 +362,7 @@ function _createCard(setMeta) {
 
   const diffSpan = document.createElement('span');
   diffSpan.className = 'set-card-difficulty';
-  diffSpan.textContent = ' \u00B7 ' + label;
+  diffSpan.textContent = ' · ' + label;
 
   meta.appendChild(starsSpan);
   meta.appendChild(diffSpan);
@@ -247,7 +373,7 @@ function _createCard(setMeta) {
     const totalSec = Math.floor(completion.bestTime / 1000);
     const m = Math.floor(totalSec / 60);
     const s = totalSec % 60;
-    bestSpan.textContent = ' \u00B7 Best: ' + (m > 0 ? m + 'm ' + s + 's' : s + 's');
+    bestSpan.textContent = ' · Best: ' + (m > 0 ? m + 'm ' + s + 's' : s + 's');
     meta.appendChild(bestSpan);
   }
 
@@ -255,9 +381,16 @@ function _createCard(setMeta) {
   const btnWrap = document.createElement('div');
   btnWrap.className = 'set-card-btn';
   const btn = document.createElement('button');
-  const save = loadProgress();
-  const hasSave = save && save.setId === setMeta.id && save.placedIds.length > 0;
-  btn.textContent = hasSave ? 'CONTINUE' : (completion ? 'REBUILD' : 'BUILD');
+  btn.classList.add('keycap');
+  if (hasSave) {
+    btn.classList.add('keycap--water');
+    btn.textContent = 'CONTINUE';
+  } else if (completion) {
+    btn.classList.add('keycap--cream');
+    btn.textContent = 'REBUILD';
+  } else {
+    btn.textContent = 'BUILD';
+  }
   btnWrap.appendChild(btn);
 
   body.appendChild(name);
@@ -273,6 +406,9 @@ function _createCard(setMeta) {
       const res = await fetch('/api/sets/' + setMeta.id);
       if (!res.ok) throw new Error(`Failed to load set: ${res.status}`);
       const fullSetData = await res.json();
+      // Close boss modal if open
+      const bm = document.getElementById('boss-modal');
+      if (bm) bm.classList.add('hidden');
       if (_onSetSelected) _onSetSelected(fullSetData);
     } catch (err) {
       console.error('Error loading set:', setMeta.id, err);
@@ -289,39 +425,18 @@ export function showSelectionScreen() {
   const screen = document.getElementById('selection-screen');
   if (screen) screen.classList.remove('hidden');
 
+  // Refresh streak display
+  const streakEl = document.getElementById('streak-pill');
+  if (streakEl) streakEl.textContent = `${_readStreak()}-day streak`;
+
+  // Force boss modal to repopulate next open (in case completion changed)
+  _bossModalPopulated = false;
+  const bossModal = document.getElementById('boss-modal');
+  if (bossModal) bossModal.classList.add('hidden');
+
   // Refresh cards to pick up new completion badges
   if (_cachedSets) {
-    const setList = document.getElementById('set-list');
-    const bossList = document.getElementById('boss-list');
-    const bossSection = document.getElementById('boss-section');
-
-    const regularSets = _cachedSets.filter(s => s.category !== 'boss');
-    const bossSets = _cachedSets.filter(s => s.category === 'boss')
-      .sort((a, b) => a.pieceCount - b.pieceCount);
-
-    if (setList) {
-      setList.innerHTML = '';
-      for (const setMeta of regularSets) {
-        setList.appendChild(_createCard(setMeta));
-      }
-    }
-    if (bossList) {
-      bossList.innerHTML = '';
-      for (const setMeta of bossSets) {
-        bossList.appendChild(_createCard(setMeta));
-      }
-    }
-    if (bossSection) {
-      bossSection.style.display = bossSets.length > 0 ? '' : 'none';
-    }
-
-    // Re-render thumbnails
-    const allCanvases = document.querySelectorAll('#set-list canvas.set-card-thumb, #boss-list canvas.set-card-thumb');
-    const allSets = [...regularSets, ...bossSets];
-    for (let i = 0; i < allSets.length; i++) {
-      const canvasEl = allCanvases[i];
-      if (canvasEl) _renderThumbnail(allSets[i].id, canvasEl);
-    }
+    _renderGrid();
   }
 
   // Hide build UI elements
