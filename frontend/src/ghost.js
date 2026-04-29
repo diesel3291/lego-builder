@@ -19,13 +19,19 @@ const _edgesCache = new Map();
 export function showGhost(piece) {
   const geometry = getGeometry(piece.type);  // do NOT clone — use cached reference
 
-  // Semi-transparent fill
+  // Semi-transparent fill.
+  // NOTE: do NOT use side: THREE.DoubleSide here. Combining DoubleSide with
+  // transparent + depthWrite:false produces flickering — every triangle is
+  // submitted as both a back and front face at the same depth, and the
+  // renderer cannot deterministically order coincident translucent fragments.
+  // OrbitControls damping causes per-frame camera micro-jitter, which then
+  // flips the sort order each frame and shows up as visible flicker.
+  // Brick geometry is closed/convex enough that FrontSide is correct.
   const material = new THREE.MeshStandardMaterial({
     color: piece.color,
     transparent: true,
     opacity: 0.25,
     depthWrite: false,
-    side: THREE.DoubleSide,
   });
 
   const mesh = new THREE.Mesh(geometry, material);
@@ -44,7 +50,9 @@ export function showGhost(piece) {
     depthWrite: false,
   });
   const edges = new THREE.LineSegments(edgesGeo, edgeMaterial);
-  edges.renderOrder = 1;
+  // Edges render AFTER the fill (renderOrder 1) so the outline is always on
+  // top and the fill never wins a sort tie against its own edges.
+  edges.renderOrder = 2;
 
   // Group the fill mesh and edge lines together
   const group = new THREE.Group();

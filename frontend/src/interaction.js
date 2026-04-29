@@ -283,15 +283,19 @@ function _createPreview(pieceType, pieceColor) {
   _removePreview();
 
   const geometry = getGeometry(pieceType);  // cached, do NOT dispose
+  // NOTE: do NOT use side: THREE.DoubleSide here. Combining DoubleSide with
+  // transparent + depthWrite:false produces flickering, especially when the
+  // preview snaps onto a ghost (4 coincident translucent surfaces with
+  // ambiguous sort order). FrontSide is correct for closed brick geometry.
   const material = new THREE.MeshStandardMaterial({
     color: pieceColor,
     transparent: true,
     opacity: 0.5,
     depthWrite: false,
-    side: THREE.DoubleSide,
   });
   _previewMesh = new THREE.Mesh(geometry, material);
-  _previewMesh.renderOrder = 2;  // render after ghosts (renderOrder 1)
+  // Ghost fill = 1, ghost edges = 2 → preview renders above both at 3.
+  _previewMesh.renderOrder = 3;
   _previewMesh.userData.previewType = pieceType;
   _previewMesh.userData.previewColor = pieceColor;
   _previewMesh.rotation.y = THREE.MathUtils.degToRad(_previewRotation);
