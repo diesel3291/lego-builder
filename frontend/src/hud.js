@@ -1,11 +1,11 @@
 import { getCurrentStepNumber, getTotalSteps, getCurrentStep, isBuildComplete, getPlacedThisStep } from './state.js';
 
 const MENTOR_TIPS = [
-  'Tap R to rotate the held piece.',
-  'Scroll to zoom — drag to orbit.',
-  'Click the glowing ghost to lock a brick into place.',
-  'Right-drag pans the camera.',
-  'Each step lights up only the bricks you need next.',
+  '🍊 Tap R to rotate the held piece.',
+  '🍎 Scroll to zoom — drag to orbit.',
+  '🍏 Click the glowing ghost to lock a brick into place.',
+  '🍊 Right-drag pans the camera.',
+  '🍎 Each step lights up only the bricks you need next — Echo would be proud.',
 ];
 let _mentorTipIndex = 0;
 
@@ -59,7 +59,7 @@ export function renderHUD() {
 
   const title = document.createElement('div');
   title.className = 'hud-card-title';
-  title.textContent = 'Goal Pieces';
+  title.textContent = '🍊 Goal Pieces';
   card.appendChild(title);
 
   // Show each step as a progress item
@@ -137,7 +137,7 @@ export function renderHUD() {
     header.className = 'hud-instructions-header';
 
     const instrLabel = document.createElement('span');
-    instrLabel.textContent = 'Instructions';
+    instrLabel.textContent = '🍎 Instructions';
     const pageLabel = document.createElement('span');
     pageLabel.textContent = `Step ${stepNumber} of ${totalSteps}`;
 

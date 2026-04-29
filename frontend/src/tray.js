@@ -254,7 +254,7 @@ function _clearActivePiece() {
     placeholder.style.backgroundColor = '#e0e0e0';
     previewEl.appendChild(placeholder);
   }
-  if (name) name.textContent = 'Select a piece';
+  if (name) name.textContent = '🍊 Select a piece 🍎';
   if (desc) desc.textContent = '';
 }
 

@@ -161,7 +161,7 @@ export async function initSelection(onSetSelected) {
 
   // Display streak pill
   const streakEl = document.getElementById('streak-pill');
-  if (streakEl) streakEl.textContent = `${_readStreak()}-day streak`;
+  if (streakEl) streakEl.textContent = `🍊 ${_readStreak()}-day streak`;
 
   // Wire category tabs
   const tabs = document.querySelectorAll('.category-tab');
@@ -398,12 +398,12 @@ function _createCard(setMeta) {
   btn.classList.add('keycap');
   if (hasSave) {
     btn.classList.add('keycap--water');
-    btn.textContent = 'CONTINUE';
+    btn.textContent = '🍊 CONTINUE';
   } else if (completion) {
     btn.classList.add('keycap--cream');
-    btn.textContent = 'REBUILD';
+    btn.textContent = '🍏 REBUILD';
   } else {
-    btn.textContent = 'BUILD';
+    btn.textContent = '🍎 BUILD';
   }
   btnWrap.appendChild(btn);
 
@@ -441,7 +441,7 @@ export function showSelectionScreen() {
 
   // Refresh streak display
   const streakEl = document.getElementById('streak-pill');
-  if (streakEl) streakEl.textContent = `${_readStreak()}-day streak`;
+  if (streakEl) streakEl.textContent = `🍊 ${_readStreak()}-day streak`;
 
   // Force boss modal to repopulate next open (in case completion changed)
   _bossModalPopulated = false;
