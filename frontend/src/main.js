@@ -3,7 +3,7 @@ import { initScene, getScene, focusCamera, resetCamera, createBrickMaterial } fr
 import { getGeometry } from './geometry.js';
 import { loadSet, getCurrentStep, getPlacedThisStep, getElapsedMs, saveProgress, loadProgress, clearProgress, restoreFromSave } from './state.js';
 import { showStepGhosts, hideAllGhosts } from './ghost.js';
-import { initInteraction, getPlacedMeshes } from './interaction.js';
+import { initInteraction, getPlacedMeshes, rotateHeldPiece } from './interaction.js';
 import { initTray, renderTray } from './tray.js';
 import { initHUD, renderHUD, updateTopBarTitle } from './hud.js';
 import { initSelection, showSelectionScreen, hideSelectionScreen } from './selection.js';
@@ -87,6 +87,17 @@ quitBtn.addEventListener('click', () => {
   resetCamera();
   showSelectionScreen();
 });
+
+// Rotate button — mobile/touch parity with the R key.
+// Listen on click only (modern iOS/Android Safari/Chrome fire click on tap
+// reliably for <button>; adding touchstart causes double-rotation).
+const rotateBtn = document.getElementById('rotate-btn');
+if (rotateBtn) {
+  rotateBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    rotateHeldPiece();
+  });
+}
 
 /**
  * Start a build session with the selected set data.
