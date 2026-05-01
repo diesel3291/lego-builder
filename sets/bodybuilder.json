@@ -3,7 +3,7 @@
   "id": "bodybuilder",
   "name": "Bodybuilder",
   "description": "The ultimate challenge! A muscular bodybuilder in a Front Double Bicep pose with custom pieces. 50 layers of pure gains. Good luck!",
-  "pieceCount": 623,
+  "pieceCount": 621,
   "steps": [
     {
       "stepNumber": 1,
@@ -3738,7 +3738,7 @@
           "color": "#A0653C",
           "gridX": 2,
           "gridZ": 1,
-          "layer": 30,
+          "layer": 93,
           "rotation": 0
         },
         {
@@ -3846,7 +3846,7 @@
           "color": "#A0653C",
           "gridX": 5,
           "gridZ": 1,
-          "layer": 30,
+          "layer": 93,
           "rotation": 0
         },
         {
@@ -3991,15 +3991,6 @@
           "rotation": 0
         },
         {
-          "id": "s18p432",
-          "type": "brick-1x1",
-          "color": "#D4A574",
-          "gridX": 2,
-          "gridZ": 1,
-          "layer": 31,
-          "rotation": 0
-        },
-        {
           "id": "s18p433",
           "type": "brick-1x1",
           "color": "#D4A574",
@@ -4095,15 +4086,6 @@
           "color": "#D4A574",
           "gridX": 5,
           "gridZ": 0,
-          "layer": 31,
-          "rotation": 0
-        },
-        {
-          "id": "s18p444",
-          "type": "brick-1x1",
-          "color": "#D4A574",
-          "gridX": 5,
-          "gridZ": 1,
           "layer": 31,
           "rotation": 0
         },
@@ -4905,7 +4887,7 @@
           "color": "#E8C9A0",
           "gridX": -1,
           "gridZ": 1,
-          "layer": 46,
+          "layer": 138,
           "rotation": 0
         },
         {
@@ -4914,7 +4896,7 @@
           "color": "#E8C9A0",
           "gridX": 0,
           "gridZ": 1,
-          "layer": 46,
+          "layer": 138,
           "rotation": 0
         },
         {
@@ -4923,7 +4905,7 @@
           "color": "#E8C9A0",
           "gridX": -1,
           "gridZ": 2,
-          "layer": 46,
+          "layer": 138,
           "rotation": 0
         },
         {
@@ -4932,7 +4914,7 @@
           "color": "#E8C9A0",
           "gridX": 0,
           "gridZ": 2,
-          "layer": 46,
+          "layer": 138,
           "rotation": 0
         }
       ]
@@ -4956,7 +4938,7 @@
           "color": "#E8C9A0",
           "gridX": 7,
           "gridZ": 1,
-          "layer": 46,
+          "layer": 138,
           "rotation": 0
         },
         {
@@ -4965,7 +4947,7 @@
           "color": "#E8C9A0",
           "gridX": 8,
           "gridZ": 1,
-          "layer": 46,
+          "layer": 138,
           "rotation": 0
         },
         {
@@ -4974,7 +4956,7 @@
           "color": "#E8C9A0",
           "gridX": 7,
           "gridZ": 2,
-          "layer": 46,
+          "layer": 138,
           "rotation": 0
         },
         {
@@ -4983,7 +4965,7 @@
           "color": "#E8C9A0",
           "gridX": 8,
           "gridZ": 2,
-          "layer": 46,
+          "layer": 138,
           "rotation": 0
         }
       ]
