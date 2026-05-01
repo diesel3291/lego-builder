@@ -1129,6 +1129,21 @@
       line-height: 1.5;
     }
 
+    #celebration-prize {
+      display: block;
+      margin: 0 auto 28px;
+      width: min(360px, 60vw);
+      max-height: 50vh;
+      height: auto;
+      object-fit: contain;
+      border-radius: 18px;
+      box-shadow:
+        0 12px 28px rgba(42, 27, 20, 0.28),
+        0 4px 0 var(--orange-deep);
+      border: 3px solid rgba(255, 255, 255, 0.6);
+      background: rgba(255, 255, 255, 0.4);
+    }
+
     .celebration-wish-box {
       background: rgba(255,255,255,0.4);
       border: 2px solid rgba(234,90,16,0.4);
@@ -1290,6 +1305,7 @@
       <div class="celebration-trophy">🍊</div>
       <h1 class="celebration-title">Echo's Big Birthday Adventure!</h1>
       <p class="celebration-subtitle">🍊 Every set. Every brick. Every step. 🍎<br>Echo, you completed them all!</p>
+      <img id="celebration-prize" src="/prize.jpeg" alt="A special photo for Echo" />
       <div class="celebration-wish-box">
         <div class="celebration-wish-count">5</div>
         <div class="celebration-wish-label">🍊 You earned 5 wishes! 🍎</div>
