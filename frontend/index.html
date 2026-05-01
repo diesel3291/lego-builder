@@ -359,6 +359,20 @@
       text-transform: uppercase;
     }
 
+    /* Version badge — bump manually each release */
+    .version-badge {
+      position: absolute;
+      bottom: 12px;
+      right: 16px;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      font-size: 11px;
+      color: var(--mute);
+      opacity: 0.7;
+      pointer-events: none;
+      letter-spacing: 0.5px;
+    }
+
     /* ===================== BOSS COLLAPSED CARD + MODAL ===================== */
     .boss-collapsed-card {
       padding: 20px 24px;
@@ -1229,6 +1243,8 @@
       <div class="boss-collapsed-title">🍎 Boss Challenges 🍊</div>
       <div class="boss-collapsed-sub">🍊 4 builds. Tap to view.</div>
     </div>
+
+    <div class="version-badge">v0.1.0</div>
   </div>
 
   <!-- ===== BOSS MODAL ===== -->
