@@ -7,7 +7,7 @@ import { initInteraction, getPlacedMeshes } from './interaction.js';
 import { initTray, renderTray } from './tray.js';
 import { initHUD, renderHUD, updateTopBarTitle } from './hud.js';
 import { initSelection, showSelectionScreen, hideSelectionScreen } from './selection.js';
-import { initCompletion, showCompletionScreen, hideCompletionScreen, hideCelebrationScreen, markBuildCompleted, setTotalSetCount } from './completion.js';
+import { initCompletion, showCompletionScreen, hideCompletionScreen, hideCelebrationScreen, showCelebrationScreen, markBuildCompleted, setTotalSetCount } from './completion.js';
 import { gridToWorld } from './grid.js';
 import { initCursor } from './cursor.js';
 
@@ -61,6 +61,19 @@ initCompletion({
 
 // Set selection flow
 initSelection(startBuild);
+
+// Preview hatch: visit `#preview-celebration` to see the celebration screen
+// without playing through every set. Idempotent — reload triggers it again.
+// This is purely additive and does not affect the real completion flow.
+if (window.location.hash === '#preview-celebration') {
+  // Hide selection screen if it's showing so the celebration is the only visible UI
+  hideSelectionScreen();
+  // Seed mock set data so "Back to Sets" remains consistent if clicked.
+  // We deliberately do NOT call markBuildCompleted — this hatch must not
+  // forge real completion progress.
+  _lastSetData = { id: 'preview-mock', name: "Echo's Birthday Builder", pieces: [] };
+  showCelebrationScreen();
+}
 
 // Quit button (replaces back button — matches "Save & Quit" from design)
 const quitBtn = document.getElementById('quit-btn');
