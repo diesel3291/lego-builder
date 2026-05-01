@@ -75,15 +75,22 @@ export function initInteraction({ onStepAdvance, onBuildComplete, onPiecePlaced 
 
   // R-key rotation for preview mesh while holding a piece
   window.addEventListener('keydown', (e) => {
-    if (e.key === 'r' || e.key === 'R') {
-      if (getHeldPieceId() !== null) {
-        _previewRotation = (_previewRotation + 45) % 360;
-        if (_previewMesh) {
-          _previewMesh.rotation.y = THREE.MathUtils.degToRad(_previewRotation);
-        }
-      }
-    }
+    if (e.key === 'r' || e.key === 'R') rotateHeldPiece();
   });
+}
+
+/**
+ * Rotate the held piece preview by 90° (same effect as pressing R).
+ * No-op when no piece is held. Exported so UI controls (e.g., a mobile
+ * rotate button in the top bar) can trigger rotation without synthesizing
+ * keyboard events.
+ */
+export function rotateHeldPiece() {
+  if (getHeldPieceId() === null) return;
+  _previewRotation = (_previewRotation + 90) % 360;
+  if (_previewMesh) {
+    _previewMesh.rotation.y = THREE.MathUtils.degToRad(_previewRotation);
+  }
 }
 
 /**
@@ -145,24 +152,20 @@ function _handleClick(event) {
     return;
   }
 
-  // Rotation matching — type-aware logic for different piece symmetries
+  // Rotation matching — strict equality unless the piece is rotationally symmetric.
   const gr = ((ghostPiece.rotation || 0) % 360 + 360) % 360;
   const pr = (_previewRotation % 360 + 360) % 360;
-  const diff = (pr - gr + 360) % 360;
 
   const pt = ghostPiece.type;
-  const isSymmetric = pt.startsWith('round-') || pt === 'plate-round-1x1' ||
-                      pt === 'deltoid-2x2' || pt === 'bicep-2x2';
+  const isSymmetric =
+    pt === 'brick-1x1' || pt === 'plate-1x1' ||              // 1x1 squares look identical at any rotation
+    pt === 'brick-2x2' || pt === 'plate-2x2' ||              // 2x2 squares too
+    pt.startsWith('round-') || pt === 'plate-round-1x1' ||   // cylinders
+    pt === 'bicep-2x2' || pt === 'deltoid-2x2';              // domes
 
-  if (!isSymmetric) {
-    // Square pieces (1x1, 2x2): any 90° multiple is valid
-    const isSquare = pt.endsWith('-1x1') || pt.endsWith('-2x2') || pt === 'wedge-2x2-corner' || pt === 'curve-2x2' || pt === 'fist-2x2';
-    if (isSquare) {
-      if (diff % 90 !== 0) { _rejectPlacement(hitGroup); return; }
-    } else {
-      // Rectangular (2x1, 1x2, etc.): only 0° and 180°
-      if (diff !== 0 && diff !== 180) { _rejectPlacement(hitGroup); return; }
-    }
+  if (!isSymmetric && pr !== gr) {
+    _rejectPlacement(hitGroup);
+    return;
   }
 
   _confirmPlacement(ghostPiece, hitGroup, pr);
